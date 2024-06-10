@@ -581,7 +581,11 @@ class SidewaysShooter:
     def _make_mouse_invisible(self):
         """Make the mouse cursor disappear after 2 seconds of inactivity."""
         mouse_inactivity_time = 2
+<<<<<<< HEAD
         if self.mouse_visible:
+=======
+        if hasattr(self, 'mouse_visible'):
+>>>>>>> 317436f (Make the repository.)
             current_time = time()
             if current_time - self.last_mouse_movement > mouse_inactivity_time:
                 self.mouse_visible = False
