@@ -1,0 +1,73 @@
+Credits for the ART and MUSIC of Sliding Penguin.
+
+                    BACKGROUND IMAGE
+
+ARTIST ---> KnoblePersona
+
+ocean.bmp = Ocean.png (resized)
+https://opengameart.org/content/ocean-background
+https://creativecommons.org/licenses/by/3.0/
+
+                    PENGUIN IMAGE
+
+ARTIST ---> Chrisblue
+
+penguin.bmp = penguin_pixeled.png (resized)
+https://opengameart.org/content/little-penguin
+https://creativecommons.org/licenses/by-sa/3.0/
+
+                    PENGUIN'S BULLET IMAGE
+
+ARTIST ---> alf0186
+
+snowball.bmp = snowball.png
+https://opengameart.org/content/snowball-pixel-art
+
+                    ORCA IMAGE
+
+orca.bmp
+https://www.hiclipart.com/free-transparent-background-png-clipart-iyoca
+
+                    ORCA'S BULLET IMAGE
+
+teeth.bmp
+https://www.hiclipart.com/free-transparent-background-png-clipart-igxfn
+
+                    INTRO SOUNDS
+
+ARTIST ---> Nooskewl Games
+
+background1.ogg = seaside_repaired.ogg
+https://opengameart.org/content/42-monster-rpg-2-music-tracks
+background2.ogg = moon.ogg
+https://opengameart.org/content/42-monster-rpg-2-music-tracks
+
+ARTIST ---> Alexandr Zhelanov
+
+background3.wav = gambit.wav
+https://opengameart.org/content/gambit
+https://creativecommons.org/licenses/by/4.0/
+background4.ogg = Atoll.ogg
+https://opengameart.org/content/atoll
+https://creativecommons.org/licenses/by/3.0/
+
+                    BULLET SOUND
+
+ARTIST ---> AntumDeluge
+
+throw.ogg = penguin_01.ogg
+https://opengameart.org/content/penguin-sounds
+
+                    ORCA DEATH SOUND
+
+ARTIST ---> Thimras
+
+orca_death.ogg = cannon_miss.ogg
+https://opengameart.org/content/ocean-splash
+
+                    END GAME SOUND
+
+ARTIST ---> phoenix1291
+
+end.wav = Lose 1 - Sound effects Pack 2.wav
+https://opengameart.org/content/sound-effects-pack-2

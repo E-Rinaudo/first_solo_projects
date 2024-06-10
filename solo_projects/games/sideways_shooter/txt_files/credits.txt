@@ -1,0 +1,73 @@
+Credits for the ART and MUSIC of Sideways Shooter.
+
+                    BACKGROUND IMAGE
+
+ARTIST ---> OdinTdh
+space.bmp = 4k-purple-planet.png (resized)
+https://opengameart.org/content/purple-planet
+https://creativecommons.org/licenses/by-sa/4.0/
+
+                    HERO IMAGE
+
+ARTIST ---> irmirx
+hero1.bmp + hero2.bmp = sprites.png (resized)
+https://opengameart.org/content/animated-runner-character
+https://creativecommons.org/licenses/by/3.0/
+
+                    HERO'S BULLETS IMAGES
+
+ARTIST ---> omfgdude
+bullet1.bmp = E1-Icon-1-x2.png, bullet2.bmp = E1-Icon3-x3.png,
+bullet3.bmp = Energy2-icon5-x3.png, bullet4.bmp = Energy1-Icon5-x3.png (all resized and modified)
+https://opengameart.org/content/custom-icons-built-on-rpg-icons-by-lorc
+https://creativecommons.org/licenses/by/3.0/
+
+                    ALIEN IMAGE
+
+ARTIST ---> gfx0
+alien.bmp = tradeship-learmarch.png (resized)
+https://opengameart.org/content/spaceship-trader-vessel
+https://creativecommons.org/licenses/by/3.0/
+
+                    ALIEN'S BULLET IMAGE
+
+ARTIST ---> StarNinjas
+alien_bullet1.bmp = blue_laser.png, alien_bullet2.bmp = green_laser.png
+https://opengameart.org/content/3-lasers
+
+                    EXPLOSION IMAGE
+
+ARTIST ---> Sinestesia
+explosion.bmp = explosion 2.png
+https://opengameart.org/content/2d-explosion-animations-frame-by-frame
+
+                    INTRO SOUNDS
+
+ARTIST ---> Alexandr Zhelanov
+background1.mp3.ogg = A million light years between us.mp3
+https://opengameart.org/content/a-million-light-years-between-us
+https://creativecommons.org/licenses/by/3.0/
+background2.ogg = Initiate Landing.ogg
+https://opengameart.org/content/initiate-landing
+https://creativecommons.org/licenses/by/4.0/
+background3.ogg = StarLight.ogg
+https://opengameart.org/content/starlight-1
+https://creativecommons.org/licenses/by/4.0/
+background4.ogg = This World is Sh#t.ogg 
+https://opengameart.org/content/this-world-is-sht
+https://creativecommons.org/licenses/by/4.0/
+background5.ogg = frivolous_hero.ogg
+https://opengameart.org/content/frivolous-hero
+https://creativecommons.org/licenses/by/4.0/
+
+                    BULLET SOUNDS -- EXPLOSION SOUND -- END GAME SOUND
+
+ARTIST ---> phoenix1291
+laser1.wav = Pew__009.wav, laser2.wav = Pew__010.wav
+https://opengameart.org/content/sfx-the-ultimate-2017-8-bit-mini-pack
+laser3.wav = Pew__009.wav
+https://opengameart.org/content/sfx-the-ultimate-2017-16-bit-mini-pack
+explosion.wav = Explosion2__007.wav
+https://opengameart.org/content/sfx-the-ultimate-2017-16-bit-mini-pack
+end.wav = Lose 6 - Sound effects Pack 2.wav
+https://opengameart.org/content/sound-effects-pack-2

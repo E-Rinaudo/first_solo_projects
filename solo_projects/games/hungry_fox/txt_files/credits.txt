@@ -1,0 +1,67 @@
+Credits for the ART and MUSIC of Hungry Fox.
+
+                    BACKGROUND IMAGE
+
+ARTIST ---> CraftPix.net 2D Game Assets
+
+background.bmp = Village landscape Free Pixel Art Background.png (resized)
+https://opengameart.org/content/village-landscape-pixel-art-background
+https://static.opengameart.org/OGA-BY-3.0.txt
+
+                    FOX IMAGE
+
+fox.bmp
+https://www.hiclipart.com/free-transparent-background-png-clipart-iylui
+
+                    FOX'S BULLET IMAGE
+
+acorn.bmp
+https://www.hiclipart.com/free-transparent-background-png-clipart-ioeaq
+
+                    FARMERS IMAGE
+
+farmer1.bmp / Blue Farmer
+https://www.hiclipart.com/free-transparent-background-png-clipart-zmdiu
+farmer2.bmp / Red Farmer
+https://www.hiclipart.com/free-transparent-background-png-clipart-dyjvr
+
+                    FARMER'S BULLETS IMAGE
+
+fork.bmp + shovel.bmp
+https://www.hiclipart.com/free-transparent-background-png-clipart-ibcbg
+
+                    INTRO SOUNDS
+
+ARTIST ---> Zane Little Music
+
+background1.wav = shepherd_dog.wav
+https://opengameart.org/content/shepherd-dog-day-13
+
+ARTIST ---> Alexandr Zhelanov
+
+background2.ogg = Casual game track (1).ogg
+https://opengameart.org/content/casual-game-track
+https://creativecommons.org/licenses/by/3.0/
+
+                    BULLET SOUND
+
+ARTIST ---> (c) copyright Blender Foundation | apricot.blender.org
+
+throw.wav = sfx_throw.wav
+https://opengameart.org/content/sfxthrow
+https://creativecommons.org/licenses/by/3.0/
+
+                    FARMER DEATH SOUND
+
+ARTIST ---> Exewin
+
+farmer_death.ogg = 8.ogg
+https://opengameart.org/content/death-sounds-0
+
+                    END GAME SOUND
+
+ARTIST ---> EdenVe
+
+end.mp3 = game_over_1.mp3
+https://opengameart.org/content/game-over-game
+https://creativecommons.org/licenses/by/3.0/

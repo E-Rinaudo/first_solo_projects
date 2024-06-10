@@ -1,0 +1,67 @@
+Credits for the ART and MUSIC of Alien Invasion.
+
+                    BACKGROUND IMAGE
+
+ARTIST ---> Scribe
+
+space.bmp = 1.png
+https://opengameart.org/content/2d-space-background
+
+                    SHIP IMAGE
+
+ARTIST ---> dravenx
+
+ship.bmp = nightraiderfixed.png (resized)
+https://opengameart.org/content/night-raider
+https://creativecommons.org/licenses/by/3.0/
+
+                    ALIEN IMAGE
+
+ARTIST ---> pzUH
+
+alien.bmp = ship (15).png
+https://opengameart.org/content/alien-spaceship-sprite-pack
+
+                    EXPLOSION IMAGE
+
+ARTIST ---> Sinestesia
+
+explosion.bmp = explosion 4.png
+https://opengameart.org/content/2d-explosion-animations-frame-by-frame
+
+                    INTRO SOUNDS
+
+ARTIST ---> Alexandr Zhelanov
+
+background1.wav = new_epoch.wav
+https://opengameart.org/content/new-epoch
+https://creativecommons.org/licenses/by/4.0/
+
+background2.ogg = Pioneers meets Space.ogg
+https://opengameart.org/content/pioneers-meets-space
+https://creativecommons.org/licenses/by/3.0/
+
+background3.mp3 = Security RObots.mp3
+https://opengameart.org/content/security-robots
+https://creativecommons.org/licenses/by/3.0/
+
+background4.mp3 = So long.mp3
+https://opengameart.org/content/so-long
+https://creativecommons.org/licenses/by/3.0/
+
+                    BULLET SOUND -- EXPLOSION SOUND
+
+ARTIST ---> phoenix1291
+
+laser.wav = Pew__009.wav
+https://opengameart.org/content/sfx-the-ultimate-2017-8-bit-mini-pack
+
+explosion.wav = Explosion2__007.wav
+https://opengameart.org/content/sfx-the-ultimate-2017-16-bit-mini-pack
+
+                    END GAME SOUND
+
+ARTIST ---> Oiboo
+
+end.wav = game_over_bad_chest.wav
+https://opengameart.org/content/game-over-bad-chest-sfx

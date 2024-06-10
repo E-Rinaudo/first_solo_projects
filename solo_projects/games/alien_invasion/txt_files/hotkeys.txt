@@ -1,0 +1,35 @@
+                    GAMEPLAY KEYS
+
+● PLAY/RESUME/RESTART ---> ENTER
+
+● QUIT GAME ---> ESC
+
+● PAUSE ---> P
+
+● MENU ---> M
+
+                    DIFFICULTY KEYS
+
+● DIFFICULTY ---> D
+
+● EASY ---> 1
+
+● MEDIUM ---> 2 (DEFAULT DIFFICULTY IF NONE SELECTED)
+
+● HARD ---> 3
+
+                    SHIP KEYS
+
+● MOVE SHIP RIGHT ---> RIGHT ARROW
+
+● MOVE SHIP LEFT ---> LEFT ARROW
+
+● SHOOT ---> SPACEBAR 
+
+                    ADDITIONAL KEYS
+
+● HOTKEYS ---> K
+
+● CREDITS ---> C
+
+● CLOSE HOTKEYS and CREDITS ---> E

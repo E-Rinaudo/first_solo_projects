@@ -1,0 +1,35 @@
+                    GAMEPLAY KEYS
+
+● PLAY / RESUME / RESTART  ---> ENTER
+
+● QUIT GAME ---> ESC
+
+● PAUSE ---> P
+
+● MENU ---> M
+
+                    DIFFICULTY KEYS
+
+● DIFFICULTY ---> D
+
+● EASY ---> 1
+
+● MEDIUM ---> 2 (DEFAULT DIFFICULTY IF NONE SELECTED)
+
+● HARD ---> 3
+
+                    HERO KEYS
+
+● MOVE HERO UP ---> UP ARROW
+
+● MOVE HERO DOWN ---> DOWN ARROW
+
+● SHOOT ---> SPACEBAR 
+
+                    ADDITIONAL KEYS
+
+● HOTKEYS ---> K
+
+● CREDITS ---> C
+
+● CLOSE HOTKEYS / CREDITS ---> E
