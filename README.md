@@ -20,11 +20,7 @@ This program simulates timed exercise intervals for the Hurricane Hypertrophy mo
 
 **Project 3-4-5-6**: games/alien_invasion, games/hungry_fox, games/sideways_shooter, games/sliding_penguin
 
-<<<<<<< HEAD
-# Description:
-=======
 **Description**:
->>>>>>> f5c292f (Modify Readme.)
 These projects were developed while working through chapters 12, 13, and 14 of Python Crash Course. Each game is inspired by the "Alien Invasion" project from the book, serving as a foundation to explore and enhance my understanding of the concepts covered.
 
 The following games share foundational concepts with Alien Invasion, each with some unique twists.
