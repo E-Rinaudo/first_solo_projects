@@ -2,10 +2,10 @@ from random import choice
 
 
 class MolecularMotion:
-    """A class for random walk of a pollen grain on a drop of water."""
+    """A class to generate a random walk of a pollen grain on water."""
 
     def __init__(self, num_points=5000):
-        """Initiliaze the random walk attributes."""
+        """Initialize the random walk attributes."""
         self.num_points = num_points
 
         # The walk starts at (0, 0).
@@ -29,7 +29,7 @@ class MolecularMotion:
             self.y_values.append(y)
     
     def _get_step(self):
-        """Get the direction and distance of the steps."""
+        """Determine direction and distance of each step."""
         direction = choice([1, -1])
         distance = choice([0, 1, 2, 3, 4, 5])
         step = direction * distance
