@@ -7,6 +7,8 @@ class MolecularMotion:
     def __init__(self, num_points=5000):
         """Initiliaze the random walk attributes."""
         self.num_points = num_points
+
+        # The walk starts at (0, 0).
         self.x_values = [0]
         self.y_values = [0]
 

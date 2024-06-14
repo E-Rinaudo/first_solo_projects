@@ -18,7 +18,7 @@ This program utilizes a spaced repetition method to remind users of specific stu
 **Description**:
 This program simulates timed exercise intervals for the Hurricane Hypertrophy month of NXT in Athlean-X, a popular fitness program created by Jeff Cavaliere. Athlean-X offers structured workout regimens designed to build muscle and improve fitness. The program prompts the user to input details such as the muscle being trained, the number of sets, and the exercise type. It then runs a clock for each set, alternating between 20-second and 40-second intervals with sound cues for timing. This structure replicates the workout regimen outlined in the Hurricane Hypertrophy program within Athlean-X.
 
-**Projects 3-4-5-6**: games/alien_invasion, games/hungry_fox, games/sideways_shooter, games/sliding_penguin
+**Projects 3-4-5-6**: games/alien_invasion/, games/hungry_fox/, games/sideways_shooter/, games/sliding_penguin/
 
 **Description**:
 These projects were developed while working through chapters 12, 13, and 14 of Python Crash Course. Each game is inspired by the "Alien Invasion" project from the book, serving as a foundation to explore and enhance my understanding of the concepts covered.
@@ -32,6 +32,11 @@ hungry_fox: A game where the player controls a fox that kills farmers.
 sideways_shooter: A variation of Alien Invasion where the player shoots at enemies that come horizontally.
 
 sliding_penguin: A game featuring a penguin that shoots down randomly generated orcas.
+
+**Project 7**: data_visualization/molecular_motion/
+
+**Description**:
+This project visualizes the random walk of a pollen grain on the surface of a drop of water. The MolecularMotion class simulates this random walk, producing a series of steps in a two-dimensional space with varying directions and distances. The resulting plot demonstrates the path taken by the pollen grain over a specified number of steps.
 
 # Usage
 Each project in this repository can be executed independently. Simply open the respective Python file in your preferred Python environment (such as VSCode or IDLE) and run it to observe the project in action.

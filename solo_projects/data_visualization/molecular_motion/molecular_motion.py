@@ -24,11 +24,11 @@ while random_walk:
     ax.scatter(mm.x_values[-1], mm.y_values[-1], color='blue', label='End Walk',
         edgecolors='none', s=80)
 
-    # Make a legend.
+    # Make a legend indicating the start and end points.
     ax.legend(loc='upper left', scatterpoints=1, fancybox=True, shadow=True, 
         fontsize=8)
 
-    # Remove the axes.
+    # Remove the axes for a clearer visualization.
     ax.xaxis.set_visible(False)
     ax.yaxis.set_visible(False)
 
