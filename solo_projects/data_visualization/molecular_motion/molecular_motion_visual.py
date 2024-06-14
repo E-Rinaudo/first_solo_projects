@@ -38,12 +38,8 @@ class MolecularVisual:
         ax.set_title("Pollen Grain Walk", fontsize=14)
 
         # Emphasize the start and end points.
-<<<<<<< HEAD
-        ax.scatter(0, 0, color='green', label='Start Walk', edgecolors='none', s=80)
-=======
         ax.scatter(0, 0, color='green', label='Start Walk', edgecolors='none', 
             s=80)
->>>>>>> 1e8c2f8 (Refactor the molecular motion project.)
         ax.scatter(self.mm.x_values[-1], self.mm.y_values[-1], color='blue', 
                    label='End Walk', edgecolors='none', s=80)
 
