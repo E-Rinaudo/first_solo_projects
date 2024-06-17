@@ -205,53 +205,40 @@ class Buttons:
         self.IMAGE_COLOR = (0, 128, 0)
 
         # Hotkeys colors.
-        self.KEYS= (0, 128, 0)
+        self.KEYS = (0, 128, 0)
     
     def _colorize_credits_lines(self, lines):
         """Colorize the credits' lines based on keywords."""
-        colored_lines = []
-
-        for line in lines:
-            if 'artist' in line.lower():
-                color = self.ARTIST_COLOR
-            elif 'SOUND' in line:
-                color = self.SOUND_COLOR
-            elif 'image' in line.lower():
-                color = self.IMAGE_COLOR
-            else:
-                color = self.text_color
-            
-            colored_lines.append((line, color))
+        colored_lines = [
+            (line, self.ARTIST_COLOR if 'artist' in line.lower() 
+            else self.SOUND_COLOR if 'SOUND' in line 
+            else self.IMAGE_COLOR if 'image' in line.lower()
+            else self.text_color) 
+            for line in lines
+        ]
         
         return colored_lines
     
     def _colorize_hotkeys_lines(self, lines):
         """Colorize the hotkeys' lines based on keywords."""
-        colored_lines = []
+        colored_lines = [(line, self.KEYS if ' keys' in line.lower() 
+                else self.text_color) for line in lines]
 
-        for line in lines:
-            if ' keys' in line.lower():
-                color = self.KEYS
-            else:
-                color = self.text_color
-            
-            colored_lines.append((line, color))
-        
         return colored_lines
     
     def _make_surface(self, font, colored_lines):
         """Create a surface to hold the rendered lines."""
-        rendered_lines = []
         max_line_width = 0
         total_height = 0
         
-        # Render each line and update dimensions.
-        for line, color in colored_lines:
-            rendered_line = font.render(line, True, color, self.button_color)
-            rendered_lines.append(rendered_line)
-
-            total_height += rendered_line.get_height()
-            max_line_width = max(max_line_width, rendered_line.get_width())
+        # Render each line.
+        rendered_lines = [font.render(line, True, color, self.button_color) 
+                for line, color in colored_lines]
+        
+        # Update dimensions.
+        for line in rendered_lines:
+            total_height += line.get_height()
+            max_line_width = max(max_line_width, line.get_width())
 
         # Create a surface to hold all the rendered lines.
         surface = pygame.Surface(
