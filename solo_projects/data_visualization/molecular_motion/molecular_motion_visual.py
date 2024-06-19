@@ -33,17 +33,6 @@ class MolecularVisual:
             if new_walk != 'y':
                 random_walk = False
 
-    def _make_plot(self):
-        """Create and display the plot."""
-        plt.style.use('classic')
-        fig, ax = plt.subplots(figsize=FIG_SIZE, dpi=DPI)
-    
-        self._customize_chart(ax)
-        self._make_start_end_points(ax)
-        self._make_legend(ax)
-
-        plt.show()
-
     def _customize_chart(self, ax):
         """Customize the random walk."""
         # Number of points used to set the color of each point in the walk.
@@ -70,6 +59,17 @@ class MolecularVisual:
         """Make a legend indicating the start and end points."""
         ax.legend(loc='upper left', scatterpoints=1, fancybox=True, shadow=True, 
                   fontsize=FONT_SIZE_LEGEND)   
+    
+    def _make_plot(self):
+        """Create and display the plot."""
+        plt.style.use('classic')
+        fig, ax = plt.subplots(figsize=FIG_SIZE, dpi=DPI)
+    
+        self._customize_chart(ax)
+        self._make_start_end_points(ax)
+        self._make_legend(ax)
+
+        plt.show()
 
 
 if __name__ == '__main__':
