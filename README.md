@@ -38,6 +38,11 @@ sliding_penguin: A game featuring a penguin that shoots down randomly generated 
 **Description**:
 This project visualizes the random walk of a pollen grain on the surface of a drop of water. The MolecularMotion class simulates this random walk, producing a series of steps in a two-dimensional space with varying directions and distances. The resulting plot demonstrates the path taken by the pollen grain over a specified number of steps.
 
+**Project 8**: data_visualization/rolling_dice/
+
+**Description**:
+This project visualizes the results of rolling two six-sided dice 50,000 times. The DieVisual class handles the creation of two dice, performs the rolls, analyzes the frequency of each possible result, and generates a bar chart to display the results.
+
 # Usage
 Each project in this repository can be executed independently. Simply open the respective Python file in your preferred Python environment (such as VSCode or IDLE) and run it to observe the project in action.
 
