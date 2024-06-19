@@ -43,6 +43,11 @@ This project visualizes the random walk of a pollen grain on the surface of a dr
 **Description**:
 This project visualizes the results of rolling two six-sided dice 50,000 times. The DieVisual class handles the creation of two dice, performs the rolls, analyzes the frequency of each possible result, and generates a bar chart to display the results.
 
+**Project 9**: data_visualization/firefly_random_walk/
+
+**Description**:
+This project visualizes the random walk of a firefly on a summer night using Plotly. The Firefly_Walk class simulates the random movements over a series of steps in a two-dimensional space. The visualization highlights the starting point, ending point, and the trajectory of the firefly's journey. Each point on the walk is represented by a star symbol in varying shades of orange, symbolizing the firefly's flickering light. The plot is set against a black background to emphasize the nocturnal nature of the firefly's dance.
+
 # Usage
 Each project in this repository can be executed independently. Simply open the respective Python file in your preferred Python environment (such as VSCode or IDLE) and run it to observe the project in action.
 
