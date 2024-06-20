@@ -49,10 +49,10 @@ class MolecularVisual:
 
     def _make_start_end_points(self, ax):
         """Emphasize the start and end points."""
-        ax.scatter(0, 0, color='green', label='Start Walk', edgecolors='none', 
+        ax.scatter(0, 0, color='green', label="Start Walk", edgecolors='none', 
                    s=FONT_SIZE_MAIN_POINTS)
         ax.scatter(self.mm.x_values[-1], self.mm.y_values[-1], color='blue', 
-                   label='End Walk', edgecolors='none', 
+                   label="End Walk", edgecolors='none', 
                    s=FONT_SIZE_MAIN_POINTS)
     
     def _make_legend(self, ax):

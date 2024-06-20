@@ -37,7 +37,7 @@ class Firefly_Walk:
             go.Scattergl(
                 x=rw.x_values, 
                 y=rw.y_values,  
-                name='Random Walk',
+                name="Random Walk",
                 mode='markers', 
                 marker=dict(
                     color=np.arange(rw.num_points), 
@@ -55,7 +55,7 @@ class Firefly_Walk:
             go.Scatter(
                 x=[0],
                 y=[0],
-                name='Start Point',
+                name="Start Point",
                 mode='markers', 
                 marker=dict(
                     color='green', 
@@ -71,7 +71,7 @@ class Firefly_Walk:
             go.Scatter(
                 x=[rw.x_values[-1]],
                 y=[rw.y_values[-1]],
-                name='End Point',
+                name="End Point",
                 mode='markers', 
                 marker=dict(
                     color='blue', 
@@ -86,22 +86,22 @@ class Firefly_Walk:
         fig.update_layout(
             plot_bgcolor='black',
             title=dict(
-                text='Firefly Dance: A Random Walk on a Summer Night', 
+                text="Firefly Dance: A Random Walk on a Summer Night", 
                 font=dict(
                     family='Arial', 
                     size=FONT_TITLE, 
                     color='darkred'
                 )
             ), 
-            xaxis_title='X Position', 
-            yaxis_title='Y Position',
+            xaxis_title="X Position", 
+            yaxis_title="Y Position",
             font=dict(size=FONT_AXES_LABELS),
             xaxis=dict(showgrid=False, zeroline=False),
             yaxis=dict(showgrid=False, zeroline=False),
             legend=dict(
-                yanchor="top",
+                yanchor='top',
                 y=0.99,
-                xanchor="left",
+                xanchor='left',
                 x=0.01
             )
         )
