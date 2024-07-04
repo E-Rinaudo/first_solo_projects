@@ -47,9 +47,11 @@ rolling_dice: This project uses Matplotlib to visualize the results of rolling t
 firefly_random_walk: This project uses Plotly to visualize  the random walk of a firefly on a summer night. The Firefly_Walk class simulates the random movements over a series of steps in a two-dimensional space. The visualization highlights the starting point, ending point, and the trajectory of the firefly's journey. Each point on the walk is represented by a star symbol in varying shades of orange, symbolizing the firefly's flickering light. The plot is set against a black background to emphasize the nocturnal nature of the firefly's dance.
 
 # Usage
+
 Each project in this repository can be executed independently. Simply open the respective Python file in your preferred Python environment (such as VSCode or IDLE) and run it to observe the project in action.
 
 # Contact
+
 If you wish to get in touch or provide feedback, you can reach me via email at enricorinaudo91@gmail.com.
 
 Happy coding!
