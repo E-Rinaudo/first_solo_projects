@@ -6,7 +6,7 @@ Welcome to my "first_solo_projects" repository! Here, you'll find a compilation 
 
 Feel free to explore these projects and if you want, please provide feedback to help me improve.
 
-# Project List
+# Projects List
 
 **Project 1**: repetition_days/study_method.py
 
