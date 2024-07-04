@@ -14,7 +14,7 @@ class Orca(Sprite):
         self.settings = s_penguin.settings
 
         # Load the image and get its rect.
-        self.image = pygame.image.load('images/orca.bmp')
+        self.image = pygame.image.load("images/orca.bmp")
         self.rect = self.image.get_rect()
 
         # Set the orca on the top of the screen, outside of view.
@@ -23,7 +23,7 @@ class Orca(Sprite):
         #   distance from the screen.
         orca_left_max = self.settings.screen_width - self.rect.width
         self.rect.left = randint(0, orca_left_max)
-        
+
         # Store a float for the orca's vertical position.
         self.y = float(self.rect.y)
 

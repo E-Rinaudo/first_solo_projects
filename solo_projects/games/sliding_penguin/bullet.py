@@ -12,7 +12,7 @@ class Bullet(Sprite):
         self.settings = s_penguin.settings
 
         # Load the bullet image and get its rect.
-        self.image = pygame.image.load('images/snowball.bmp')
+        self.image = pygame.image.load("images/snowball.bmp")
         self.rect = self.image.get_rect()
 
         # Set the bullet's starting position.

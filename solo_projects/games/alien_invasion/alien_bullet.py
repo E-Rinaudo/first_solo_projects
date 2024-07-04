@@ -15,9 +15,10 @@ class AlienBullet(Sprite):
         self.color = self.settings.alien_bullet_color
 
         # Create a bullet rect at (0, 0).
-        self.rect = pygame.Rect(0, 0, self.settings.alien_bullet_width,
-           self.settings.alien_bullet_height)
-        
+        self.rect = pygame.Rect(
+            0, 0, self.settings.alien_bullet_width, self.settings.alien_bullet_height
+        )
+
         # Set bullet position using a random generator.
         alien = choice(ai_game.aliens.sprites())
         self.rect.midbottom = alien.rect.midbottom
@@ -31,7 +32,7 @@ class AlienBullet(Sprite):
         self.y += self.settings.alien_bullet_speed
         # Update the rect position.
         self.rect.y = self.y
-    
+
     def draw_alien_bullet(self):
         """Draw the bullet to the screen."""
         pygame.draw.rect(self.screen, self.color, self.rect)

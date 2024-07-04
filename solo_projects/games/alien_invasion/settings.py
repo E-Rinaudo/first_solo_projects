@@ -13,7 +13,7 @@ class Settings:
 
         # How quickly the game speeds up.
         self.speedup_scale = 1.1
-        
+
         # Initialize the game dynamic settings.
         self._game_settings_flags()
         self.initialize_dynamic_settings()
@@ -22,8 +22,8 @@ class Settings:
         """Initialize the screen's settings."""
         self.screen_width = 1280
         self.screen_height = 750
-        self.background = pygame.image.load('images/space.bmp')
-    
+        self.background = pygame.image.load("images/space.bmp")
+
     def _bullet_settings(self):
         """Initialize the bullet's settings."""
         self.bullet_width = 3
@@ -40,7 +40,7 @@ class Settings:
         self.alien_bullet_height = 15
         self.alien_bullet_color = (128, 200, 0)
         self.shooting_frequency = 0.009
-    
+
     def _game_settings_flags(self):
         """Store the settings flags."""
         self.easy_settings = False
@@ -55,7 +55,7 @@ class Settings:
 
         # Fleet direction of 1 represents right; -1 represents left.
         self.fleet_direction = 1
-    
+
     def _easy_difficulty_settings(self):
         """Initialize easy settings."""
         if self.easy_settings:
@@ -68,7 +68,7 @@ class Settings:
             self.alien_bullet_speed = 1.0
             self.alien_points = 40
             self.score_scale = 1.5
-        
+
     def _medium_difficulty_settings(self):
         """Initialize medium settings."""
         if self.medium_settings:
@@ -94,7 +94,7 @@ class Settings:
             self.alien_bullet_speed = 2.0
             self.alien_points = 60
             self.score_scale = 1.9
-    
+
     def increase_speed(self):
         """Increase speed settings."""
         self.ship_speed *= self.speedup_scale

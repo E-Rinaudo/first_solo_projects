@@ -14,10 +14,10 @@ class Bullet(Sprite):
         self.settings = s_shooter.settings
 
         # Load the bullet's images, choose one random and get the rect.
-        image_1 = pygame.image.load('images/bullet1.bmp')
-        image_2 = pygame.image.load('images/bullet2.bmp')
-        image_3 = pygame.image.load('images/bullet3.bmp')
-        image_4 = pygame.image.load('images/bullet4.bmp')
+        image_1 = pygame.image.load("images/bullet1.bmp")
+        image_2 = pygame.image.load("images/bullet2.bmp")
+        image_3 = pygame.image.load("images/bullet3.bmp")
+        image_4 = pygame.image.load("images/bullet4.bmp")
         images = [image_1, image_2, image_3, image_4]
         self.image = choice(images)
         self.rect = self.image.get_rect()

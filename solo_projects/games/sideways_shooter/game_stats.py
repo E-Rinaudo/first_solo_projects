@@ -16,15 +16,15 @@ class GameStats:
         self.hero_life = self.settings.hero_limit
         self.score = 0
         self.level = 1
-    
+
     def read_high_score(self):
         """Read the high score when the game starts."""
-        path = Path('high_score/high_score.json')
+        path = Path("high_score/high_score.json")
         try:
             contents = path.read_text()
         except FileNotFoundError:
             high_score = 0
         else:
             high_score = json.loads(contents)
-        
+
         return high_score

@@ -24,7 +24,7 @@ class Hero(Sprite):
         # Movement flags; start with the hero that's not moving.
         self.moving_up = False
         self.moving_down = False
-    
+
     def choose_image(self):
         """
         Load the hero's images.
@@ -32,12 +32,12 @@ class Hero(Sprite):
         Get its rect.
         """
         if self.space_pressed:
-            self.image = pygame.image.load('images/hero1.bmp')
+            self.image = pygame.image.load("images/hero1.bmp")
         else:
-            self.image = pygame.image.load('images/hero2.bmp')
+            self.image = pygame.image.load("images/hero2.bmp")
         rect = self.image.get_rect()
         return rect
-    
+
     def center_hero(self):
         """Center the hero on the screen's left side."""
         self.rect.midleft = self.screen_rect.midleft
@@ -47,11 +47,10 @@ class Hero(Sprite):
     def get_risized_image(self, width, height):
         """Return a resized version of the first hero image."""
         return pygame.transform.scale(self.image, (width, height))
-    
+
     def update(self):
         """Update the hero's position based on movements flags."""
-        if (self.moving_up and self.rect.top 
-                > self.s_shooter.sb.score_rect.height*3):
+        if self.moving_up and self.rect.top > self.s_shooter.sb.score_rect.height * 3:
             self.y -= self.settings.hero_speed
         if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.y += self.settings.hero_speed

@@ -13,7 +13,7 @@ class Penguin(Sprite):
         self.screen_rect = self.screen.get_rect()
 
         # Load the penguin's image and get its rect.
-        self.image = pygame.image.load('images/penguin.bmp')
+        self.image = pygame.image.load("images/penguin.bmp")
         self.rect = self.image.get_rect()
 
         # Set the penguin starting position at the bottom-center of the screen.
@@ -30,7 +30,7 @@ class Penguin(Sprite):
         self.rect.bottom = self.screen_rect.height - self.rect.height + 5
         # Store a float for the penguin's horizontal position.
         self.x = float(self.rect.x)
-    
+
     def get_resized_image(self, width, height):
         """Return a resized version of the penguin's image."""
         return pygame.transform.scale(self.image, (width, height))
@@ -41,7 +41,7 @@ class Penguin(Sprite):
             self.x += self.settings.penguin_speed
         if self.moving_left and self.rect.left > 0:
             self.x -= self.settings.penguin_speed
-        
+
         # Update the penguin's rect from self.x.
         self.rect.x = self.x
 

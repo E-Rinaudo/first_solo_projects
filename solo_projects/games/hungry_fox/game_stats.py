@@ -19,7 +19,7 @@ class GameStats:
 
     def read_high_score(self):
         """Read the high score when the game starts."""
-        path = Path('high_score/high_score.json')
+        path = Path("high_score/high_score.json")
         try:
             contents = path.read_text()
         except FileNotFoundError:

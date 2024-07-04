@@ -1,8 +1,7 @@
-# Simulate timed exercise intervals for Hurricane Hypertrophy, 
-# NXT Month 2 of Athleanx.
+# Simulate timed exercise intervals for Hurricane Hypertrophy,
+#   NXT Month 2 of Athleanx.
 
 import os
-
 import time
 
 
@@ -12,7 +11,7 @@ class HurricaneSob:
     def __init__(self):
         """
         Initialize instance of the Workout class.
-        It prompts user for the muscle being worked, 
+        It prompts user for the muscle being worked,
         the number of sets and defines the type of exercise.
         """
         self.workout = HurricaneWorkout()
@@ -51,7 +50,7 @@ class HurricaneSob:
 
     def _play_sound(self):
         """
-        Use the 'afplay' command to play a sound three times 
+        Use the 'afplay' command to play a sound three times
         to simulate a countdown.
         """
         os.system("afplay /System/Library/Sounds/Ping.aiff")
@@ -59,7 +58,7 @@ class HurricaneSob:
 
 class HurricaneWorkout:
     """Represent the Hurricane Hypertrophy workout."""
-    
+
     def __init__(self):
         """
         Display a greet message.
@@ -71,16 +70,16 @@ class HurricaneWorkout:
         self._workout_sets()
         self._workout_exercise()
         self._workout_start()
-        
+
     def _workout_muscle(self):
         """Ask user for muscle being worked."""
         print("\nWhich muscle are you training today?")
         self.muscle = input("Muscle: ").title()
-    
+
     def _workout_sets(self):
-        """Ask user for number of sets."""   
+        """Ask user for number of sets."""
         print("\nHow many sets (4 or 8)?")
-        
+
         while True:
             try:
                 self.sets = int(input("Sets: "))
@@ -99,14 +98,15 @@ class HurricaneWorkout:
             self.exercise = 320
         elif self.sets == 4:
             self.exercise = 160
-    
+
     def _workout_start(self):
         """Start the workout."""
-        self.start = input(f"\nPress 'ENTER' when ready to start " 
-                           f"the SOB {self.exercise}.")
+        self.start = input(
+            f"\nPress 'ENTER' when ready to start " f"the SOB {self.exercise}."
+        )
 
 
-if __name__ == '__main__':
-# Run the workout session.
+if __name__ == "__main__":
+    # Run the workout session.
     workout_session = HurricaneSob()
     workout_session.run_clock()

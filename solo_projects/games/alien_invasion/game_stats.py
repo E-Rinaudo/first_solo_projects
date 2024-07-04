@@ -10,7 +10,7 @@ class GameStats:
         self.settings = ai_game.settings
         self.reset_stats()
         self.high_score = self.read_high_score()
-    
+
     def reset_stats(self):
         """Initialize statistics that can change during the game."""
         self.ships_left = self.settings.ship_limit
@@ -19,12 +19,12 @@ class GameStats:
 
     def read_high_score(self):
         """Read the high score when the game starts."""
-        path = Path('high_score/high_score.json')
+        path = Path("high_score/high_score.json")
         try:
             contents = path.read_text()
         except FileNotFoundError:
             high_score = 0
         else:
             high_score = json.loads(contents)
-        
+
         return high_score

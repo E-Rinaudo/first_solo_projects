@@ -6,9 +6,9 @@ from die import Die
 NUM_ROLLS = 50_000
 FIG_SIZE = (14, 5.5)
 DPI = 130
-BARS_COLOR = 'DarkCyan'
-TITLE_COLOR = 'SteelBlue'
-AXES_LABELS_COLOR= 'SlateGray'
+BARS_COLOR = "DarkCyan"
+TITLE_COLOR = "SteelBlue"
+AXES_LABELS_COLOR = "SlateGray"
 FONT_SIZE_TITLE = 16
 FONT_SIZE_AXES_LABELS = 12
 FONT_SIZE_TICKS = 8
@@ -35,48 +35,62 @@ class DieVisual:
         results = self._dice_rolls()
 
         max_results = self.die_1.num_sides + self.die_2.num_sides
-        poss_results = range(1, max_results+1)
+        poss_results = range(1, max_results + 1)
 
         return poss_results, [results.count(value) for value in poss_results]
-    
+
     def _label_bars(self, ax, bars):
         """Add text labels on top of the bars."""
         for bar in bars:
             rolls_result = bar.get_height()
             if rolls_result > 0:
-                ax.text(x=(bar.get_x() + bar.get_width()/2), y=rolls_result, 
-                        s=int(rolls_result), ha='center', va='bottom', 
-                        fontsize=FONT_SIZE_BARS_LABELS)
-                
+                ax.text(
+                    x=(bar.get_x() + bar.get_width() / 2),
+                    y=rolls_result,
+                    s=int(rolls_result),
+                    ha="center",
+                    va="bottom",
+                    fontsize=FONT_SIZE_BARS_LABELS,
+                )
+
     def _chart_customization(self, ax):
         """Customize the chart."""
-        ax.set_title("Results of Rolling Two D6 Dice 50,000 Times", 
-                     fontsize=FONT_SIZE_TITLE, color=TITLE_COLOR)
-        ax.set_xlabel("Result", fontsize=FONT_SIZE_AXES_LABELS, 
-                      color=AXES_LABELS_COLOR)
-        ax.set_ylabel("Frequency of Result", fontsize=FONT_SIZE_AXES_LABELS, 
-                      color=AXES_LABELS_COLOR)
-        ax.grid(axis='y', linestyle='dashed')
-        ax.set(xlim=(1,13))
+        ax.set_title(
+            "Results of Rolling Two D6 Dice 50,000 Times",
+            fontsize=FONT_SIZE_TITLE,
+            color=TITLE_COLOR,
+        )
+        ax.set_xlabel("Result", fontsize=FONT_SIZE_AXES_LABELS, color=AXES_LABELS_COLOR)
+        ax.set_ylabel(
+            "Frequency of Result",
+            fontsize=FONT_SIZE_AXES_LABELS,
+            color=AXES_LABELS_COLOR,
+        )
+        ax.grid(axis="y", linestyle="dashed")
+        ax.set(xlim=(1, 13))
         ax.set_xticks(range(2, 13))
         ax.tick_params(labelsize=FONT_SIZE_TICKS)
-    
+
     def _make_plot(self):
         """Make a bar chart of the results of the rolls."""
         poss_results, frequencies = self._analyze_rolls()
 
         # Make the chart.
-        plt.style.use('seaborn-v0_8-muted')
+        plt.style.use("seaborn-v0_8-muted")
         fig, ax = plt.subplots(figsize=FIG_SIZE, dpi=DPI)
-        bars = ax.bar(x=poss_results, height=frequencies, 
-                      color=BARS_COLOR, tick_label=poss_results)
-        
+        bars = ax.bar(
+            x=poss_results,
+            height=frequencies,
+            color=BARS_COLOR,
+            tick_label=poss_results,
+        )
+
         self._label_bars(ax, bars)
         self._chart_customization(ax)
 
         plt.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Make the instance to generate the chart.
     dv = DieVisual()

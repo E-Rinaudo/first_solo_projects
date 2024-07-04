@@ -27,7 +27,7 @@ class RandomWalk:
 
             self.x_values.append(x)
             self.y_values.append(y)
-    
+
     def _get_step(self):
         """Determine direction and distance of each step."""
         direction = choice([1, -1])

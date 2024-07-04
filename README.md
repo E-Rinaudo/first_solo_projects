@@ -25,7 +25,7 @@ These projects were developed while working through chapters 12, 13, and 14 of P
 
 The following games share foundational concepts with Alien Invasion, each with some unique twists.
 
-alien_invasion: A classic arcade-style game where the player controls a spaceship and must shoot down waves of aliens descending from the sky.
+alien_invasion: A classic arcade-style game where the player controls a spaceship and must shoot down waves of aliens descending from the sky. This project includes additional features beyond those covered in the book.
 
 hungry_fox: A game where the player controls a fox that kills farmers.
 
@@ -33,7 +33,7 @@ sideways_shooter: A variation of Alien Invasion where the player shoots at enemi
 
 sliding_penguin: A game featuring a penguin that shoots down randomly generated orcas.
 
-**Project 7**: data_visualization/molecular_motion/
+**Project 7**: data_visualization/random_walks/molecular_motion/
 
 **Description**:
 This project visualizes the random walk of a pollen grain on the surface of a drop of water. The MolecularMotion class simulates this random walk, producing a series of steps in a two-dimensional space with varying directions and distances. The resulting plot demonstrates the path taken by the pollen grain over a specified number of steps.
@@ -43,7 +43,7 @@ This project visualizes the random walk of a pollen grain on the surface of a dr
 **Description**:
 This project visualizes the results of rolling two six-sided dice 50,000 times. The DieVisual class handles the creation of two dice, performs the rolls, analyzes the frequency of each possible result, and generates a bar chart to display the results.
 
-**Project 9**: data_visualization/firefly_random_walk/
+**Project 9**: data_visualization/random_walks/firefly_random_walk/
 
 **Description**:
 This project visualizes the random walk of a firefly on a summer night using Plotly. The Firefly_Walk class simulates the random movements over a series of steps in a two-dimensional space. The visualization highlights the starting point, ending point, and the trajectory of the firefly's journey. Each point on the walk is represented by a star symbol in varying shades of orange, symbolizing the firefly's flickering light. The plot is set against a black background to emphasize the nocturnal nature of the firefly's dance.

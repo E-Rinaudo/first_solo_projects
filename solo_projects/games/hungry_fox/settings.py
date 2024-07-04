@@ -21,12 +21,12 @@ class Settings:
         """Initialize the screen's settings."""
         self.screen_width = 1280
         self.screen_height = 750
-        self.background = pygame.image.load('images/background.bmp')
+        self.background = pygame.image.load("images/background.bmp")
 
     def _farmer_settings(self):
         """Initialize the farmer's settings."""
         self.farmer_drop_speed = 10
-        
+
     def _farmer_bullet_settings(self):
         """Initialize the farmers' bullet settings."""
         self.shooting_frequency = 0.009
@@ -35,7 +35,7 @@ class Settings:
         """Store the settings flags."""
         self.easy_settings = False
         self.medium_settings = True
-        self.hard_settings = False  
+        self.hard_settings = False
 
     def initialize_dynamic_settings(self):
         """Initialize settings that change throughout the game."""

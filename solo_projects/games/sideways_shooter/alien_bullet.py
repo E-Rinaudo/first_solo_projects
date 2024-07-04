@@ -14,15 +14,15 @@ class AlienBullet(Sprite):
         self.settings = s_shooter.settings
 
         # Load the bullet's images, choose one random and get the rect.
-        image_1 = pygame.image.load('images/alien_bullet1.bmp')
-        image_2 = pygame.image.load('images/alien_bullet2.bmp')
+        image_1 = pygame.image.load("images/alien_bullet1.bmp")
+        image_2 = pygame.image.load("images/alien_bullet2.bmp")
         images = [image_1, image_2]
         self.image = choice(images)
         self.rect = self.image.get_rect()
 
         # Position the bullet using a random generator;
         #   only if the aliens' ships are generated.
-        try: 
+        try:
             alien = choice(s_shooter.aliens.sprites())
         except IndexError:
             pass

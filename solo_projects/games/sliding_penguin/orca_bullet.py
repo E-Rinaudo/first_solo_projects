@@ -14,7 +14,7 @@ class OrcaBullet(Sprite):
         self.settings = s_penguin.settings
 
         # Load the image and get its rect.
-        self.image = pygame.image.load('images/teeth.bmp')
+        self.image = pygame.image.load("images/teeth.bmp")
         self.rect = self.image.get_rect()
 
         # Position the bullet using a random generator;

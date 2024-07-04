@@ -12,7 +12,7 @@ class Bullet(Sprite):
         self.settings = h_fox.settings
 
         # Load the bullet's image and get its rect.
-        self.image = pygame.image.load('images/acorn.bmp')
+        self.image = pygame.image.load("images/acorn.bmp")
         self.rect = self.image.get_rect()
 
         # Set the bullet's starting position.

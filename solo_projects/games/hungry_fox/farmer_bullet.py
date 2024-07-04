@@ -14,8 +14,8 @@ class FarmerBullet(Sprite):
         self.settings = h_fox.settings
 
         # Load the bullet's images, choose one random and get the rect.
-        image_1 = pygame.image.load('images/fork.bmp')
-        image_2 = pygame.image.load('images/shovel.bmp')
+        image_1 = pygame.image.load("images/fork.bmp")
+        image_2 = pygame.image.load("images/shovel.bmp")
         images = [image_1, image_2]
         self.image = choice(images)
         self.rect = self.image.get_rect()

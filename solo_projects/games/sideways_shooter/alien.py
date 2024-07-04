@@ -15,7 +15,7 @@ class Alien(Sprite):
         self.sb = s_shooter.sb
 
         # Load the image and get its rect.
-        self.image = pygame.image.load('images/alien.bmp')
+        self.image = pygame.image.load("images/alien.bmp")
         self.rect = self.image.get_rect()
 
         # Set the alien on the right side of the screen, outside of view.
@@ -23,7 +23,7 @@ class Alien(Sprite):
         # Aliens will be generated randomly and placed at a maximum height
         #   from the bottom and top of the screen.
         alien_top_max = self.settings.screen_height - self.rect.height
-        self.rect.top = randint(self.sb.score_rect.height*3, alien_top_max)
+        self.rect.top = randint(self.sb.score_rect.height * 3, alien_top_max)
 
         # Store a float for the alien's horizontal position.
         self.x = float(self.rect.x)
