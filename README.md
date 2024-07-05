@@ -10,7 +10,7 @@ Feel free to explore these projects and if you want, please provide feedback to 
 
 # Projects List
 
-**Project 1**: repetition_days/study_method.py
+**Project 1**: repetition_days/
 
 **Description**:
 This program utilizes a spaced repetition method to remind users of specific study tasks on different days of the week. It generates a pop-up reminder daily, detailing the tasks scheduled for that particular day based on a predefined study plan.
