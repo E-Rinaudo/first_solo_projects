@@ -5,57 +5,6 @@ import os
 import time
 
 
-class HurricaneSob:
-    """Represent the Hurricane Hypertrophy interval training structure."""
-
-    def __init__(self):
-        """
-        Initialize instance of the Workout class.
-        It prompts user for the muscle being worked,
-        the number of sets and defines the type of exercise.
-        """
-        self.workout = HurricaneWorkout()
-
-    def run_clock(self):
-        """Create the exercise interval clock."""
-        print(f"\nGet ready to blast your {self.workout.muscle}.")
-
-        counter = 1
-        while counter <= self.workout.sets:
-            print(f"\n-  SOB {self.workout.exercise} Set {counter}:")
-
-            # Run for 20 sec.
-            print("\nRunning for 20 seconds...")
-            time.sleep(17)
-            [self._play_sound() for _ in range(3)]
-
-            # Run for 40 seconds.
-            print("Running for 40 seconds...")
-            time.sleep(37)
-            [self._play_sound() for _ in range(3)]
-
-            counter += 1
-
-        print(f"\nSOB {self.workout.exercise} completed.")
-
-        self._restart_clock()
-
-    def _restart_clock(self):
-        """Restart the clock if the exercise is the SOB 320."""
-        if self.workout.exercise == 320:
-            self.workout.exercise = 160
-            self.workout.sets = 4
-            self.workout._workout_start()
-            self.run_clock()
-
-    def _play_sound(self):
-        """
-        Use the 'afplay' command to play a sound three times
-        to simulate a countdown.
-        """
-        os.system("afplay /System/Library/Sounds/Ping.aiff")
-
-
 class HurricaneWorkout:
     """Represent the Hurricane Hypertrophy workout."""
 
@@ -102,8 +51,50 @@ class HurricaneWorkout:
     def _workout_start(self):
         """Start the workout."""
         self.start = input(
-            f"\nPress 'ENTER' when ready to start " f"the SOB {self.exercise}."
+            f"\nPress 'ENTER' when ready to start the SOB {self.exercise}."
         )
+
+
+class HurricaneSob:
+    """Represent the Hurricane Hypertrophy interval training structure."""
+
+    def __init__(self):
+        """Initialize the instance of the HurricaneWorkout class."""
+        self.workout = HurricaneWorkout()
+
+    def run_clock(self):
+        """Create the exercise interval clock."""
+        print(f"\nGet ready to blast your {self.workout.muscle}.")
+
+        for workout_set in range(1, self.workout.sets + 1):
+            print(f"\n-  SOB {self.workout.exercise} Set {workout_set}:")
+
+            # Run the interval clock.
+            self._run_interval(20)
+            self._run_interval(40)
+
+        print(f"\nSOB {self.workout.exercise} completed.")
+
+        # Restart the clock if the interval completed was the SOB 320.
+        self._restart_clock()
+
+    def _run_interval(self, duration):
+        """
+        Run for the specified duration in seconds
+        and play a sound three times to simulate a countdown.
+        """
+        print(f"Running for {duration} seconds...")
+        time.sleep(duration - 3)
+        sound = os.system("afplay /System/Library/Sounds/Ping.aiff")
+        [sound for _ in range(3)]
+
+    def _restart_clock(self):
+        """Restart the clock if the exercise completed was the SOB 320."""
+        if self.workout.exercise == 320:
+            self.workout.exercise = 160
+            self.workout.sets = 4
+            self.workout._workout_start()
+            self.run_clock()
 
 
 if __name__ == "__main__":
