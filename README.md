@@ -46,7 +46,7 @@ These projects were developed while working through chapter 15 of Python Crash C
 
 - firefly_random_walk: This project uses Plotly to visualize  the random walk of a firefly on a summer night. The Firefly_Walk class simulates the random movements over a series of steps in a two-dimensional space. The visualization highlights the starting point, ending point, and the trajectory of the firefly's journey. Each point on the walk is represented by a star symbol in varying shades of orange. The plot is set against a black background.
 
-**Projects 10-11**: data_visualization/meteorology_visuals/, data_visualization/earthquakes/
+**Projects 10-11-12**: data_visualization/meteorology_visuals/, data_visualization/earthquakes/, data_visualization/wildfires/
 
 **Description**:
 These projects were developed while working through chapter 16 of Python Crash Course.
@@ -59,6 +59,10 @@ Data source: National Centers for Environmental Information (NCEI) https://www.n
 - earthquakes: This project features a class module (quakes_plotter.py) designed to visualize earthquakes data, including longitude, latitude and magnitude, using Plotly. The module reads earthquakes data from GeoJSON files and plots them.
 
 Data source: United States Geological Survey (USGS) https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php.
+
+- wildfires: This project features a class module (fires_analyzer.py) designed to visualize wildfire data, including longitude, latitude and brightness, using Plotly. The module reads wildfire data from CSV files and plots them.
+
+Data source: Fire Information for Resource Management System (FIRMS): https://firms.modaps.eosdis.nasa.gov/active_fire/
 
 # Usage
 
