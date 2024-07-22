@@ -68,6 +68,7 @@ class WildfirePlotter:
                 mode="markers",
                 marker=dict(
                     size=bright_size,
+                    symbol="star-triangle-up",
                     color=self.fires_data["brightness"],
                     colorscale="Hot",
                     colorbar_title="Wildfire Brightness",
