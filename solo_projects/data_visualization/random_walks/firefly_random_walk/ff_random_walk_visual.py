@@ -43,8 +43,7 @@ class Firefly_Walk:
                     color=np.arange(rw.num_points),
                     symbol="star",
                     size=FONT_SCATTER_POINTS,
-                    colorscale="Oranges",
-                    showscale=True,
+                    colorscale="Hot",
                 ),
             )
         )
@@ -89,11 +88,18 @@ class Firefly_Walk:
                 text="Firefly Dance: A Random Walk on a Summer Night",
                 font=dict(family="Arial", size=FONT_TITLE, color="darkred"),
             ),
-            xaxis_title="X Position",
-            yaxis_title="Y Position",
             font=dict(size=FONT_AXES_LABELS),
-            xaxis=dict(showgrid=False, zeroline=False),
-            yaxis=dict(showgrid=False, zeroline=False, scaleanchor="x"),
+            xaxis=dict(
+                showgrid=False,
+                zeroline=False,
+                showticklabels=False,
+            ),
+            yaxis=dict(
+                showgrid=False,
+                zeroline=False,
+                showticklabels=False,
+                scaleanchor="x",
+            ),
             legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01),
         )
 
