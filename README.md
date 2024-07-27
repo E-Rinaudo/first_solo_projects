@@ -46,7 +46,7 @@ These projects were developed while working through chapter 15 of Python Crash C
 
 - firefly_random_walk: This project uses Plotly to visualize  the random walk of a firefly on a summer night. The Firefly_Walk class simulates the random movements over a series of steps in a two-dimensional space. The visualization highlights the starting point, ending point, and the trajectory of the firefly's journey. Each point on the walk is represented by a star symbol in varying shades of orange. The plot is set against a black background.
 
-**Projects 10-11-12**: data_visualization/meteorology_visuals/, data_visualization/earthquakes/, data_visualization/wildfires/
+**Projects 10-11-12-13**: data_visualization/meteorology_visuals/, data_visualization/earthquakes/, data_visualization/wildfires/, data_visualization/github_python_julia_r_repos/
 
 **Description**:
 These projects were developed while working through chapter 16 of Python Crash Course.
@@ -63,6 +63,8 @@ Data source: United States Geological Survey (USGS) https://earthquake.usgs.gov/
 - wildfires: This project features a class module (fires_analyzer.py) designed to visualize wildfire data, including longitude, latitude and brightness, using Plotly. The module reads wildfire data from CSV files and plots them.
 
 Data source: Fire Information for Resource Management System (FIRMS): https://firms.modaps.eosdis.nasa.gov/active_fire/
+
+- github_python_julia_r_repos: This project features a class module (github_python_r_julia_repos.py) to visualize the top 20 most-starred repositories on GitHub for Python, Julia, and R, using Plotly. The module extracts data from GitHub’s API, and visualizes them in three separate subplots, one for each programming language, showing repository names and their star counts.
 
 # Usage
 
