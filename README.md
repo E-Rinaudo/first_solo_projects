@@ -49,7 +49,7 @@ These projects were developed while working through chapter 15 of Python Crash C
 **Projects 10-11-12-13**: data_visualization/meteorology_visuals/, data_visualization/earthquakes/, data_visualization/wildfires/, data_visualization/github_python_julia_r_repos/
 
 **Description**:
-These projects were developed while working through chapter 16 of Python Crash Course.
+These projects were developed while working through chapter 16 and 17 of Python Crash Course.
 
 - meteorology_visuals: This project features a class module (weather_data_plotter.py) designed to visualize weather data, including daily high and low temperatures and precipitation levels, using Matplotlib. The module reads weather data from CSV files and plots them, offering customization options such as shading between high and low temperatures.
 The project includes nine visualization modules that utilize the class to generate various data visualizations. Additionally, it represents my initial attempts at creating tests.
