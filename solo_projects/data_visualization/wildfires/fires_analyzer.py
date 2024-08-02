@@ -1,5 +1,13 @@
-import pandas as pd
+"""
+This module uses the 'WildfirePlotter' class to visualize wildfire activity 
+in North America (July 12, 2024 to July 14, 2024).
+It reads data from a CSV file, formats the dates and times,
+and creates a geographical scatter plot to visualize wildfire locations 
+and brightness using Plotly.
+"""
+
 from datetime import datetime
+import pandas as pd
 
 import plotly.graph_objects as go
 
@@ -8,8 +16,10 @@ class WildfirePlotter:
     """A class to visualize wildfire activity in North America."""
 
     def __init__(self, path: str):
-        """Initialize the class attribute, read the csv file and plot the data."""
+        """Initialize the class attributes, read the csv file and plot the data."""
         self.path = path
+        self.acq_times = []
+        self.acq_dates = []
         self._read_file()
         self._visualize_plot()
 
@@ -20,7 +30,6 @@ class WildfirePlotter:
     def _format_date(self):
         """Format the data acquisition date to neatly display it."""
         df_dates = list(self.fires_data["acq_date"])
-        self.acq_dates = []
 
         for df_date in df_dates:
             date_str = str(df_date)
@@ -31,7 +40,6 @@ class WildfirePlotter:
     def _format_time(self):
         """Format the data acquisition time to neatly display it."""
         df_times = list(self.fires_data["acq_time"])
-        self.acq_times = []
 
         for df_time in df_times:
             time_str = str(df_time).zfill(4)
@@ -66,18 +74,18 @@ class WildfirePlotter:
                 lon=self.fires_data["longitude"],
                 text=self.fires_data["text"],
                 mode="markers",
-                marker=dict(
-                    size=bright_size,
-                    symbol="star-triangle-up",
-                    color=self.fires_data["brightness"],
-                    colorscale="Hot",
-                    colorbar_title="Wildfire Brightness",
-                ),
+                marker={
+                    "size": bright_size,
+                    "symbol": "star-triangle-up",
+                    "color": self.fires_data["brightness"],
+                    "colorscale": "Hot",
+                    "colorbar_title": "Wildfire Brightness",
+                },
             )
         )
 
         self._update_plot(fig)
-        fig.show()
+        fig.show(renderer="browser")
 
     def _update_plot(self, fig: go.Figure):
         """Customize the plot."""
@@ -85,20 +93,28 @@ class WildfirePlotter:
         title += f"({self.acq_dates[0]} to {self.acq_dates[-1]})"
 
         fig.update_layout(
-            geo=dict(
-                scope="north america",
-                resolution=50,
-                projection=dict(type="conic conformal", rotation_lon=-100),
-                lonaxis=dict(
-                    showgrid=True, gridwidth=0.5, range=[-180.0, -20.0], dtick=5
-                ),
-                lataxis=dict(showgrid=True, gridwidth=0.5, range=[10.0, 50.0], dtick=5),
-            ),
+            geo={
+                "scope": "north america",
+                "resolution": 50,
+                "projection": {"type": "conic conformal", "rotation_lon": -100},
+                "lonaxis": {
+                    "showgrid": True,
+                    "gridwidth": 0.5,
+                    "range": [-180.0, -20.0],
+                    "dtick": 5,
+                },
+                "lataxis": {
+                    "showgrid": True,
+                    "gridwidth": 0.5,
+                    "range": [10.0, 50.0],
+                    "dtick": 5,
+                },
+            },
             title=title,
         )
 
 
 if __name__ == "__main__":
     # Give a path and make the instance to visualize the data.
-    path = "fires_file/MODIS_C6_1_USA_contiguous_and_Hawaii_3d.csv"
-    wildfire = WildfirePlotter(path)
+    PATH = "fires_file/MODIS_C6_1_USA_contiguous_and_Hawaii_3d.csv"
+    wildfire = WildfirePlotter(PATH)
