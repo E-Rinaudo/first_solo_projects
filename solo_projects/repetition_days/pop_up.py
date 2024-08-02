@@ -1,3 +1,9 @@
+"""
+This module defines the 'StudyPopUp' class, which creates a pop-up window using tkinter. 
+The pop-up displays information about the subject to study or repeat
+each day, including tasks for the day and the current date.
+"""
+
 import tkinter as tk
 from datetime import datetime
 
