@@ -1,5 +1,13 @@
-# Simulate timed exercise intervals for Hurricane Hypertrophy,
-#   NXT Month 2 of Athleanx.
+"""
+This module uses classes to simulate timed exercise intervals for Hurricane Hypertrophy,
+a popular workout program from Athleanx.
+
+- 'HurricaneWorkout': Prompts the user for the workout details such as:
+                      muscle group, number of sets, and type of exercise.
+                      It also starts the workout.
+- 'HurricaneSob': Uses the details obtained by the HurricaneWorkout class
+                  to make a timed interval training structure.
+"""
 
 import os
 import time
@@ -13,12 +21,15 @@ class HurricaneWorkout:
         Display a greet message.
         Then, determine the workout based on user inputs and start it.
         """
+        self.sets = 0
+        self.exercise = 0
+
         print("\nAre you ready to start your workout?")
 
         self._workout_muscle()
         self._workout_sets()
         self._workout_exercise()
-        self._workout_start()
+        self.workout_start()
 
     def _workout_muscle(self):
         """Ask user for muscle being worked."""
@@ -36,10 +47,9 @@ class HurricaneWorkout:
                 print("\nIncorrect selection.")
                 print("Please, type a number (4 or 8).")
             else:
-                if self.sets == 8 or self.sets == 4:
+                if self.sets in (8, 4):
                     break
-                else:
-                    print("\nPlease, type the correct number of sets (4 or 8).")
+                print("\nPlease, type the correct number of sets (4 or 8).")
 
     def _workout_exercise(self):
         """Determine the type of exercise."""
@@ -48,7 +58,7 @@ class HurricaneWorkout:
         elif self.sets == 4:
             self.exercise = 160
 
-    def _workout_start(self):
+    def workout_start(self):
         """Start the workout."""
         self.start = input(
             f"\nPress 'ENTER' when ready to start the SOB {self.exercise}."
@@ -85,15 +95,15 @@ class HurricaneSob:
         """
         print(f"Running for {duration} seconds...")
         time.sleep(duration - 3)
-        sound = os.system("afplay /System/Library/Sounds/Ping.aiff")
-        [sound for _ in range(3)]
+        for _ in range(3):
+            os.system("afplay /System/Library/Sounds/Ping.aiff")
 
     def _restart_clock(self):
         """Restart the clock if the exercise completed was the SOB 320."""
         if self.workout.exercise == 320:
             self.workout.exercise = 160
             self.workout.sets = 4
-            self.workout._workout_start()
+            self.workout.workout_start()
             self.run_clock()
 
 
