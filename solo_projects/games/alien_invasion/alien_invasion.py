@@ -11,7 +11,6 @@ Key Features:
 - Manages game UI elements such as buttons and scoreboards.
 """
 
-
 import sys
 from random import random
 from time import sleep, time

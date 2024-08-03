@@ -6,7 +6,6 @@ Bullets are positioned randomly based on the location of orcas
 and move down the screen at a specified speed.
 """
 
-
 from random import choice
 
 import pygame

@@ -7,7 +7,6 @@ Bullets are positioned randomly based on the location of aliens
 and move leftward at a specified speed.
 """
 
-
 from random import choice
 
 import pygame

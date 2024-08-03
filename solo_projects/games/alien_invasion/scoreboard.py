@@ -6,7 +6,6 @@ and remaining ships on the screen.
 It handles updating and positioning these elements based on the game's state.
 """
 
-
 import pygame.font
 from pygame.sprite import Group
 

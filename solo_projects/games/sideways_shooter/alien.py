@@ -6,7 +6,6 @@ Aliens are placed randomly at the right side of the screen
 and move leftward at a set speed.
 """
 
-
 from random import randint
 
 import pygame

@@ -5,7 +5,6 @@ It includes static and dynamic settings for the game, such screen dimensions,
 ship settings, alien settings, bullet settings, and difficulty levels.
 """
 
-
 import pygame
 
 

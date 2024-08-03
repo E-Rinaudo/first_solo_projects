@@ -6,7 +6,6 @@ alien explosion, and game-over sounds.
 It also manages background music, selecting and playing tracks from a list.
 """
 
-
 from random import choice
 
 import pygame

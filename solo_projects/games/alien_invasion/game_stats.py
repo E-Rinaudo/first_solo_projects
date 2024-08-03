@@ -5,7 +5,6 @@ It handles the tracking of game statistics such as score, level, and ship limit.
 It also manages high score reading and resets statistics at the start of a new game.
 """
 
-
 import json
 from pathlib import Path
 

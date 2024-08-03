@@ -4,7 +4,6 @@ This module defines the 'Penguin' class to manage the penguin character in the g
 It handles the initialization, movement, and rendering of the penguin sprite.
 """
 
-
 import pygame
 from pygame.sprite import Sprite
 

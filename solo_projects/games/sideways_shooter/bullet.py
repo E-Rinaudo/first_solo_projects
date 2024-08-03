@@ -6,7 +6,6 @@ It initializes bullets at the hero's current position
 and updates their horizontal position as they move rightward across the screen.
 """
 
-
 from random import choice
 
 import pygame

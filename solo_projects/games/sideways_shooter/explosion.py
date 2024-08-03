@@ -5,7 +5,6 @@ It handles the initialization and display of explosion sprites,
 including managing their duration on the screen before removal.
 """
 
-
 import pygame
 from pygame.sprite import Sprite
 

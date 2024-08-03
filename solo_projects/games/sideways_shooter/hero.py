@@ -5,7 +5,6 @@ It handles the initialization, movement, and rendering of the hero sprite,
 including image selection based on user input.
 """
 
-
 import pygame
 from pygame.sprite import Sprite
 

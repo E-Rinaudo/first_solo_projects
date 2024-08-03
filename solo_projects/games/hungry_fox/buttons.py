@@ -6,7 +6,6 @@ It also handles the rendering of text on the buttons
 and displays additional information like credits or hotkeys.
 """
 
-
 from pathlib import Path
 
 import pygame.font

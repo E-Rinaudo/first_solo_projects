@@ -6,7 +6,6 @@ It initializes bullets at the penguin's current position
 and updates their vertical position as they move up the screen.
 """
 
-
 import pygame
 from pygame.sprite import Sprite
 

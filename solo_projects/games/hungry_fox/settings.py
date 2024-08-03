@@ -5,7 +5,6 @@ It includes static and dynamic settings for the game, such screen dimensions,
 fox settings, farmer settings, bullet settings, and difficulty levels.
 """
 
-
 import pygame
 
 

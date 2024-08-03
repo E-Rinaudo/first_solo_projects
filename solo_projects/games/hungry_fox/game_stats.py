@@ -5,7 +5,6 @@ It handles the tracking of game statistics such as score, level, and fox life.
 It also manages high score reading and resets statistics at the start of a new game.
 """
 
-
 import json
 from pathlib import Path
 
