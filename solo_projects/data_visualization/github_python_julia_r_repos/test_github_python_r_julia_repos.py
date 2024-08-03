@@ -1,7 +1,5 @@
 """This module tests the 'RepositoryPlotter' class to ensure it works as expected."""
 
-
-
 import pytest
 from github_python_r_julia_repos import RepositoryPlotter as RP
 
@@ -50,5 +48,7 @@ def test_pull_repo_names_stars(repo_plotter):
     assert total_keys == 6
 
     # Assert the total number of repo links and stars is 120 (40 per each language).
-    total_names_stars = sum(len(names_stars) for names_stars in repo_plotter.repo_data.values())
+    total_names_stars = sum(
+        len(names_stars) for names_stars in repo_plotter.repo_data.values()
+    )
     assert total_names_stars == 120
