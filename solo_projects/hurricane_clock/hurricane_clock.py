@@ -1,5 +1,5 @@
 """
-This module uses classes to simulate timed exercise intervals for Hurricane Hypertrophy,
+This module defines classes to simulate timed exercise intervals for Hurricane Hypertrophy,
 a popular workout program from Athleanx.
 
 - 'HurricaneWorkout': Prompts the user for the workout details such as:

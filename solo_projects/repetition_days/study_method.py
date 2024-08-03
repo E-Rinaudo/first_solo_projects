@@ -1,5 +1,5 @@
 """
-This module calls the 'StudyPopUp' class from the pop_up module
+This module imports the 'StudyPopUp' class from the pop_up module
 to generate what to study/repeat each day.
 It sets up a study schedule for each day of the week and defines the subject to
 be studied.
