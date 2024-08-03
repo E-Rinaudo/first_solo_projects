@@ -1,3 +1,11 @@
+"""
+This module defines the 'Hero' class to manage the hero character in the game.
+
+It handles the initialization, movement, and rendering of the hero sprite,
+including image selection based on user input.
+"""
+
+
 import pygame
 from pygame.sprite import Sprite
 

@@ -1,3 +1,11 @@
+"""
+This module defines the 'Farmer' class to represent individual farmers in the game.
+
+It manages the initialization and movement of farmer sprites.
+The farmer images are selected randomly from a set of images.
+"""
+
+
 from random import choice
 
 import pygame

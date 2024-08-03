@@ -1,3 +1,12 @@
+"""
+This module defines the 'Buttons' class to make and manage various buttons in the game.
+
+It creates buttons, such as play, pause, menu, and difficulty.
+It also handles the rendering of text on the buttons
+and displays additional information like credits or hotkeys.
+"""
+
+
 from pathlib import Path
 
 import pygame.font
@@ -187,7 +196,7 @@ class Buttons:
         elif not show_credits:
             path = Path("txt_files/hotkeys.txt")
 
-        content = path.read_text()
+        content = path.read_text(encoding="utf-8")
         lines = content.splitlines()
         self._render_credits_or_hotkeys(lines, show_credits)
 
@@ -204,14 +213,14 @@ class Buttons:
         self._prep_credits_or_hotkeys(surface)
 
     def _credits_or_hotkeys_colors(self):
-        """Store constants for the colors used in the credits or hotkeys."""
+        """Store the colors used in the credits or hotkeys."""
         # Credits colors.
-        self.ARTIST_COLOR = (200, 100, 0)
-        self.SOUND_COLOR = (0, 150, 150)
-        self.IMAGE_COLOR = (0, 128, 0)
+        self.artist_color = (200, 100, 0)
+        self.sound_color = (0, 150, 150)
+        self.image_color = (0, 128, 0)
 
         # Hotkeys colors.
-        self.KEYS = (0, 128, 0)
+        self.keys = (0, 128, 0)
 
     def _colorize_credits_lines(self, lines):
         """Colorize the credits' lines based on keywords."""
@@ -219,13 +228,13 @@ class Buttons:
             (
                 line,
                 (
-                    self.ARTIST_COLOR
+                    self.artist_color
                     if "artist" in line.lower()
                     else (
-                        self.SOUND_COLOR
+                        self.sound_color
                         if "SOUND" in line
                         else (
-                            self.IMAGE_COLOR
+                            self.image_color
                             if "image" in line.lower()
                             else self.text_color
                         )
@@ -240,7 +249,7 @@ class Buttons:
     def _colorize_hotkeys_lines(self, lines):
         """Colorize the hotkeys' lines based on keywords."""
         colored_lines = [
-            (line, self.KEYS if " keys" in line.lower() else self.text_color)
+            (line, self.keys if " keys" in line.lower() else self.text_color)
             for line in lines
         ]
 

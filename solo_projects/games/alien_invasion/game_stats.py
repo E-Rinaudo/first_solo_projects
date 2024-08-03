@@ -1,3 +1,11 @@
+"""
+This module defines the 'GameStats' class to track and manage game statistics.
+
+It handles the tracking of game statistics such as score, level, and ship limit.
+It also manages high score reading and resets statistics at the start of a new game.
+"""
+
+
 import json
 from pathlib import Path
 
@@ -21,7 +29,7 @@ class GameStats:
         """Read the high score when the game starts."""
         path = Path("high_score/high_score.json")
         try:
-            contents = path.read_text()
+            contents = path.read_text(encoding="utf-8")
         except FileNotFoundError:
             high_score = 0
         else:

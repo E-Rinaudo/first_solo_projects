@@ -1,3 +1,12 @@
+"""
+This module defines the 'Sound' class to manage the game's audio.
+
+It handles initialization and playback of sound effects, such as penguin firing,
+orca deaths, and game-over sounds.
+It also manages background music, selecting and playing tracks from a list.
+"""
+
+
 from random import choice
 
 import pygame

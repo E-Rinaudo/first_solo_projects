@@ -1,3 +1,11 @@
+"""
+This module defines the 'Explosion' class to manage explosion effects in the game.
+
+It handles the initialization and display of explosion sprites,
+including managing their duration on the screen before removal.
+"""
+
+
 import pygame
 from pygame.sprite import Sprite
 

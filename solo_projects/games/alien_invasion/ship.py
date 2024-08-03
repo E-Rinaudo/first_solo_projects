@@ -1,3 +1,10 @@
+"""
+This module defines the 'Ship' class to manage the ship in the game.
+
+It handles the initialization, movement, and rendering of the ship sprite.
+"""
+
+
 import pygame
 from pygame.sprite import Sprite
 

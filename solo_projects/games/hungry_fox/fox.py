@@ -1,3 +1,10 @@
+"""
+This module defines the 'Fox' class to manage the fox character in the game.
+
+It handles the initialization, movement, and rendering of the fox sprite.
+"""
+
+
 import pygame
 from pygame.sprite import Sprite
 

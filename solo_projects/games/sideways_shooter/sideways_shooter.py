@@ -1,3 +1,17 @@
+"""
+This module defines the 'SidewaysShooter' class that manages the core functionality 
+of the Sideways Shooter game.
+
+Key Features:
+- Initializes game settings, screen, and resources.
+- Manages game states such as starting, pausing, and restarting.
+- Controls game difficulty.
+- Handles user input including keyboard and mouse events.
+- Updates and render game objects including the hero, bullets, and alien enemies.
+- Manages game UI elements such as buttons and scoreboards.
+"""
+
+
 import sys
 from random import random
 from time import time
@@ -818,7 +832,7 @@ class SidewaysShooter:
         if self.stats.high_score > saved_high_score:
             path = Path("high_score/high_score.json")
             high_score = json.dumps(self.stats.high_score)
-            path.write_text(high_score)
+            path.write_text(high_score, encoding="utf-8")
 
         sys.exit()
 

@@ -1,3 +1,13 @@
+"""
+This module defines the 'FarmerBullet' class to manage bullets fired by farmers.
+
+It handles the creation and movement of bullets on the screen,
+which are selected randomly from a set of images.
+Bullets are positioned randomly based on the location of farmers
+and move down the screen at a specified speed.
+"""
+
+
 from random import choice
 
 import pygame

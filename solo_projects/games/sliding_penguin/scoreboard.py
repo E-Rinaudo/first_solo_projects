@@ -1,3 +1,12 @@
+"""
+This module defines the 'Scoreboard' class to display and update scoring information.
+
+It manages the rendering of the current score, high score, level,
+and remaining penguin life on the screen.
+It handles updating and positioning these elements based on the game's state.
+"""
+
+
 import pygame.font
 from pygame.sprite import Group
 

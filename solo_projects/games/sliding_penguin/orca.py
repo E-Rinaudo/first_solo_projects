@@ -1,3 +1,11 @@
+"""
+This module defines the 'Orca' class to represent individual orcas in the game.
+
+It manages the initialization and movement of orca sprites.
+Orcas are placed randomly at the top of the screen and move downwards at a set speed.
+"""
+
+
 from random import randint
 
 import pygame

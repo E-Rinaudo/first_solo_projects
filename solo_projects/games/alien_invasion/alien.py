@@ -1,3 +1,10 @@
+"""
+This module defines the 'Alien' class to represent individual aliens in the game.
+
+It manages the initialization and movement of alien sprites.
+"""
+
+
 import pygame
 from pygame.sprite import Sprite
 

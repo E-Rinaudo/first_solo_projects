@@ -1,3 +1,17 @@
+"""
+This module defines the 'HungryFox' class that manages the core functionality 
+of the Hungry Fox game.
+
+Key Features:
+- Initializes game settings, screen, and resources.
+- Manages game states such as starting, pausing, and restarting.
+- Controls game difficulty.
+- Handles user input including keyboard and mouse events.
+- Updates and render game objects including the fox, bullets, and farmer enemies.
+- Manages game UI elements such as buttons and scoreboards.
+"""
+
+
 import sys
 from random import random
 from time import sleep, time
@@ -46,7 +60,7 @@ class HungryFox:
         # The fleet will only be generated again if the fox is killed
         #   or in a new game run.
         self.fleet_generation = 0
-        self.FLEET_GENERATION_LIMIT = 1
+        self.fleet_generation_limit = 1
 
     def _make_screen(self):
         """Generate the screen for the game."""
@@ -150,7 +164,7 @@ class HungryFox:
     def _check_keydown_start_game_events(self, event):
         """Respond to keypresses when the game is not active."""
         if self._is_return_key_and_no_credits_or_hotkeys(event):
-            self.fleet_generation += self.FLEET_GENERATION_LIMIT
+            self.fleet_generation += self.fleet_generation_limit
             self._start_game()
 
     def _check_keydown_running_game_events(self, event):
@@ -254,7 +268,7 @@ class HungryFox:
             and (not self.game_active)
             and (self._are_credits_and_hotkeys_not_displayed())
         ):
-            self.fleet_generation += self.FLEET_GENERATION_LIMIT
+            self.fleet_generation += self.fleet_generation_limit
             self._start_game()
 
     def _start_game(self):
@@ -274,7 +288,7 @@ class HungryFox:
 
         # Get rid of any bullets and farmers and make a new fleet
         #   but only if the play button has been clicked more than once.
-        if (self.fleet_generation > self.FLEET_GENERATION_LIMIT) or (
+        if (self.fleet_generation > self.fleet_generation_limit) or (
             self.game_restarted
         ):
             self._empty_sprites()
@@ -833,7 +847,7 @@ class HungryFox:
         if self.stats.high_score > saved_high_score:
             path = Path("high_score/high_score.json")
             high_score = json.dumps(self.stats.high_score)
-            path.write_text(high_score)
+            path.write_text(high_score, encoding="utf-8")
 
         sys.exit()
 

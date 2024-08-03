@@ -1,3 +1,12 @@
+"""
+This module defines the 'AlienBullet' class to manage bullets fired by aliens.
+
+It handles the creation and movement of bullets on the screen.
+Bullets are positioned randomly based on the location of aliens
+and move down the screen at a specified speed.
+"""
+
+
 from random import choice
 
 import pygame

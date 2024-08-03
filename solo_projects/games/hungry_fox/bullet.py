@@ -1,3 +1,12 @@
+"""
+This module defines the 'Bullet' class to manage bullets fired by the fox.
+
+It handles the creation and movement of bullets on the screen.
+It initializes bullets at the fox's current position
+and updates their vertical position as they move up the screen.
+"""
+
+
 import pygame
 from pygame.sprite import Sprite
 
