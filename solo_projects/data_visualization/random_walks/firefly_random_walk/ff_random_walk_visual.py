@@ -1,3 +1,11 @@
+"""
+This module imports the 'RandomWalk' class from the ff_random_walk module
+and defines the 'FireflyWalk' class to visualize the walk simulation using Plotly.
+
+The class generates a scatter plot, representing the path of a firefly
+on a summer night.
+"""
+
 import plotly.graph_objects as go
 import numpy as np
 
@@ -5,13 +13,13 @@ from ff_random_walk import RandomWalk
 
 
 FONT_SCATTER_POINTS = 5
-FONT_MAIN_POINTS = 30
+FONT_MAIN_POINTS = 40
 FONT_TITLE = 25
 FONT_AXES_LABELS = 10
 
 
-class Firefly_Walk:
-    """A Class to generate the random walk of a Firefly at night."""
+class FireflyWalk:
+    """A Class to visualize the random walk of a Firefly at night."""
 
     def __init__(self):
         """Initialize the Random Walk attributes and generate it."""
@@ -39,12 +47,12 @@ class Firefly_Walk:
                 y=rw.y_values,
                 name="Random Walk",
                 mode="markers",
-                marker=dict(
-                    color=np.arange(rw.num_points),
-                    symbol="star",
-                    size=FONT_SCATTER_POINTS,
-                    colorscale="Hot",
-                ),
+                marker={
+                    "color": np.arange(rw.num_points),
+                    "symbol": "star",
+                    "size": FONT_SCATTER_POINTS,
+                    "colorscale": "Hot",
+                },
             )
         )
 
@@ -56,11 +64,11 @@ class Firefly_Walk:
                 y=[0],
                 name="Start Point",
                 mode="markers",
-                marker=dict(
-                    color="green",
-                    symbol="circle",
-                    size=FONT_MAIN_POINTS,
-                ),
+                marker={
+                    "color": "green",
+                    "symbol": "circle",
+                    "size": FONT_MAIN_POINTS,
+                },
             )
         )
 
@@ -72,11 +80,11 @@ class Firefly_Walk:
                 y=[rw.y_values[-1]],
                 name="End Point",
                 mode="markers",
-                marker=dict(
-                    color="blue",
-                    symbol="circle",
-                    size=FONT_MAIN_POINTS,
-                ),
+                marker={
+                    "color": "blue",
+                    "symbol": "circle",
+                    "size": FONT_MAIN_POINTS,
+                },
             )
         )
 
@@ -84,26 +92,26 @@ class Firefly_Walk:
         """Customize the plot."""
         fig.update_layout(
             plot_bgcolor="black",
-            title=dict(
-                text="Firefly Dance: A Random Walk on a Summer Night",
-                font=dict(family="Arial", size=FONT_TITLE, color="darkred"),
-            ),
-            font=dict(size=FONT_AXES_LABELS),
-            xaxis=dict(
-                showgrid=False,
-                zeroline=False,
-                showticklabels=False,
-            ),
-            yaxis=dict(
-                showgrid=False,
-                zeroline=False,
-                showticklabels=False,
-                scaleanchor="x",
-            ),
-            legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01),
+            title={
+                "text": "Firefly Dance: A Random Walk on a Summer Night",
+                "font": {"family": "Arial", "size": FONT_TITLE, "color": "darkred"},
+            },
+            font={"size": FONT_AXES_LABELS},
+            xaxis={
+                "showgrid": False,
+                "zeroline": False,
+                "showticklabels": False,
+            },
+            yaxis={
+                "showgrid": False,
+                "zeroline": False,
+                "showticklabels": False,
+                "scaleanchor": "x",
+            },
+            legend={"yanchor": "top", "y": 0.99, "xanchor": "left", "x": 0.01},
         )
 
 
 if __name__ == "__main__":
     # Make the instance and generate the plot.
-    fw = Firefly_Walk()
+    fw = FireflyWalk()

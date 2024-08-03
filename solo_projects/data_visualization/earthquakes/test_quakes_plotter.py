@@ -1,25 +1,27 @@
-import pytest
+"""This module tests the 'EartquakesPlotter' class to ensure it works as expected."""
+
 from pathlib import Path
 from datetime import datetime, timezone
+import pytest
 
 from quakes_plotter import EartquakesPlotter as EP
 
 
-@pytest.fixture
-def path() -> Path:
+@pytest.fixture(name="path")
+def path_fixture() -> Path:
     """A path object available for all tests."""
     return Path("earthquakes_files/significant_month.geojson")
 
 
-@pytest.fixture
-def quakes_plotter(path) -> EP:
+@pytest.fixture(name="quakes_plotter")
+def quakes_plotter_fixture(path) -> EP:
     """An instance of the eartquakes class available to all test functions."""
     quakes_plotter = EP(path)
     return quakes_plotter
 
 
-@pytest.fixture
-def quake_dictionary() -> dict:
+@pytest.fixture(name="quake_dictionary")
+def quake_dictionary_fixture() -> dict:
     """A mock of an earthquake dictionary available for all tests."""
     quake_dictionary = {
         "properties": {
@@ -35,13 +37,13 @@ def quake_dictionary() -> dict:
 def test_read_file_not_found():
     """Test if the system exits after a FileNotFound error."""
     with pytest.raises(SystemExit):
-        quakes_plotter = EP(Path("foo.geojson"))
+        EP(Path("foo.geojson"))
 
 
 def test_is_readable_written(path):
     """Test if the readable geojson file is written."""
     reformat_path = Path("earthquakes_files/significant_month_readable.geojson")
-    quakes_plotter = EP(path, reformat_path)
+    EP(path, reformat_path)
     assert reformat_path.exists()
 
 

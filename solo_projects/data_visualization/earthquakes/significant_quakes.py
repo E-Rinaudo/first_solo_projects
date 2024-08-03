@@ -1,8 +1,11 @@
-from quakes_plotter import EartquakesPlotter as EP
+"""
+This module imports the 'EartquakesPlotter' class to plot and visualize
+the earthquakes of significant magnitude from mid-June to mid-July, 2024.
+"""
+
 from pathlib import Path
 
-
-# Visualize earthquakes of significant magnitude for mid-June to mid-July, 2024.
+from quakes_plotter import EartquakesPlotter as EP
 
 
 if __name__ == "__main__":
@@ -11,4 +14,5 @@ if __name__ == "__main__":
     reformat_path = Path("earthquakes_files/significant_month_readable.geojson")
 
     quakes_plotter = EP(path=path)
+    quakes_plotter.analyze_data()
     quakes_plotter.plot_quakes(quakes_color="Cividis")

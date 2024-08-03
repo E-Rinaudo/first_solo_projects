@@ -2,13 +2,13 @@
 
 A collection of my first solo Python projects done while studying Python Crash Course by Eric Matthes.
 
-# Introduction
+## Introduction
 
 Welcome to my "first_solo_projects" repository! Here, you'll find a compilation of projects I've undertaken independently while going through the "Python Crash Course" book.
 
 Feel free to explore them and if you want, provide feedback to help me improve.
 
-# Projects List
+## Projects List
 
 **Project 1**: repetition_days/
 
@@ -35,7 +35,7 @@ The following games share foundational concepts with Alien Invasion, each with s
 
 - sliding_penguin: A game featuring a penguin that shoots down randomly generated orcas.
 
-**Projects 7-8-9**:  data_visualization/random_walks/molecular_motion/, data_visualization/rolling_dice/, data_visualization/random_walks/firefly_random_walk/, 
+**Projects 7-8-9**:  data_visualization/random_walks/molecular_motion/, data_visualization/rolling_dice/, data_visualization/random_walks/firefly_random_walk/,
 
 **Description**:
 These projects were developed while working through chapter 15 of Python Crash Course.
@@ -54,24 +54,24 @@ These projects were developed while working through chapter 16 and 17 of Python 
 - meteorology_visuals: This project features a class module (weather_data_plotter.py) designed to visualize weather data, including daily high and low temperatures and precipitation levels, using Matplotlib. The module reads weather data from CSV files and plots them, offering customization options such as shading between high and low temperatures.
 The project includes nine visualization modules that utilize the class to generate various data visualizations. Additionally, it represents my initial attempts at creating tests.
 
-Data source: National Centers for Environmental Information (NCEI) https://www.ncdc.noaa.gov/cdo-web/.
+Data source: National Centers for Environmental Information (NCEI) <https://www.ncdc.noaa.gov/cdo-web/>.
 
 - earthquakes: This project features a class module (quakes_plotter.py) designed to visualize earthquakes data, including longitude, latitude and magnitude, using Plotly. The module reads earthquakes data from GeoJSON files and plots them.
 
-Data source: United States Geological Survey (USGS) https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php.
+Data source: United States Geological Survey (USGS) <https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php>.
 
 - wildfires: This project features a class module (fires_analyzer.py) designed to visualize wildfire data, including longitude, latitude and brightness, using Plotly. The module reads wildfire data from CSV files and plots them.
 
-Data source: Fire Information for Resource Management System (FIRMS): https://firms.modaps.eosdis.nasa.gov/active_fire/
+Data source: Fire Information for Resource Management System (FIRMS): <https://firms.modaps.eosdis.nasa.gov/active_fire/>
 
 - github_python_julia_r_repos: This project features a class module (github_python_r_julia_repos.py) to visualize the top 20 most-starred repositories on GitHub for Python, Julia, and R, using Plotly. The module extracts data from GitHub’s API, and visualizes them in three separate subplots, one for each programming language, showing repository names and their star counts.
 
-# Usage
+## Usage
 
 Each project in this repository can be executed independently. Simply open the respective Python file in your preferred Python environment (such as VSCode or IDLE) and run it to observe the project in action.
 
-# Contact
+## Contact
 
-If you wish to get in touch or provide feedback, you can reach me via email at enricorinaudo91@gmail.com.
+If you wish to get in touch or provide feedback, you can reach me via email at <enricorinaudo91@gmail.com>.
 
 Happy coding!

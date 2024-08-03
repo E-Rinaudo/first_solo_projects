@@ -1,43 +1,42 @@
+"""This module tests the 'WeatherDataPlotter' class to ensure it works as expected."""
+
 from typing import Any
-import pytest
-from unittest.mock import patch
-import matplotlib.pyplot as plt
 from pathlib import Path
 from datetime import datetime
+from unittest.mock import patch
+
+import pytest
+import matplotlib.pyplot as plt
 
 from weather_data_plotter import WeatherDataPlotter as WDP
 
 
-@pytest.fixture
-def weather_plotter() -> WDP:
+@pytest.fixture(name="weather_plotter")
+def weather_plotter_fixture() -> WDP:
     """An instance of the weather class available to all test functions."""
-    weather_plotter = WDP(title="Weather Test", title_color="red")
-    return weather_plotter
+    return WDP(title="Weather Test", title_color="red")
 
 
-@pytest.fixture
-def path() -> Path:
+@pytest.fixture(name="path")
+def path_fixture() -> Path:
     """A path object available for all tests."""
-    path = Path("weather_data/madrid_weather_2023_F_in.csv")
-    return path
+    return Path("weather_data/madrid_weather_2023_F_in.csv")
 
 
-@pytest.fixture
-def header_row() -> list[str]:
+@pytest.fixture(name="header_row")
+def header_row_fixture() -> list[str]:
     """The header row of the file available for all tests."""
-    header_row = ["STATION", "NAME", "DATE", "PRCP", "TMAX", "TMIN"]
-    return header_row
+    return ["STATION", "NAME", "DATE", "PRCP", "TMAX", "TMIN"]
 
 
-@pytest.fixture
-def first_row() -> list[str]:
+@pytest.fixture(name="first_row")
+def first_row_fixture() -> list[str]:
     """The first row of the file available for all tests."""
-    first_row = ["SPE00120278", "MADRID BARAJAS, SP", "2023-01-01", "0.00", "62", "39"]
-    return first_row
+    return ["SPE00120278", "MADRID BARAJAS, SP", "2023-01-01", "0.00", "62", "39"]
 
 
-@pytest.fixture
-def dataset(weather_plotter, path) -> dict[Any, Any]:
+@pytest.fixture(name="dataset")
+def dataset_fixture(weather_plotter, path) -> dict[Any, Any]:
     """A plotter dataset available for all tests."""
     weather_plotter.weather_dataset(
         path, high=True, color="red", alpha=0.7, temp_scale="F°"
@@ -46,10 +45,11 @@ def dataset(weather_plotter, path) -> dict[Any, Any]:
 
 
 def test_dataset_gets_filled(path, dataset):
-    """Test if the dataset is filled with the data passed in the dataset method above."""
+    """Test if the dataset is filled with the data passed in the dataset method."""
     assert dataset["path"] == path
-    assert dataset["high"] == True
-    assert dataset["low"] == dataset["precip"] == False
+    assert dataset["high"]
+    assert not dataset["low"]
+    assert not dataset["precip"]
     assert dataset["color"] == "red"
     assert dataset["alpha"] == 0.7
     assert dataset["temp_scale"] == "F°"
@@ -58,14 +58,14 @@ def test_dataset_gets_filled(path, dataset):
 
 def test_read_file_not_found(weather_plotter, dataset):
     """Test if the system exits after a FileNotFound error."""
-    dataset["path"] = Path("foo.csv")
+    path = Path("foo.csv")
     with pytest.raises(SystemExit):
-        weather_plotter._read_file()
+        weather_plotter.weather_dataset(path)
 
 
-def test_is_file_read(weather_plotter, dataset, header_row):
+def test_is_file_read(weather_plotter, path, dataset, header_row):
     """Test if the file is read correctly and therefore the indices are collected."""
-    weather_plotter._read_file()
+    weather_plotter.weather_dataset(path)
 
     assert dataset["name_index"] == header_row.index("NAME")
     assert dataset["date_index"] == header_row.index("DATE")

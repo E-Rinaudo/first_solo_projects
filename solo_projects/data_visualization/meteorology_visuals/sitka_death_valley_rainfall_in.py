@@ -1,10 +1,11 @@
+"""
+This module imports the 'WeatherDataPlotter' class to plot and visualize
+the precipitation (inches) for Sitka (AK, US) and Death Valley (CA, US) in 2021.
+"""
+
 from pathlib import Path
 
 from weather_data_plotter import WeatherDataPlotter as WDP
-
-
-# Analize the precipitations (inches) in Sitka (AK, US)
-#   and Death Valley (CA, US) for the year 2021.
 
 
 if __name__ == "__main__":
@@ -14,7 +15,7 @@ if __name__ == "__main__":
     )
 
     # Add data for Sitka to the plotter dataset.
-    sitka_path = Path("weather_data/sitka_weather_2021_F_in.csv")
+    sitka_path = Path("weather_data/sitka_weather_2021_f_in.csv")
 
     weather_plotter.weather_dataset(
         path=sitka_path,
@@ -25,7 +26,7 @@ if __name__ == "__main__":
     )
 
     # Add data for Death Valley to the plotter dataset.
-    dv_path = Path("weather_data/death_valley_weather_2021_F_in.csv")
+    dv_path = Path("weather_data/death_valley_weather_2021_f_in.csv")
 
     weather_plotter.weather_dataset(
         path=dv_path,

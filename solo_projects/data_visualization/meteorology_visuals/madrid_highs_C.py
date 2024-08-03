@@ -1,9 +1,11 @@
+"""
+This module imports the 'WeatherDataPlotter' class to plot and visualize
+the high temperatures (C°) for Madrid (SP) in 2023.
+"""
+
 from pathlib import Path
 
 from weather_data_plotter import WeatherDataPlotter as WDP
-
-
-# Analize the high temperatures (C°) in Madrid (SP) for the year 2023.
 
 
 if __name__ == "__main__":
@@ -11,7 +13,7 @@ if __name__ == "__main__":
     weather_plotter = WDP(title="Daily High Temperatures, 2023", title_color="k")
 
     # Add data for Madrid to the plotter dataset.
-    path = Path("weather_data/madrid_weather_2023_C_cm.csv")
+    path = Path("weather_data/madrid_weather_2023_c_cm.csv")
 
     weather_plotter.weather_dataset(
         path=path,

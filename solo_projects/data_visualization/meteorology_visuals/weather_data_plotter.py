@@ -1,3 +1,13 @@
+"""
+This module defines the 'WeatherDataPlotter' class to analyze, plot and visualize
+weather data using matplotlib.pyplot.
+
+The class allows to:
+- Import weather data from CSV files.
+- Extract and process high and low temperatures, as well as precipitation data.
+- Generate and customize plots to visualize the data.
+"""
+
 import sys
 from typing import Any, Literal, Iterable, Optional
 from pathlib import Path
@@ -23,12 +33,12 @@ class WeatherDataPlotter:
         """Initialize the weather plot attributes."""
         self.title = title
         self.title_color = title_color
+        self.dataset: dict[Any, Any] = {}
+        # Initialize a list to store the dataset dictionary.
+        self.datasets: list[dict[Any, Any]] = []
 
         plt.style.use("seaborn-v0_8")
         self.fig, self.ax = plt.subplots(figsize=(14, 5.5), dpi=130)
-
-        # Initialize a list to store the dataset dictionary.
-        self.datasets: list[dict[Any, Any]] = []
 
     def weather_dataset(
         self,
@@ -43,7 +53,7 @@ class WeatherDataPlotter:
         precip_scale: Literal["cm", "in"] = "cm",
     ):
         """Make a dictionary to store the data needed for the visualization."""
-        self.dataset: dict[Any, Any] = {
+        self.dataset = {
             "path": path,
             "high": high,
             "low": low,
@@ -147,7 +157,7 @@ class WeatherDataPlotter:
         if data_1 == "highs" and data_2 == "lows":
             for data_index in ("high_index", "low_index"):
                 values.append(float(row[self.dataset[data_index]]))
-        elif data_1 == "highs" or data_1 == "lows" or data_1 == "precipitations":
+        elif data_1 in ("highs", "lows", "precipitations"):
             values.append(float(row[index]))
 
         return values
@@ -160,9 +170,7 @@ class WeatherDataPlotter:
         if data_1 == "highs" and data_2 == "lows":
             for data, value in [(data_1, values[0]), (data_2, values[1])]:
                 self._append_data(data, value)
-        elif (
-            data_1 == "highs" or data_1 == "lows" or data_1 == "precipitations"
-        ) and not data_2:
+        elif (data_1 in ("highs", "lows", "precipitations")) and not data_2:
             self._append_data(data_1, values[0])
 
     def _append_data(self, data_key: str, value: float):
@@ -307,12 +315,15 @@ class WeatherDataPlotter:
         """Customize the y axis."""
         if self.dataset["high"] or self.dataset["low"]:
             self.ax.set_ylabel(
-                f"Temperature ({self.dataset["temp_scale"]})", fontsize=FONT_SIZE_LABELS
+                f"Temperature ({self.dataset["temp_scale"]})",
+                fontsize=FONT_SIZE_LABELS,
+                labelpad=10,
             )
         elif self.dataset["precip"]:
             self.ax.set_ylabel(
                 f"Precipitation Amount ({self.dataset["precip_scale"]})",
                 fontsize=FONT_SIZE_LABELS,
+                labelpad=10,
             )
         if y_limit is not None:
             self.ax.set_ylim(*y_limit)

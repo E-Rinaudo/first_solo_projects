@@ -1,3 +1,10 @@
+"""
+This module imports the 'Die' class from die.py and defines the 'DieVisual class to plot
+the results of rolling two six-sided dice 50_000 times.
+
+The results are displayed in a bar graph using matplotlib.pyplot.
+"""
+
 import matplotlib.pyplot as plt
 
 from die import Die
@@ -7,8 +14,6 @@ NUM_ROLLS = 50_000
 FIG_SIZE = (14, 5.5)
 DPI = 130
 BARS_COLOR = "DarkCyan"
-TITLE_COLOR = "SteelBlue"
-AXES_LABELS_COLOR = "SlateGray"
 FONT_SIZE_TITLE = 16
 FONT_SIZE_AXES_LABELS = 12
 FONT_SIZE_TICKS = 8
@@ -16,7 +21,7 @@ FONT_SIZE_BARS_LABELS = 8
 
 
 class DieVisual:
-    """A class to visualize the rolls of two D6 dice 50,000 times."""
+    """A class to visualize the rolls of two D6 dice 50_000 times."""
 
     def __init__(self):
         """Make the die instance and generate the visualization."""
@@ -41,11 +46,11 @@ class DieVisual:
 
     def _label_bars(self, ax, bars):
         """Add text labels on top of the bars."""
-        for bar in bars:
-            rolls_result = bar.get_height()
+        for bar_ in bars:
+            rolls_result = bar_.get_height()
             if rolls_result > 0:
                 ax.text(
-                    x=(bar.get_x() + bar.get_width() / 2),
+                    x=(bar_.get_x() + bar_.get_width() / 2),
                     y=rolls_result,
                     s=int(rolls_result),
                     ha="center",
@@ -58,15 +63,18 @@ class DieVisual:
         ax.set_title(
             "Results of Rolling Two D6 Dice 50,000 Times",
             fontsize=FONT_SIZE_TITLE,
-            color=TITLE_COLOR,
         )
-        ax.set_xlabel("Result", fontsize=FONT_SIZE_AXES_LABELS, color=AXES_LABELS_COLOR)
+        ax.set_xlabel(
+            "Result",
+            fontsize=FONT_SIZE_AXES_LABELS,
+            labelpad=10,
+        )
         ax.set_ylabel(
             "Frequency of Result",
             fontsize=FONT_SIZE_AXES_LABELS,
-            color=AXES_LABELS_COLOR,
+            labelpad=10,
         )
-        ax.grid(axis="y", linestyle="dashed")
+        ax.grid(axis="y", linestyle="dashed", alpha=0.5)
         ax.set(xlim=(1, 13))
         ax.set_xticks(range(2, 13))
         ax.tick_params(labelsize=FONT_SIZE_TICKS)

@@ -1,8 +1,9 @@
 """
-This module uses the 'WildfirePlotter' class to visualize wildfire activity 
+This module defines the 'WildfirePlotter' class to visualize wildfire activity
 in North America (July 12, 2024 to July 14, 2024).
+
 It reads data from a CSV file, formats the dates and times,
-and creates a geographical scatter plot to visualize wildfire locations 
+and creates a geographical scatter plot to visualize wildfire locations
 and brightness using Plotly.
 """
 

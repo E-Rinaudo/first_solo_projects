@@ -1,3 +1,14 @@
+"""
+This module defines the 'EartquakesPlotter' class to analyze, plot and visualize
+earthquakes activity using Plotly.
+
+The class allows to:
+- Import the earthquake data from GeoJSON files.
+- Extract and process magnitude, longitude, latitude, event title, and date of the quake.
+- The cass also handles data formatting and customization of the plot title.
+- Generate and customize a geographical plot to visualize the data.
+"""
+
 import sys
 from pathlib import Path
 import json
@@ -12,10 +23,59 @@ import plotly.express as px
 class EartquakesPlotter:
     """Analyze and visualize earthquakes activity."""
 
-    def __init__(self, path: Path, reformat_path: Optional[Path] = None):
-        """Initialize the class attribute and call the methods needed to plot."""
+    def __init__(self, path: Path):
+        """Initialize the class attributes."""
         self.path = path
+        self._data_attributes()
+        self._data_lists()
+        self.dataframe = pd.DataFrame()
 
+    def _data_attributes(self):
+        """Initialize the data attributes."""
+        self.quakes_data = {}
+        (
+            self.mag,
+            self.long,
+            self.lat,
+            self.timestamp_seconds,
+        ) = (
+            0,
+            0,
+            0,
+            0,
+        )
+        (
+            self.event_title,
+            self.date,
+            self.title_date,
+            self.formatted_plot_title,
+        ) = (
+            "",
+            "",
+            "",
+            "",
+        )
+
+    def _data_lists(self):
+        """Initialize the lists to store the desired data."""
+        (
+            self.mags,
+            self.longs,
+            self.lats,
+            self.event_titles,
+            self.event_dates,
+            self.title_dates,
+        ) = (
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+        )
+
+    def analyze_data(self, reformat_path: Optional[Path] = None):
+        """Main method to analyze the earthquakes data."""
         self._read_text(reformat_path)
         self._extract_data()
         self._quakes_dataframe()
@@ -44,12 +104,11 @@ class EartquakesPlotter:
 
     def _extract_data(self):
         """Extract the data of interest from the python object."""
-        self.quakes = self.quakes_data["features"]
-        self._data_lists()
+        quakes = self.quakes_data["features"]
 
         # Extract magnitude, longitude, latitude, title and date for each earthquake
         #   only if the magnitude is not negative.
-        for quake in self.quakes:
+        for quake in quakes:
             if quake["properties"]["mag"] >= 0:
                 try:
                     self._collect_data(quake)
@@ -61,17 +120,6 @@ class EartquakesPlotter:
                     self._append_data()
 
         self._format_title()
-
-    def _data_lists(self):
-        """Lists to store the desired data."""
-        (
-            self.mags,
-            self.longs,
-            self.lats,
-            self.event_titles,
-            self.event_dates,
-            self.title_dates,
-        ) = ([], [], [], [], [], [])
 
     def _collect_data(self, quake: dict):
         """Collect the data of interest."""
@@ -133,7 +181,7 @@ class EartquakesPlotter:
 
     def plot_quakes(self, quakes_color: str, title_color: Optional[str] = None):
         """Plot the earthquakes."""
-        self.fig = px.scatter_geo(
+        fig = px.scatter_geo(
             data_frame=self.dataframe,
             size="Magnitude",
             lat="Latitude",
@@ -145,16 +193,16 @@ class EartquakesPlotter:
             hover_data={"Date": True},
         )
 
-        self._update_fig_title(title_color)
-        self.fig.show()
+        self._update_fig_title(fig, title_color)
+        fig.show()
 
-    def _update_fig_title(self, title_color):
+    def _update_fig_title(self, fig, title_color):
         """Update the layout of the title."""
-        self.fig.update_layout(
-            title=dict(
-                text=self.formatted_plot_title,
-                font=dict(family="Arial", color=title_color),
-                y=0.95,
-                x=0.48,
-            )
+        fig.update_layout(
+            title={
+                "text": self.formatted_plot_title,
+                "font": {"color": title_color},
+                "y": 0.95,
+                "x": 0.48,
+            }
         )

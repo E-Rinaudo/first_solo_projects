@@ -1,3 +1,11 @@
+"""
+This module imports the 'MolecularMotion' class from molecular_motion_random_walk.py
+and defines the 'MolecularVisual' class to visualize the walk using Matplotlib.
+
+The 'MolecularVisual' uses a loop to generate as many scatter plots as the user desires,
+representing the path of a pollen grain on a drop of water.
+"""
+
 import matplotlib.pyplot as plt
 
 from molecular_motion_random_walk import MolecularMotion
@@ -7,12 +15,12 @@ NUM_POINTS = 50_000
 FIG_SIZE = (14, 5.5)
 DPI = 130
 FONT_SIZE_TITLE = 14
-FONT_SIZE_MAIN_POINTS = 80
+FONT_SIZE_MAIN_POINTS = 100
 FONT_SIZE_LEGEND = 8
 
 
 class MolecularVisual:
-    """A class to generate a random walk chart of a pollen grain."""
+    """A class to visualize a random walk chart of a pollen grain."""
 
     def __init__(self):
         """Initialize and generate the random walk."""
@@ -42,7 +50,7 @@ class MolecularVisual:
             self.mm.x_values,
             self.mm.y_values,
             c=num_points,
-            cmap=plt.cm.Reds,
+            cmap="viridis",
             edgecolors="none",
             s=1,
         )
@@ -58,7 +66,7 @@ class MolecularVisual:
         ax.scatter(
             0,
             0,
-            color="green",
+            color="red",
             label="Start Walk",
             edgecolors="none",
             s=FONT_SIZE_MAIN_POINTS,
@@ -66,7 +74,7 @@ class MolecularVisual:
         ax.scatter(
             self.mm.x_values[-1],
             self.mm.y_values[-1],
-            color="blue",
+            color="violet",
             label="End Walk",
             edgecolors="none",
             s=FONT_SIZE_MAIN_POINTS,

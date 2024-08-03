@@ -1,3 +1,8 @@
+"""
+This module defines the 'RandomWalk' class to generate a random walk of 5_000 steps.
+Each step is taken in a random direction and with a random distance.
+"""
+
 from random import choice
 
 
