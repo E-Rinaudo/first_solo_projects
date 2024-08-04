@@ -24,4 +24,4 @@ For convenience, consider creating a terminal alias to run the script automatica
 
 If you wish to get in touch or provide feedback, you can reach me via email at <enricorinaudo91@gmail.com>.
 
-Happy coding!
+Happy studying!
