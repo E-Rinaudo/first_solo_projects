@@ -22,7 +22,7 @@ For managing interval durations. (Python Standard Library)
 
 ## Usage
 
-To start a workout session, execute hurricane_clock.py from your terminal or preferred IDE.
+To start a workout session, execute **hurricane_clock.py** from your terminal or preferred IDE.
 Follow the prompts to enter the details for your workout, then press 'ENTER' to begin. The program will guide you through the intervals, playing sound cues to mark the end of each interval.
 
 ## Contact

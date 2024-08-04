@@ -20,7 +20,7 @@ For handling and formatting dates. (Python Standard Library)
 
 ## Usage
 
-Execute study_method.py from your terminal or preferred IDE.
+Execute **study_method.py** from your terminal or preferred IDE.
 For convenience, consider creating a terminal alias to run the script automatically each day.
 
 ## Contact
