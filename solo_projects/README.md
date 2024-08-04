@@ -4,10 +4,17 @@ This directory contains a collection of Python projects that were developed as p
 
 ## Contents
 
-**data_visualization/**: Projects focused on visualizing data using libraries like Matplotlib and Plotly.
-**games/**: A collection of interactive games inspired by the "Alien Invasion" project, each with unique features.
-**hurricane_clock/**: A project simulating timed exercise intervals for a fitness program.
-**repetition_days/**: A tool that generates reminders for study tasks using spaced repetition.
+**data_visualization/**:
+Projects focused on visualizing data using libraries like Matplotlib and Plotly.
+
+**games/**:
+A collection of interactive games inspired by the "Alien Invasion" project, each with unique features.
+
+**hurricane_clock/**:
+A project simulating timed exercise intervals for a fitness program.
+
+**repetition_days/**:
+A tool that generates reminders for study tasks using spaced repetition.
 
 ## Usage
 

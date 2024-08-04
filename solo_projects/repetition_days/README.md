@@ -12,8 +12,11 @@ This script sets up a study schedule for each day of the week and defines the ta
 
 ## Dependencies
 
-**Tkinter**: For creating the graphical pop-up window. (Python Standard Library)
-**Datetime**: For handling and formatting dates. (Python Standard Library)
+**Tkinter**:
+For creating the graphical pop-up window. (Python Standard Library)
+
+**Datetime**:
+For handling and formatting dates. (Python Standard Library)
 
 ## Usage
 

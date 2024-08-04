@@ -14,8 +14,11 @@ This script contains two main classes:
 
 ## Dependencies
 
-**OS**: For system-level operations like playing sounds. (Python Standard Library)
-**Time**: For managing interval durations. (Python Standard Library)
+**OS**:
+For system-level operations like playing sounds. (Python Standard Library)
+
+**Time**:
+For managing interval durations. (Python Standard Library)
 
 ## Usage
 
