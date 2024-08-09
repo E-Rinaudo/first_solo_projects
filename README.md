@@ -229,7 +229,7 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 [Flake8-url]: https://flake8.pycqa.org/en/latest/
 
 <!-- PROJECTS LINKS -->
-[Data-Visualizations-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/solo_projects/data_visualizations
+[Data-Visualizations-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/data_visualizations
 [Games-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/games
 [Hurricane-Clock-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/hurricane_clock
 [Spaced-Repetition-Reminder-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/spaced_repetition_reminder
