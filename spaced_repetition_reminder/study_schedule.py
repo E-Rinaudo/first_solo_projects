@@ -9,6 +9,7 @@ For convenience, consider creating a terminal alias to run the script each day.
 
 from pop_up import StudyPopUp
 
+# Define the parameters.
 DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
 MONTHS = [
@@ -48,5 +49,5 @@ STUDY_METHOD = {
 subject = "python crash course"
 
 if __name__ == "__main__":
-    # Make the instance and generate the pop-up.
+    # Make an instance of StudyPopUp to display the study reminder.
     show_popup = StudyPopUp(DAYS, MONTHS, STUDY_METHOD, subject)
