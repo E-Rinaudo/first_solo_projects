@@ -41,7 +41,7 @@ This subdirectory contains two projects that visualize random walks:
 Shows the results of rolling two six-sided dice 50,000 times, using Matplotlib.
 
 + **[wildfires/][Wildfires-url]**:
-Illustrates the intensity and spread of wildfires through a visualization created with Plotly.
+Illustrates the intensity and spread of wildfires in the contiguous USA and Hawaii from July 12 to July 14, 2024 through a visualization created with Plotly.
 
 ### Built With
 
