@@ -68,6 +68,8 @@ def test_do_data_get_extracted(quakes_plotter, quake_dictionary):
 
 def test_is_date_formatted(quakes_plotter, quake_dictionary):
     """Test if the date of the earthquake event is formatted."""
+    quakes_plotter.analyze_data()
+    
     utc_timezone = timezone.utc
     date = quake_dictionary["properties"]["time"] / 1000
     date_datetime = datetime.fromtimestamp(date, utc_timezone)
