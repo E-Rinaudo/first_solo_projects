@@ -502,7 +502,7 @@ class HungryFox:
         """Check if game can be restarted."""
         return (self.difficulty_levels) and (self.game_paused)
 
-    def _choose_clicked(self):
+    def _choose_difficulty(self):
         """Store attributes for the click of the difficulty levels buttons."""
         self.easy_clicked = self._is_button_clicked(self.easy_diff_button)
         self.medium_clicked = self._is_button_clicked(self.medium_diff_button)
