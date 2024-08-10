@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module imports the 'EartquakesPlotter' class to plot and visualize
 all the earthquakes from mid-June to mid-July, 2024.

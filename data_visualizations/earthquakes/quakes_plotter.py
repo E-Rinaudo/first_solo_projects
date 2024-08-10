@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'EartquakesPlotter' class to analyze, plot and visualize
 earthquakes activity using Plotly.

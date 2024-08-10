@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'StudyPopUp' class, which creates a pop-up window using tkinter.
 The pop-up displays information about the subject to study or repeat

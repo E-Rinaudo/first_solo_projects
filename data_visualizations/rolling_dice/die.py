@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'Die' class to represent a die with 6 sides.
 The die is rolled to obtain a random number between 1 and the number of sides.

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module imports the 'Die' class from die.py and defines the 'DieVisual class to plot
 the results of rolling two six-sided dice 50_000 times.

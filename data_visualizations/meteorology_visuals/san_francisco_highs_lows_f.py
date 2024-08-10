@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module imports the 'WeatherDataPlotter' class to plot and visualize
 the high and low temperatures (F°) for San Francisco (CA, US) in 2000.

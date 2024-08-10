@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module imports the 'WeatherDataPlotter' class to plot and visualize
 the precipitation (inches) for Sitka (AK, US) and Death Valley (CA, US) in 2021.

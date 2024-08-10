@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """This module tests the 'WeatherDataPlotter' class to ensure it works as expected."""
 
 from typing import Any

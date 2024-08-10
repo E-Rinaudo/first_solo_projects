@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'Sound' class to manage the game's audio.
 

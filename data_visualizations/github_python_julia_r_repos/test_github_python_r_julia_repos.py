@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """This module tests the 'RepositoryPlotter' class to ensure it works as expected."""
 
 import pytest

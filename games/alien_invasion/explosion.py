@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'Explosion' class to manage explosion effects in the game.
 

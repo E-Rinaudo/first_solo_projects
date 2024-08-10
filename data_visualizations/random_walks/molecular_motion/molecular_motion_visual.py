@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module imports the 'MolecularMotion' class from molecular_motion_random_walk.py
 and defines the 'MolecularVisual' class to visualize the walk using Matplotlib.

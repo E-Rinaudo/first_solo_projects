@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'Farmer' class to represent individual farmers in the game.
 

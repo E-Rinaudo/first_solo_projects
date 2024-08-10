@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'SlidingPenguin' class that manages the core functionality 
 of the Sliding Penguin game.

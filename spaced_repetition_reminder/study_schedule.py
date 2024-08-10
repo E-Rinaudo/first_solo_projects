@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module imports the 'StudyPopUp' class from the pop_up module
 to generate what to study/repeat each day.

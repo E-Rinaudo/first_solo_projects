@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module imports the 'RandomWalk' class from the ff_random_walk module
 and defines the 'FireflyWalk' class to visualize the walk simulation using Plotly.

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'OrcaBullet' class to manage bullets fired by orcas.
 

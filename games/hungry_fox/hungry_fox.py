@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'HungryFox' class that manages the core functionality 
 of the Hungry Fox game.

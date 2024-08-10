@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'GameStats' class to track and manage game statistics.
 

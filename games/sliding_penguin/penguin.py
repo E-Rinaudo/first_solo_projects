@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'Penguin' class to manage the penguin character in the game.
 

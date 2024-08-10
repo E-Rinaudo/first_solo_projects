@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines classes to simulate timed exercise intervals for Hurricane Hypertrophy,
 a popular workout program from Athleanx.

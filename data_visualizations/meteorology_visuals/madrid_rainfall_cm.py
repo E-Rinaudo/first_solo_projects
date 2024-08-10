@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module imports the 'WeatherDataPlotter' class to plot and visualize
 the precipitation (cm) for Madrid (SP) in 2023.

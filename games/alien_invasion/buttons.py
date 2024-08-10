@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'Buttons' class to make and manage various buttons in the game.
 

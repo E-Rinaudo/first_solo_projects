@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'WildfirePlotter' class to visualize wildfire activity
 in North America (July 12, 2024 to July 14, 2024).

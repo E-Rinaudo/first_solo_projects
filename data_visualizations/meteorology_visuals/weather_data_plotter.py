@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """
 This module defines the 'WeatherDataPlotter' class to analyze, plot and visualize
 weather data using matplotlib.pyplot.
