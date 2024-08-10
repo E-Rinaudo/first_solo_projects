@@ -37,13 +37,16 @@ def quake_dictionary_fixture() -> dict:
 def test_read_file_not_found():
     """Test if the system exits after a FileNotFound error."""
     with pytest.raises(SystemExit):
-        EP(Path("foo.geojson"))
+        foo_plot = EP(Path("foo.geojson"))
+        foo_plot.analyze_data()
 
 
 def test_is_readable_written(path):
     """Test if the readable geojson file is written."""
     reformat_path = Path("earthquakes_files/significant_month_readable.geojson")
-    EP(path, reformat_path)
+    reformat_plot = EP(path)
+    reformat_plot.analyze_data(reformat_path)
+
     assert reformat_path.exists()
 
 
