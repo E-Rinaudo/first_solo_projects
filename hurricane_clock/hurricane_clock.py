@@ -18,13 +18,15 @@ import time
 class HurricaneWorkout:
     """Represent the Hurricane Hypertrophy workout."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Display a greet message.
         Then, determine the workout based on user inputs and start it.
         """
-        self.sets = 0
-        self.exercise = 0
+        self.sets: int = 0
+        self.exercise: int = 0
+        self.muscle: str = ""
+        self.start: str = ""
 
         print("\nAre you ready to start your workout?")
 
@@ -33,12 +35,12 @@ class HurricaneWorkout:
         self._workout_exercise()
         self.workout_start()
 
-    def _workout_muscle(self):
+    def _workout_muscle(self) -> None:
         """Ask user for muscle being worked."""
         print("\nWhich muscle are you training today?")
         self.muscle = input("Muscle: ").title()
 
-    def _workout_sets(self):
+    def _workout_sets(self) -> None:
         """Ask user for number of sets."""
         print("\nHow many sets (4 or 8)?")
 
@@ -53,14 +55,14 @@ class HurricaneWorkout:
                     break
                 print("\nPlease, type the correct number of sets (4 or 8).")
 
-    def _workout_exercise(self):
+    def _workout_exercise(self) -> None:
         """Determine the type of exercise."""
         if self.sets == 8:
             self.exercise = 320
         elif self.sets == 4:
             self.exercise = 160
 
-    def workout_start(self):
+    def workout_start(self) -> None:
         """Start the workout."""
         self.start = input(
             f"\nPress 'ENTER' when ready to start the SOB {self.exercise}."
@@ -70,11 +72,11 @@ class HurricaneWorkout:
 class HurricaneSob:
     """Represent the Hurricane Hypertrophy interval training structure."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the instance of the HurricaneWorkout class."""
-        self.workout = HurricaneWorkout()
+        self.workout: HurricaneWorkout = HurricaneWorkout()
 
-    def run_clock(self):
+    def run_clock(self) -> None:
         """Create the exercise interval clock."""
         print(f"\nGet ready to blast your {self.workout.muscle}.")
 
@@ -90,7 +92,7 @@ class HurricaneSob:
         # Restart the clock if the interval completed was the SOB 320.
         self._restart_clock()
 
-    def _run_interval(self, duration: int):
+    def _run_interval(self, duration: int) -> None:
         """
         Run for the specified duration in seconds
         and play a sound three times to simulate a countdown.
@@ -100,7 +102,7 @@ class HurricaneSob:
         for _ in range(3):
             os.system("afplay /System/Library/Sounds/Ping.aiff")
 
-    def _restart_clock(self):
+    def _restart_clock(self) -> None:
         """Restart the clock if the exercise completed was the SOB 320."""
         if self.workout.exercise == 320:
             self.workout.exercise = 160

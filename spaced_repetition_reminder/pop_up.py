@@ -19,7 +19,7 @@ class StudyPopUp:
         months: list[str],
         study_method: dict[str, list[str]],
         subject: str,
-    ):
+    ) -> None:
         """Initialize the pop-up attributes."""
         self.days = days
         self.months = months
@@ -34,7 +34,7 @@ class StudyPopUp:
         # Generate the pop-up.
         self._make_popup()
 
-    def _get_date(self):
+    def _get_date(self) -> None:
         """Get and neatly format the current date."""
         current_date = datetime.now().date()
 
@@ -49,7 +49,7 @@ class StudyPopUp:
         # Format the date as a string.
         self.formatted_date = current_date.strftime(f"{day_name}, %d {month_name} %Y")
 
-    def _make_popup(self):
+    def _make_popup(self) -> None:
         """Generate a pop-up window displaying the current date,
         the subject being studied, and the tasks for the day.
         """
@@ -57,7 +57,7 @@ class StudyPopUp:
         self._customize_popup(popup)
         popup.mainloop()
 
-    def _customize_popup(self, popup: tk.Tk):
+    def _customize_popup(self, popup: tk.Tk) -> None:
         """Customize the pop-up."""
         popup.title("Spaced Repetition Reminder")
 
@@ -69,7 +69,7 @@ class StudyPopUp:
 
         self._repetition_text(popup)
 
-    def _repetition_text(self, popup: tk.Tk):
+    def _repetition_text(self, popup: tk.Tk) -> None:
         """Display the text to describe the repetition for the current day."""
         tasks = self.study_method.get(self.days[self.day_of_week], [])
         for i, task in enumerate(tasks[:4]):
