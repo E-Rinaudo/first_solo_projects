@@ -13,7 +13,13 @@ from datetime import datetime
 class StudyPopUp:
     """Make a pop-up window to display the subject being studied."""
 
-    def __init__(self, days, months, study_method, subject):
+    def __init__(
+        self,
+        days: list[str],
+        months: list[str],
+        study_method: dict[str, list[str]],
+        subject: str,
+    ):
         """Initialize the pop-up attributes."""
         self.days = days
         self.months = months
@@ -34,7 +40,7 @@ class StudyPopUp:
         self._customize_popup(popup)
         popup.mainloop()
 
-    def _customize_popup(self, popup):
+    def _customize_popup(self, popup: tk.Tk):
         """Customize the pop-up."""
         popup.title("Spaced Repetition Reminder")
 
@@ -46,9 +52,9 @@ class StudyPopUp:
 
         self._repetition_text(popup)
 
-    def _repetition_text(self, popup):
+    def _repetition_text(self, popup: tk.Tk):
         """Display the text to describe the repetition for the current day."""
-        tasks = self.study_method.get(self.days[self.day_of_week])
+        tasks = self.study_method.get(self.days[self.day_of_week], [])
         for i, task in enumerate(tasks[:4]):
             tk.Label(popup, text=f"Today's task {i + 1}:", foreground="dark blue").pack(
                 anchor="w"
