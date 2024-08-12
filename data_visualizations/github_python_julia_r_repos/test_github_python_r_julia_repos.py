@@ -3,6 +3,7 @@
 """This module tests the 'RepositoryPlotter' class to ensure it works as expected."""
 
 import pytest
+
 from github_python_r_julia_repos import RepositoryPlotter as RP
 
 
@@ -13,7 +14,7 @@ def repo_plotter_fixture() -> RP:
     return repo_plotter
 
 
-def test_api_call_error(repo_plotter):
+def test_api_call_error(repo_plotter: RP) -> None:
     """Test if the system exits after a RequestException error."""
     repo_plotter.langs_urls = {
         "Python": "api.foo.foo",
@@ -24,7 +25,9 @@ def test_api_call_error(repo_plotter):
         repo_plotter.main()
 
 
-def test_status_code_is_200(repo_plotter, capsys):
+def test_status_code_is_200(
+    repo_plotter: RP, capsys: pytest.CaptureFixture[str]
+) -> None:
     """Test if the status code of 200 is printed."""
     repo_plotter.main()
     out, err = capsys.readouterr()
@@ -33,7 +36,7 @@ def test_status_code_is_200(repo_plotter, capsys):
     assert "Status code (R): 200" in out
 
 
-def test_pull_20_repositories(repo_plotter):
+def test_pull_20_repositories(repo_plotter: RP) -> None:
     """Test if the top 20 repositories are extracted for each language."""
     repo_plotter.main()
 
@@ -41,7 +44,7 @@ def test_pull_20_repositories(repo_plotter):
     assert total_repos == 60
 
 
-def test_pull_repo_names_stars(repo_plotter):
+def test_pull_repo_names_stars(repo_plotter: RP) -> None:
     """Test if names links and stars of the three languages are stored correctly."""
     repo_plotter.main()
 
