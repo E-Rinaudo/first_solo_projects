@@ -25,12 +25,29 @@ class StudyPopUp:
         self.months = months
         self.study_method = study_method
         self.subject = subject
+        self.day_of_week: int = 0
+        self.formatted_date: str = ""
 
         # Get the current date in a neatly formatted string.
         self._get_date()
 
         # Generate the pop-up.
         self._make_popup()
+
+    def _get_date(self):
+        """Get and neatly format the current date."""
+        current_date = datetime.now().date()
+
+        # Get the current day and month as int.
+        self.day_of_week = current_date.weekday()
+        month = current_date.month - 1
+
+        # Use the int to get the name of the days and months from days and months lists.
+        day_name = self.days[self.day_of_week].title()
+        month_name = self.months[month].title()
+
+        # Format the date as a string.
+        self.formatted_date = current_date.strftime(f"{day_name}, %d {month_name} %Y")
 
     def _make_popup(self):
         """Generate a pop-up window displaying the current date,
@@ -60,18 +77,3 @@ class StudyPopUp:
                 anchor="w"
             )
             tk.Label(popup, text=f"- {task}.").pack(anchor="w")
-
-    def _get_date(self):
-        """Get and neatly format the current date."""
-        current_date = datetime.now().date()
-
-        # Get the current day and month as int.
-        self.day_of_week = current_date.weekday()
-        month = current_date.month - 1
-
-        # Use the int to get the name of the days and months from days and months lists.
-        day_name = self.days[self.day_of_week].title()
-        month_name = self.months[month].title()
-
-        # Format the date as a string.
-        self.formatted_date = current_date.strftime(f"{day_name}, %d {month_name} %Y")
