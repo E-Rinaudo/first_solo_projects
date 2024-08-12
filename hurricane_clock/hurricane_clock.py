@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 """
-This module defines classes to simulate timed exercise intervals for Hurricane Hypertrophy,
-a popular workout program from Athleanx.
+This module defines classes to simulate timed exercise intervals
+for Hurricane Hypertrophy, a popular workout program from Athleanx.
 
 - 'HurricaneWorkout': Prompts the user for the workout details such as:
                       muscle group, number of sets, and type of exercise.
@@ -90,7 +90,7 @@ class HurricaneSob:
         # Restart the clock if the interval completed was the SOB 320.
         self._restart_clock()
 
-    def _run_interval(self, duration):
+    def _run_interval(self, duration: int):
         """
         Run for the specified duration in seconds
         and play a sound three times to simulate a countdown.
