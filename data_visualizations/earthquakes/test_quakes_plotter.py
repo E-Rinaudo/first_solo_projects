@@ -4,6 +4,7 @@
 
 from pathlib import Path
 from datetime import datetime, timezone
+from typing import Any
 import pytest
 
 from quakes_plotter import EartquakesPlotter as EP
@@ -16,14 +17,14 @@ def path_fixture() -> Path:
 
 
 @pytest.fixture(name="quakes_plotter")
-def quakes_plotter_fixture(path) -> EP:
+def quakes_plotter_fixture(path: Path) -> EP:
     """An instance of the eartquakes class available to all test functions."""
     quakes_plotter = EP(path)
     return quakes_plotter
 
 
 @pytest.fixture(name="quake_dictionary")
-def quake_dictionary_fixture() -> dict:
+def quake_dictionary_fixture() -> dict[str, Any]:
     """A mock of an earthquake dictionary available for all tests."""
     quake_dictionary = {
         "properties": {
@@ -36,14 +37,14 @@ def quake_dictionary_fixture() -> dict:
     return quake_dictionary
 
 
-def test_read_file_not_found():
+def test_read_file_not_found() -> None:
     """Test if the system exits after a FileNotFound error."""
     with pytest.raises(SystemExit):
         foo_plot = EP(Path("foo.geojson"))
         foo_plot.analyze_data()
 
 
-def test_is_readable_written(path):
+def test_is_readable_written(path: Path) -> None:
     """Test if the readable geojson file is written."""
     reformat_path = Path("earthquakes_files/significant_month_readable.geojson")
     reformat_plot = EP(path)
@@ -52,15 +53,19 @@ def test_is_readable_written(path):
     assert reformat_path.exists()
 
 
-def test_do_data_get_extracted(quakes_plotter, quake_dictionary):
+def test_do_data_get_extracted(
+    quakes_plotter: EP, quake_dictionary: dict[str, Any]
+) -> None:
     """Test if the data get extracted."""
-    quakes_plotter.quakes = [quake_dictionary, quake_dictionary]
+    quakes = [quake_dictionary, quake_dictionary]
     quakes_plotter._data_lists()
 
-    for quake in quakes_plotter.quakes:
-        quakes_plotter._collect_data(quake)
-        quakes_plotter._get_quakes_date()
-        quakes_plotter._append_data()
+    quakes_plotter.quakes_data = {
+        "features": quakes,
+        "metadata": {"title": "Test Earthquake Data"},
+    }
+
+    quakes_plotter._extract_data()
 
     assert quake_dictionary["properties"]["mag"] in quakes_plotter.mags
     assert quake_dictionary["geometry"]["coordinates"][0] in quakes_plotter.longs
@@ -68,7 +73,9 @@ def test_do_data_get_extracted(quakes_plotter, quake_dictionary):
     assert quake_dictionary["properties"]["title"] in quakes_plotter.event_titles
 
 
-def test_is_date_formatted(quakes_plotter, quake_dictionary):
+def test_is_date_formatted(
+    quakes_plotter: EP, quake_dictionary: dict[str, Any]
+) -> None:
     """Test if the date of the earthquake event is formatted."""
     quakes_plotter.analyze_data()
 
@@ -79,7 +86,9 @@ def test_is_date_formatted(quakes_plotter, quake_dictionary):
     assert formatted_date in quakes_plotter.event_dates
 
 
-def test_is_negative_mag_appended(quakes_plotter, quake_dictionary):
+def test_is_negative_mag_appended(
+    quakes_plotter: EP, quake_dictionary: dict[str, Any]
+) -> None:
     """Assure negative magnitude values are not appended in the mags list."""
     negative_quake = {
         "properties": {
@@ -89,14 +98,12 @@ def test_is_negative_mag_appended(quakes_plotter, quake_dictionary):
         },
         "geometry": {"coordinates": [123.1605, 6.0646]},
     }
-    quakes_plotter.quakes = [quake_dictionary, negative_quake]
+    quakes_plotter.quakes_data = {
+        "features": [quake_dictionary, negative_quake],
+        "metadata": {"title": "Test Earthquake Data"},
+    }
     quakes_plotter._data_lists()
-
-    for quake in quakes_plotter.quakes:
-        if quake["properties"]["mag"] >= 0:
-            quakes_plotter._collect_data(quake)
-            quakes_plotter._get_quakes_date()
-            quakes_plotter._append_data()
+    quakes_plotter._extract_data()
 
     assert negative_quake["properties"]["mag"] not in quakes_plotter.mags
     assert quake_dictionary["properties"]["mag"] in quakes_plotter.mags
