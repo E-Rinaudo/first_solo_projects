@@ -11,6 +11,7 @@ import pytest
 import matplotlib.pyplot as plt
 
 from weather_data_plotter import WeatherDataPlotter as WDP
+from weather_data_plotter import WeatherDataset as WD
 
 
 @pytest.fixture(name="weather_plotter")
@@ -38,7 +39,7 @@ def first_row_fixture() -> list[str]:
 
 
 @pytest.fixture(name="dataset")
-def dataset_fixture(weather_plotter, path) -> dict[Any, Any]:
+def dataset_fixture(weather_plotter: WDP, path: Path) -> WD:
     """A plotter dataset available for all tests."""
     weather_plotter.weather_dataset(
         path, high=True, color="red", alpha=0.7, temp_scale="F°"
@@ -46,7 +47,7 @@ def dataset_fixture(weather_plotter, path) -> dict[Any, Any]:
     return weather_plotter.dataset
 
 
-def test_dataset_gets_filled(path, dataset):
+def test_dataset_gets_filled(path: Path, dataset: dict[str, Any]) -> None:
     """Test if the dataset is filled with the data passed in the dataset method."""
     assert dataset["path"] == path
     assert dataset["high"]
@@ -58,14 +59,16 @@ def test_dataset_gets_filled(path, dataset):
     assert dataset["precip_scale"] == "cm"
 
 
-def test_read_file_not_found(weather_plotter, dataset):
+def test_read_file_not_found(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
     """Test if the system exits after a FileNotFound error."""
     path = Path("foo.csv")
     with pytest.raises(SystemExit):
         weather_plotter.weather_dataset(path)
 
 
-def test_is_file_read(weather_plotter, path, dataset, header_row):
+def test_is_file_read(
+    weather_plotter: WDP, path: Path, dataset: dict[str, Any], header_row: list[str]
+) -> None:
     """Test if the file is read correctly and therefore the indices are collected."""
     weather_plotter.weather_dataset(path)
 
@@ -76,7 +79,9 @@ def test_is_file_read(weather_plotter, path, dataset, header_row):
     assert dataset["precip_index"] == 0
 
 
-def test_exit_if_no_data(weather_plotter, dataset, header_row):
+def test_exit_if_no_data(
+    weather_plotter: WDP, dataset: dict[str, Any], header_row: list[str]
+) -> None:
     """Test if the system exits if the header_row is missing the required data."""
     header_row_copy_1 = header_row.copy()
     header_row_copy_1.remove("DATE")
@@ -94,22 +99,22 @@ def test_exit_if_no_data(weather_plotter, dataset, header_row):
         weather_plotter._get_data_indices(header_row_copy_3)
 
 
-def test_collect_values(dataset, first_row):
+def test_collect_values(dataset: dict[str, Any], first_row: list[str]) -> None:
     """Test if the data is being extracted and then collected correctly."""
     date = datetime.strptime(first_row[2], "%Y-%m-%d")
 
     assert dataset["loc_name"] == first_row[1]
     assert date in dataset["dates"]
-    assert float(first_row[-2]) in dataset["weather_data"]["highs"]
-    assert float(first_row[-1]) not in dataset["weather_data"]["lows"]
+    assert float(first_row[-2]) in dataset["weather_info"]["highs"]
+    assert float(first_row[-1]) not in dataset["weather_info"]["lows"]
     assert (
-        dataset["weather_data"]["lows"]
-        == dataset["weather_data"]["precipitations"]
+        dataset["weather_info"]["lows"]
+        == dataset["weather_info"]["precipitations"]
         == []
     )
 
 
-def test_does_it_plot(weather_plotter, dataset):
+def test_does_it_plot(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
     """Test if the methods used to plot the weather get called."""
     with patch.object(weather_plotter.ax, "plot") as make_plot:
         weather_plotter._make_plot(shade_between=True)
@@ -117,14 +122,14 @@ def test_does_it_plot(weather_plotter, dataset):
         plt.close("all")
 
 
-def test_shade_between(weather_plotter, dataset):
+def test_shade_between(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
     """Test if fill_between doesn't get called when shade_between is False."""
     with patch.object(weather_plotter.ax, "fill_between") as fill_between:
         weather_plotter.plot_visual(shade_between=False)
         assert not fill_between.called, "_fill_between was called."
 
 
-def test_is_title_customized(weather_plotter, dataset):
+def test_is_title_customized(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
     """Test if the title gets formatted correctly."""
     formatted_title = weather_plotter._format_plot_title()
     title = "Madrid Barajas, SP"
@@ -137,7 +142,7 @@ def test_is_title_customized(weather_plotter, dataset):
     assert actual_title == title
 
 
-def test_axis_labels(weather_plotter, dataset):
+def test_axis_labels(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
     """Test if the axes correctly displays their labels."""
     weather_plotter._make_plot(shade_between=False)
 
@@ -150,7 +155,7 @@ def test_axis_labels(weather_plotter, dataset):
     assert ylabel == f"Temperature ({dataset["temp_scale"]})"
 
 
-def test_legend(weather_plotter, dataset):
+def test_legend(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
     """Test if the legend is displayed correctly."""
     weather_plotter._make_plot(shade_between=False)
     weather_plotter._customize_extras()

@@ -12,9 +12,7 @@ from weather_data_plotter import WeatherDataPlotter as WDP
 
 if __name__ == "__main__":
     # Create a plotter instance.
-    weather_plotter = WDP(
-        title="Daily Precipitation, 2021", title_color="mediumseagreen"
-    )
+    weather_plotter = WDP(title="Daily Precipitation, 2021")
 
     # Add data for Sitka to the plotter dataset.
     sitka_path = Path("weather_data/sitka_weather_2021_f_in.csv")

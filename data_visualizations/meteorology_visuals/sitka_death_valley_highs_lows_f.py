@@ -12,9 +12,7 @@ from weather_data_plotter import WeatherDataPlotter as WDP
 
 if __name__ == "__main__":
     # Create a plotter instance.
-    weather_plotter = WDP(
-        title="Daily High and Low Temperatures, 2021", title_color="k"
-    )
+    weather_plotter = WDP(title="Daily High and Low Temperatures, 2021")
 
     # Add data for Death Valley to the plotter dataset.
     dv_path = Path("weather_data/death_valley_weather_2021_f_in.csv")

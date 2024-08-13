@@ -12,9 +12,7 @@ from weather_data_plotter import WeatherDataPlotter as WDP
 
 if __name__ == "__main__":
     # Create a plotter instance.
-    weather_plotter = WDP(
-        title="Daily High and Low Temperatures, 2000", title_color="k"
-    )
+    weather_plotter = WDP(title="Daily High and Low Temperatures, 2000")
 
     # Add data for San Francisco to the plotter dataset.
     path = Path("weather_data/san_francisco_weather_2000_f_in.csv")
