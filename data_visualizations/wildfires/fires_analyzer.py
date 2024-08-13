@@ -24,14 +24,12 @@ class WildfirePlotter:
         self.acq_times: list[str] = []
         self.acq_dates: list[str] = []
         self.fires_data: pd.DataFrame = pd.DataFrame()
-        self._read_file()
-        self._visualize_plot()
 
-    def _read_file(self) -> None:
+    def read_file(self) -> None:
         """Read the csv file."""
         self.fires_data = pd.read_csv(self.path)
 
-    def _visualize_plot(self) -> None:
+    def visualize_plot(self) -> None:
         """Visualize wildfire activity."""
         self._format_label_text()
         # Lower the brightness value to use it as a size in the plot.
@@ -122,3 +120,5 @@ if __name__ == "__main__":
     # Give a path and make the instance to visualize the data.
     PATH = "fires_file/MODIS_C6_1_USA_contiguous_and_Hawaii_3d.csv"
     wildfire = WildfirePlotter(PATH)
+    wildfire.read_file()
+    wildfire.visualize_plot()
