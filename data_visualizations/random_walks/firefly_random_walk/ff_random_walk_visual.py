@@ -23,34 +23,33 @@ FONT_AXES_LABELS = 10
 class FireflyWalk:
     """A Class to visualize the random walk of a Firefly at night."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the Random Walk attributes and generate it."""
-        rw = RandomWalk()
-        rw.make_walk()
+        self.rw: RandomWalk = RandomWalk()
+        self.rw.make_walk()
+        self.fig: go.Figure = None
 
-        self._make_plot(rw)
-
-    def _make_plot(self, rw):
+    def make_plot(self) -> None:
         """Create and display the scatter plot for the random walk."""
-        fig = go.Figure()
+        self.fig = go.Figure()
 
-        self._random_walk_trace(rw, fig)
-        self._starting_point(fig)
-        self._ending_point(rw, fig)
-        self._customize_plot(fig)
+        self._random_walk_trace()
+        self._starting_point()
+        self._ending_point()
+        self._customize_plot()
 
-        fig.show()
+        self.fig.show()
 
-    def _random_walk_trace(self, rw, fig):
+    def _random_walk_trace(self) -> None:
         """Add the random walk trace."""
-        fig.add_trace(
+        self.fig.add_trace(
             go.Scattergl(
-                x=rw.x_values,
-                y=rw.y_values,
+                x=self.rw.x_values,
+                y=self.rw.y_values,
                 name="Random Walk",
                 mode="markers",
                 marker={
-                    "color": np.arange(rw.num_points),
+                    "color": np.arange(self.rw.num_points),
                     "symbol": "star",
                     "size": FONT_SCATTER_POINTS,
                     "colorscale": "Hot",
@@ -58,9 +57,9 @@ class FireflyWalk:
             )
         )
 
-    def _starting_point(self, fig):
+    def _starting_point(self) -> None:
         """Add the starting point."""
-        fig.add_trace(
+        self.fig.add_trace(
             go.Scatter(
                 x=[0],
                 y=[0],
@@ -74,12 +73,12 @@ class FireflyWalk:
             )
         )
 
-    def _ending_point(self, rw, fig):
+    def _ending_point(self) -> None:
         """Add the ending point."""
-        fig.add_trace(
+        self.fig.add_trace(
             go.Scatter(
-                x=[rw.x_values[-1]],
-                y=[rw.y_values[-1]],
+                x=[self.rw.x_values[-1]],
+                y=[self.rw.y_values[-1]],
                 name="End Point",
                 mode="markers",
                 marker={
@@ -90,9 +89,9 @@ class FireflyWalk:
             )
         )
 
-    def _customize_plot(self, fig):
+    def _customize_plot(self) -> None:
         """Customize the plot."""
-        fig.update_layout(
+        self.fig.update_layout(
             plot_bgcolor="black",
             title={
                 "text": "Firefly Dance: A Random Walk on a Summer Night",
@@ -117,3 +116,4 @@ class FireflyWalk:
 if __name__ == "__main__":
     # Make the instance and generate the plot.
     fw = FireflyWalk()
+    fw.make_plot()

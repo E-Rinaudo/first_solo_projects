@@ -11,15 +11,15 @@ from random import choice
 class MolecularMotion:
     """A class to generate a random walk of a pollen grain on water."""
 
-    def __init__(self, num_points=5000):
+    def __init__(self, num_points: int = 5000) -> None:
         """Initialize the random walk attributes."""
         self.num_points = num_points
 
         # The walk starts at (0, 0).
-        self.x_values = [0]
-        self.y_values = [0]
+        self.x_values: list[int] = [0]
+        self.y_values: list[int] = [0]
 
-    def make_walk(self):
+    def make_walk(self) -> None:
         """Generate the random walk."""
         while len(self.x_values) < self.num_points:
             x_step = self._get_step()
@@ -35,7 +35,7 @@ class MolecularMotion:
             self.x_values.append(x)
             self.y_values.append(y)
 
-    def _get_step(self):
+    def _get_step(self) -> int:
         """Determine direction and distance of each step."""
         direction = choice([1, -1])
         distance = choice([0, 1, 2, 3, 4, 5])
