@@ -3,7 +3,7 @@
 [![MIT License][license-shield]][license-url]
 [![Gmail][Gmail-shield]][Gmail-url]
 
-**Spaced Repetition Reminder** is a simple program designed to help with study planning by generating a daily reminder based on the spaced repetition method, a learning technique where information is reviewed at increasing intervals over time to improve long-term retention and recall.
+**Spaced Repetition Reminder** is a simple program designed to help with study planning by generating a daily reminder based on the spaced repetition method, a learning technique where information is reviewed at increasing intervals over time to improve long-term retention and recall.s
 
 <!-- markdownlint-disable MD001 -->
 ### Table of Contents

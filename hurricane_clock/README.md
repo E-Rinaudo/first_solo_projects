@@ -3,7 +3,7 @@
 [![MIT License][license-shield]][license-url]
 [![Gmail][Gmail-shield]][Gmail-url]
 
-**Hurricane Clock** is a program designed to simulate timed exercise intervals for the Hurricane Hypertrophy month of NXT in [Athleanx][Athleanx-url], a popular fitness program created by Jeff Cavaliere.
+**Hurricane Clock** is a program designed to simulate timed exercise intervals for the Hurricane Hypertrophy month of NXT in [Athleanx][Athleanx-url], a popular fitness program created by Jeff Cavaliere.s
 
 <!-- markdownlint-disable MD001 -->
 ### Table of Contents

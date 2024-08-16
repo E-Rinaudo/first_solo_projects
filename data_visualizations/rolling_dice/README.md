@@ -5,7 +5,7 @@
 
 **Rolling Dice** is a project that simulates rolling two six-sided dice 50,000 times and visualizes the results. It provides a way to see how often each possible outcome occurs, with a bar chart generated using Matplotlib.
 
-This project was developed while working through chapter 15 of Python Crash Course.
+This project was developed while working through chapters 15 of Python Crash Course.
 
 <!-- markdownlint-disable MD001 -->
 ### Table of Contents

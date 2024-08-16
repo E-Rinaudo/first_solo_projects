@@ -1,13 +1,11 @@
-# Wildfires Activity Visualization
+# Molecular Motion
 
 [![MIT License][license-shield]][license-url]
 [![Gmail][Gmail-shield]][Gmail-url]
 
-**Wildfires** is a project designed to visualize wildfire activity across North America from July 12 to July 14, 2024. Using the fires_analyzer.py module, this project creates geographical scatter plots to display wildfire locations and brightness levels, using Plotly.
+**Molecular Motion** visualizes the random movement of a pollen grain on a drop of water. By simulating the pollen's path through a series of random steps, this project offers a visualization of molecular motion. The simulation is implemented using Matplotib, and the results are presented through scatter plots.
 
-This project was developed while working through chapter 16 of Python Crash Course.
-
-Data Source: **Fire Information for Resource Management System (FIRMS)**, <https://firms.modaps.eosdis.nasa.gov/active_fire/>.
+This project was developed while working through chapters 15 of Python Crash Course.
 
 <!-- markdownlint-disable MD001 -->
 ### Table of Contents
@@ -21,33 +19,28 @@ Data Source: **Fire Information for Resource Management System (FIRMS)**, <https
 
 ## About this Project
 
-It visualizes wildfire data to illustrate the intensity and spread of wildfires in the contiguous USA and Hawaii. The visualization includes details such as the location (latitude and longitude) and brightness of wildfires, helping to better understand their geographical distribution and intensity.
+Molecular Motion demonstrates the random walk of a pollen grain on a water surface. The MolecularMotion class in molecular_motion_random_walk.py creates a series of random steps for the pollen grain, resulting in a path that is visualized using Matplotlib in molecular_motion_visual.py. The visualization allows users to generate and view multiple random walks, offering insight into the nature of molecular motion.
 
-The project includes:
+The project includes two modules:
 
-Main module:
++ **[molecular_motion_visual.py][Molecular-Motion-Visual-url]**:
+Visualizes the random walk using Matplotlib, creating a scatter plot that represents the path of the pollen grain with customizable aesthetics. It features a loop to create multiple scatter plots, emphasizing the start and end points of each walk.
 
-+ **[fires_analyzer.py][Fires-Analyzer-url]**:
-Reads data from a CSV file, formats it, and generates an interactive map using Plotly.
-
-Data files directory:
-
-+ **[fires_file/.py][Fires-File-url]**:
-Contains a CSV file with wildfires data used for the visualizations.
++ **[molecular_motion_random_walk.py][Molecular-Motion-Random-Walk-url]**:
+Defines the MolecularMotion class, which simulates the random walk of the pollen grain, generating a path with random directions and distances.
 
 ### Built With
 
 + [![Python][Python-badge]][Python-url]
 + [![Visual Studio Code][VSCode-badge]][VSCode-url]
-+ [![Plotly][Plotly-badge]][Plotly-url]
-+ [![Pandas][Pandas-badge]][Pandas-url]
++ [![Matplotlib][Matplotlib-badge]][Matplotlib-url]
 + [![Mypy][Mypy-badge]][Mypy-url]
 + [![Black][Black-badge]][Black-url]
 + [![Pylint][Pylint-badge]][Pylint-url]
 + [![Flake8][Flake8-badge]][Flake8-url]
 + [![Ruff][Ruff-badge]][Ruff-url]
   
-[back to top](#wildfires-activity-visualization)
+[back to top](#molecular-motion)
 
 ## Getting Started
 
@@ -59,6 +52,7 @@ Follow the steps below to set up and **run this project** locally.
 >
 > If you wish to clone the entire data visualizations subdirectory, please refer to the "Getting Started" section of the README.md in [data_visualizations][Data-Visualizations-url].
 >
+> If you wish to clone the entire random_walks subdirectory, please refer to the "Getting Started" section of the README.md in [random_walks][Random-Walks-url].
 
 ### Prerequisites
 
@@ -86,7 +80,7 @@ $ git remote add origin https://github.com/E-Rinaudo/first_solo_projects.git
 $ git config core.sparseCheckout true
 
 # Specify the project to include
-$ echo "data_visualizations/wildfires/" >> .git/info/sparse-checkout
+$ echo "data_visualizations/random_walks/molecular_motion/" >> .git/info/sparse-checkout
 
 # Pull the contents
 $ git pull origin main
@@ -96,7 +90,7 @@ $ git pull origin main
 
 ```bash
 # Go to the cloned project
-$ cd wildfires
+$ cd molecular_motion
 
 # Create a virtual environment
 $ python -m venv venv
@@ -123,52 +117,61 @@ $ pip install -r requirements.txt
 
 ```bash
 # Run the project
-$ python fires_analyzer.py
+$ python molecular_motion_visual.py
 ```
 
-[back to top](#wildfires-activity-visualization)
+[back to top](#molecular-motion)
 
 ## Usage
 
-By running this program, users can generate an interactive map showing wildfire activity. Each marker on the scatter plot represents a wildfire, with the size and color of the markers indicating the fire's brightness and intensity. The map will open in your browser for easy exploration.
+By running this program, users can visualize the path of a pollen grain moving randomly on a water surface. The script generates a scatter plot of the pollen's trajectory, with the option to create and view multiple random walks. The visualization highlights the start and end points of the walk and uses color to represent the sequence of steps.
+
+You will be prompted to generate multiple walks, with each new walk visualized in a new plot.
 
 ### Code Example
 
-This code snippet from fires_analyzer.py demonstrates how the data is visualized.
+This code snippet from molecular_motion_visual.py demonstrates how the MolecularVisual class generates and visualizes the random walk.
 
 ```py
-def visualize_plot(self) -> None:
-    """Visualize wildfire activity."""
-    self._format_label_text()
-    # Lower the brightness value to use it as a size in the plot.
-    bright_size = [bright // 18 for bright in self.fires_data["brightness"]]
+class MolecularVisual:
+    """A class to visualize a random walk chart of a pollen grain."""
 
-    # Make the plot.
-    fig = go.Figure(
-        data=go.Scattergeo(
-            lat=self.fires_data["latitude"],
-            lon=self.fires_data["longitude"],
-            text=self.fires_data["text"],
-            mode="markers",
-            marker={
-                "size": bright_size,
-                "symbol": "star-triangle-up",
-                "color": self.fires_data["brightness"],
-                "colorscale": "Hot",
-                "colorbar_title": "Wildfire Brightness",
-            },
-        )
-    )
+    def __init__(self) -> None:
+        """Initialize and generate the random walk."""
+        self.mm: MolecularMotion = MolecularMotion(NUM_POINTS)
 
-    self._update_plot(fig)
-    fig.show(renderer="browser")
+    def random_walk_loop(self) -> None:
+        """Generate multiple walks based on user input."""
+        random_walk = True
+
+        while random_walk:
+            self.mm = MolecularMotion(NUM_POINTS)
+            self.mm.make_walk()
+            self._make_plot()
+
+            # Prompt the user to make a new walk.
+            new_walk = input("\nMake another walk? (y/n) ")
+
+            if new_walk != "y":
+                random_walk = False
+
+    def _make_plot(self) -> None:
+        """Create and display the plot."""
+        plt.style.use("classic")
+        fig, ax = plt.subplots(figsize=FIG_SIZE, dpi=DPI)
+
+        self._customize_chart(ax)
+        self._make_start_end_points(ax)
+        self._make_legend(ax)
+
+        plt.show()
 ```
 
 ### Project Screenshot
 
-![Wildfires Screenshot][Screenshot-url]
+![Molecular Motion Screenshot][Screenshot-url]
 
-[back to top](#wildfires-activity-visualization)
+[back to top](#molecular-motion)
 
 ## Contact
 
@@ -180,13 +183,13 @@ You can also explore my GitHub profile or the project repository for more inform
 + Profile Link: [https://github.com/E-Rinaudo](https://github.com/E-Rinaudo)
 + Project Link: [https://github.com/E-Rinaudo/first_solo_project](https://github.com/E-Rinaudo/first_solo_projects/tree/main)
 
-[back to top](#wildfires-activity-visualization)
+[back to top](#molecular-motion)
 
 ## License
 
 These projects are distributed under the MIT License. See [`LICENSE.txt`][license-url] for more information.
 
-[back to top](#wildfires-activity-visualization)
+[back to top](#molecular-motion)
 
 ---
 
@@ -203,10 +206,8 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 [Python-url]: https://docs.python.org/3/
 [VSCode-badge]: https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?logo=visualstudiocode&logoColor=fff&style=flat
 [VSCode-url]: https://code.visualstudio.com/docs
-[Plotly-badge]: https://img.shields.io/badge/Plotly-239120?style=flat&logo=plotly&logoColor=white
-[Plotly-url]: https://plotly.com/python/
-[Pandas-badge]: https://img.shields.io/badge/Pandas-%23234CAF50?style=flat&logo=pandas&logoColor=white
-[Pandas-url]: https://pandas.pydata.org/docs/
+[Matplotlib-badge]: https://img.shields.io/badge/Matplotlib-%23FF7F0E?style=flat&logo=matplotlib&logoColor=white
+[Matplotlib-url]: https://matplotlib.org/stable/users/index.html
 [Mypy-badge]: https://img.shields.io/badge/mypy-checked-blue?style=flat
 [Mypy-url]: https://mypy.readthedocs.io/
 [Black-badge]: https://img.shields.io/badge/code%20style-black-000000.svg
@@ -219,12 +220,13 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 [Flake8-url]: https://flake8.pycqa.org/en/latest/
 
 <!-- PROJECTS LINKS -->
-[Fires-Analyzer-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/data_visualizations/wildfires/fires_analyzer.py
-[Fires-File-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/data_visualizations/wildfires/fires_file
+[Molecular-Motion-Visual-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/data_visualizations/random_walks/firefly_random_walk/ff_random_walk_visual.py
+[Molecular-Motion-Random-Walk-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/data_visualizations/random_walks/molecular_motion/molecular_motion_random_walk.py
 [Data-Visualizations-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/data_visualizations
+[Random-Walks-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/data_visualizations/random_walks
 
 <!-- SCREENSHOT -->
-[Screenshot-url]: screenshot/wildfires.png
+[Screenshot-url]: screenshot/molecular_motion.png
 
 <!-- MAIN README -->
 [First-Solo-Project-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/README.md

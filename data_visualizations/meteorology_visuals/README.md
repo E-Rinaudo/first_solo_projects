@@ -5,7 +5,7 @@
 
 **Meteorology Visualizations** is a project aimed at transforming raw weather data from CSV files into plots, displaying daily high and low temperatures and precipitation levels. This project includes nine visualization modules, each plotting different weather data. There is also a module that represents an early attempt at writing tests to ensure code robustness.
 
-This project was developed while working through chapter 16 of Python Crash Course.
+This project was developed while working through chapters 16 of Python Crash Course.
 
 Data source: **National Centers for Environmental Information (NCEI)**, <https://www.ncdc.noaa.gov/cdo-web/>
 

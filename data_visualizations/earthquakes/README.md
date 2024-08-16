@@ -156,23 +156,6 @@ By running this project, users can visualize different aspects of earthquakes ac
 
 ### Code Example
 
-This code snippet from significant_quakes.py shows the use of the EarthquakesPlotter class to analyze and visualize earthquake data:
-
-```py
-from pathlib import Path
-
-from quakes_plotter import EarthquakesPlotter as EP
-
-
-if __name__ == "__main__":
-    # Make the instance and visualize the data.
-    path = Path("earthquakes_files/significant_month.geojson")
-    quakes_plotter = EP(path=path)
-
-    quakes_plotter.analyze_data()
-    quakes_plotter.plot_quakes(quakes_color="Cividis")
-```
-
 This code snippet from quakes_plotter.py shows how the geographical scatter plot is generated using Plotly.
 
 ```py
@@ -192,6 +175,23 @@ def plot_quakes(self, quakes_color: str, title_color: Optional[str] = None) -> N
 
     self._update_fig_title(fig, title_color)
     fig.show()
+```
+
+This code snippet from significant_quakes.py shows the use of the EarthquakesPlotter class to analyze and visualize earthquake data:
+
+```py
+from pathlib import Path
+
+from quakes_plotter import EarthquakesPlotter as EP
+
+
+if __name__ == "__main__":
+    # Make the instance and visualize the data.
+    path = Path("earthquakes_files/significant_month.geojson")
+    quakes_plotter = EP(path=path)
+
+    quakes_plotter.analyze_data()
+    quakes_plotter.plot_quakes(quakes_color="Cividis")
 ```
 
 ### Project Screenshot

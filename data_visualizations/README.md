@@ -3,7 +3,7 @@
 [![MIT License][license-shield]][license-url]
 [![Gmail][Gmail-shield]][Gmail-url]
 
-A collection of projects focused on visualizing data using Matplotlib and Plotly. These projects were developed working through chapters 15-17 of Python Crash Course.
+A collection of projects focused on visualizing data using Matplotlib and Plotly. These projects were developed working through chapters 15-17 of Python Crash Course.s
 Each one is housed within its own subdirectory. Feel free to explore the READMEs of these projects for detailed information. You will find code snippets and screenshots to help you understand the functionality of each project.
 
 <!-- markdownlint-disable MD001 -->

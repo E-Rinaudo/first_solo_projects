@@ -5,7 +5,7 @@
 [![Gmail][Gmail-shield]][Gmail-url]
 
 A collection of my first Python projects that I completed independently while studying Python Crash Course by Eric Matthes.
-Each subdirectory is dedicated to a specific project category.
+Each subdirectory is dedicated to a specific project category.s
 
 <!-- markdownlint-disable MD001 -->
 ### Table of Contents
