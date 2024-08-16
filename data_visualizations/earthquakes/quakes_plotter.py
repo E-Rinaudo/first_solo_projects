@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-This module defines the 'EartquakesPlotter' class to analyze, plot and visualize
+This module defines the 'EarthquakesPlotter' class to analyze, plot and visualize
 earthquakes activity using Plotly.
 
 The class allows to:
@@ -23,7 +23,7 @@ import plotly.express as px
 from plotly.graph_objects import Figure
 
 
-class EartquakesPlotter:
+class EarthquakesPlotter:
     """Analyze and visualize earthquakes activity."""
 
     def __init__(self, path: Path) -> None:
@@ -94,7 +94,7 @@ class EartquakesPlotter:
                 try:
                     self._collect_data(quake)
                 except KeyError as ke:
-                    warning(f"{ke} missing in eartquake: {quake}.")
+                    warning(f"{ke} missing in earthquake: {quake}.")
                     sys.exit()
                 else:
                     self._get_quakes_date()

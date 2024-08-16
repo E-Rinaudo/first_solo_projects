@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 """
-This module imports the 'EartquakesPlotter' class to plot and visualize
+This module imports the 'EarthquakesPlotter' class to plot and visualize
 the earthquakes of significant magnitude from mid-June to mid-July, 2024.
 """
 
 from pathlib import Path
 
-from quakes_plotter import EartquakesPlotter as EP
+from quakes_plotter import EarthquakesPlotter as EP
 
 
 if __name__ == "__main__":

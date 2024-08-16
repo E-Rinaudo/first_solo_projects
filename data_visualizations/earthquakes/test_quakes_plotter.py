@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-"""This module tests the 'EartquakesPlotter' class to ensure it works as expected."""
+"""This module tests the 'EarthquakesPlotter' class to ensure it works as expected."""
 
 from pathlib import Path
 from datetime import datetime, timezone
 from typing import Any
 import pytest
 
-from quakes_plotter import EartquakesPlotter as EP
+from quakes_plotter import EarthquakesPlotter as EP
 
 
 @pytest.fixture(name="path")
@@ -18,7 +18,7 @@ def path_fixture() -> Path:
 
 @pytest.fixture(name="quakes_plotter")
 def quakes_plotter_fixture(path: Path) -> EP:
-    """An instance of the eartquakes class available to all test functions."""
+    """An instance of the earthquakes class available to all test functions."""
     quakes_plotter = EP(path)
     return quakes_plotter
 

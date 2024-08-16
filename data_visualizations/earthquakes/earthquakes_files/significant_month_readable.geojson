@@ -1,0 +1,301 @@
+{
+    "type": "FeatureCollection",
+    "metadata": {
+        "generated": 1721138383000,
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson",
+        "title": "USGS Significant Earthquakes, Past Month",
+        "status": 200,
+        "api": "1.10.3",
+        "count": 7
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 6.4,
+                "place": "209 km WSW of Tofino, Canada",
+                "time": 1720710527501,
+                "updated": 1721056738904,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000mykj",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us7000mykj.geojson",
+                "felt": 79,
+                "cdi": 3.4,
+                "mmi": 4.156,
+                "alert": "green",
+                "status": "reviewed",
+                "tsunami": 1,
+                "sig": 657,
+                "net": "us",
+                "code": "7000mykj",
+                "ids": ",ew1720710590,us7000mykj,at00sggsq8,pt24193001,",
+                "sources": ",ew,us,at,pt,",
+                "types": ",associate,dyfi,general-link,ground-failure,impact-link,losspager,moment-tensor,oaf,origin,phase-data,shake-alert,shakemap,",
+                "nst": 60,
+                "dmin": 1.869,
+                "rms": 1.18,
+                "gap": 68,
+                "magType": "mww",
+                "type": "earthquake",
+                "title": "M 6.4 - 209 km WSW of Tofino, Canada"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -128.7254,
+                    48.8127,
+                    10
+                ]
+            },
+            "id": "us7000mykj"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 7.1,
+                "place": "106 km WSW of Sangay, Philippines",
+                "time": 1720663997513,
+                "updated": 1720934567052,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000myfa",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us7000myfa.geojson",
+                "felt": 28,
+                "cdi": 5.9,
+                "mmi": 3.618,
+                "alert": "green",
+                "status": "reviewed",
+                "tsunami": 1,
+                "sig": 792,
+                "net": "us",
+                "code": "7000myfa",
+                "ids": ",at00sgfsu7,us7000myfa,pt24193000,",
+                "sources": ",at,us,pt,",
+                "types": ",dyfi,general-text,ground-failure,impact-link,losspager,moment-tensor,origin,phase-data,shakemap,",
+                "nst": 136,
+                "dmin": 2.602,
+                "rms": 1.01,
+                "gap": 17,
+                "magType": "mww",
+                "type": "earthquake",
+                "title": "M 7.1 - 106 km WSW of Sangay, Philippines"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    123.1605,
+                    6.0646,
+                    620.077
+                ]
+            },
+            "id": "us7000myfa"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 6.6,
+                "place": "south of Africa",
+                "time": 1720587342673,
+                "updated": 1720711564040,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000my76",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us7000my76.geojson",
+                "felt": null,
+                "cdi": null,
+                "mmi": 0,
+                "alert": "green",
+                "status": "reviewed",
+                "tsunami": 0,
+                "sig": 670,
+                "net": "us",
+                "code": "7000my76",
+                "ids": ",us7000my76,",
+                "sources": ",us,",
+                "types": ",losspager,moment-tensor,origin,phase-data,shakemap,",
+                "nst": 92,
+                "dmin": 18.373,
+                "rms": 0.77,
+                "gap": 32,
+                "magType": "mww",
+                "type": "earthquake",
+                "title": "M 6.6 - south of Africa"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    25.3064,
+                    -53.2888,
+                    10
+                ]
+            },
+            "id": "us7000my76"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 7.2,
+                "place": "11 km WSW of Atiquipa, Peru",
+                "time": 1719552996965,
+                "updated": 1720855927898,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000n8tq",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us6000n8tq.geojson",
+                "felt": 120,
+                "cdi": 8.3,
+                "mmi": 7.575,
+                "alert": "yellow",
+                "status": "reviewed",
+                "tsunami": 1,
+                "sig": 897,
+                "net": "us",
+                "code": "6000n8tq",
+                "ids": ",pt24180000,at00sfrzl3,us6000n8tq,",
+                "sources": ",pt,at,us,",
+                "types": ",dyfi,finite-fault,general-text,ground-failure,impact-link,losspager,moment-tensor,origin,phase-data,shakemap,",
+                "nst": 105,
+                "dmin": 4.683,
+                "rms": 0.91,
+                "gap": 46,
+                "magType": "mww",
+                "type": "earthquake",
+                "title": "M 7.2 - 11 km WSW of Atiquipa, Peru"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.4635,
+                    -15.8265,
+                    24.442
+                ]
+            },
+            "id": "us6000n8tq"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 4.09,
+                "place": "24 km SW of Lamont, CA",
+                "time": 1719268259930,
+                "updated": 1721081094040,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ci40809504",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ci40809504.geojson",
+                "felt": 909,
+                "cdi": 3.8,
+                "mmi": 4.327,
+                "alert": "green",
+                "status": "reviewed",
+                "tsunami": 0,
+                "sig": 603,
+                "net": "ci",
+                "code": "40809504",
+                "ids": ",ew1719268260,ci40809504,us6000n80j,",
+                "sources": ",ew,ci,us,",
+                "types": ",dyfi,focal-mechanism,losspager,moment-tensor,nearby-cities,origin,phase-data,scitech-link,shake-alert,shakemap,",
+                "nst": 71,
+                "dmin": 0.05899,
+                "rms": 0.27,
+                "gap": 23,
+                "magType": "mw",
+                "type": "earthquake",
+                "title": "M 4.1 - 24 km SW of Lamont, CA"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -119.1115,
+                    35.1131667,
+                    12.07
+                ]
+            },
+            "id": "ci40809504"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 6.3,
+                "place": "51 km NNE of Port-Olry, Vanuatu",
+                "time": 1719216218359,
+                "updated": 1719217766993,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000mu8s",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us7000mu8s.geojson",
+                "felt": 1,
+                "cdi": 3.8,
+                "mmi": 5.166,
+                "alert": "green",
+                "status": "reviewed",
+                "tsunami": 0,
+                "sig": 611,
+                "net": "us",
+                "code": "7000mu8s",
+                "ids": ",us7000mu8s,",
+                "sources": ",us,",
+                "types": ",dyfi,ground-failure,losspager,moment-tensor,origin,phase-data,shakemap,",
+                "nst": 74,
+                "dmin": 6.549,
+                "rms": 0.86,
+                "gap": 32,
+                "magType": "mww",
+                "type": "earthquake",
+                "title": "M 6.3 - 51 km NNE of Port-Olry, Vanuatu"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    167.2485,
+                    -14.6086,
+                    156.689
+                ]
+            },
+            "id": "us7000mu8s"
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "mag": 6,
+                "place": "29 km NE of Yaguaraparo, Venezuela",
+                "time": 1719115080332,
+                "updated": 1719509738040,
+                "tz": null,
+                "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000mu1p",
+                "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us7000mu1p.geojson",
+                "felt": 162,
+                "cdi": 6,
+                "mmi": 5.581,
+                "alert": "green",
+                "status": "reviewed",
+                "tsunami": 0,
+                "sig": 651,
+                "net": "us",
+                "code": "7000mu1p",
+                "ids": ",us7000mu1p,",
+                "sources": ",us,",
+                "types": ",dyfi,ground-failure,losspager,moment-tensor,origin,phase-data,shakemap,",
+                "nst": 131,
+                "dmin": 1.671,
+                "rms": 1.11,
+                "gap": 21,
+                "magType": "mww",
+                "type": "earthquake",
+                "title": "M 6.0 - 29 km NE of Yaguaraparo, Venezuela"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -62.6296,
+                    10.753,
+                    87.436
+                ]
+            },
+            "id": "us7000mu1p"
+        }
+    ],
+    "bbox": [
+        -128.7254,
+        -53.2888,
+        10,
+        167.2485,
+        48.8127,
+        620.077
+    ]
+}
