@@ -19,10 +19,10 @@
 
 This project provides a structured interval training experience by prompting the user for workout details. It then runs a clock for each set, alternating between 20-second and 40-second intervals with sound cues for timing. This structure replicates the workout regimen outlined in the [Hurricane Hypertrophy][HurricaneHypertrophy-url] program within Athlean-X.
 
-It includes one main module:
+The project includes one module:
 
 + **[hurricane_clock.py][Hurricane-Clock-url]**:
-  This script contains two main classes that handle the workout functionality:
+Contains two classes that handle the workout functionality:
 
   + **`HurricaneWorkout`**: Prompts the user for workout details such as muscle group, number of sets, and type of exercise. It initiates the workout based on these inputs.
   + **`HurricaneSob`**: Uses the details from "HurricaneWorkout" to implement a timed interval training structure. It guides users through the workout with sound notifications for each interval and handles workout set progression.
@@ -55,7 +55,7 @@ Ensure you have [Python][Python-download] and [Git][Git-download] installed on y
 
 From your command line:
 
-#### Clone Only This Specific Subdirectory
+#### Clone Only This Specific Project
 
 ```bash
 # Make a directory
@@ -81,14 +81,14 @@ $ git pull origin main
 #### After Cloning
 
 ```bash
-# Go to the cloned repository
+# Go to the cloned project
 $ cd hurricane_clock
 ```
 
 #### Finally
 
 ```bash
-# Run the projects
+# Run the project
 $ python hurricane_clock.py
 ```
 
@@ -98,19 +98,21 @@ $ python hurricane_clock.py
 
 By running this program, users can conduct interval training with a structured schedule, complete with sound cues to mark the end of each interval.
 
-To start a workout session, simply run the script and follow the prompts to enter the details for your workout, then press 'ENTER' to begin. The program will guide you through the intervals, playing sound cues to mark the end of each interval.
+To start a workout session, simply run the script and follow the prompts to enter the details for your workout, then press "ENTER" to begin. The program will guide you through the intervals, playing sound cues to mark the end of each interval.
 
 ### Code Example
+
+This code snippet from hurricane_clock.py demonstrates how the HurricaneSob class is defined and how it manages the structured interval workout session.
 
 ```py
 class HurricaneSob:
     """Represent the Hurricane Hypertrophy interval training structure."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the instance of the HurricaneWorkout class."""
-        self.workout = HurricaneWorkout()
+        self.workout: HurricaneWorkout = HurricaneWorkout()
 
-    def run_clock(self):
+    def run_clock(self) -> None:
         """Create the exercise interval clock."""
         print(f"\nGet ready to blast your {self.workout.muscle}.")
 
@@ -126,7 +128,7 @@ class HurricaneSob:
         # Restart the clock if the interval completed was the SOB 320.
         self._restart_clock()
 
-    def _run_interval(self, duration):
+    def _run_interval(self, duration: int) -> None:
         """
         Run for the specified duration in seconds
         and play a sound three times to simulate a countdown.
@@ -136,16 +138,15 @@ class HurricaneSob:
         for _ in range(3):
             os.system("afplay /System/Library/Sounds/Ping.aiff")
 
-    def _restart_clock(self):
+    def _restart_clock(self) -> None:
         """Restart the clock if the exercise completed was the SOB 320."""
         if self.workout.exercise == 320:
             self.workout.exercise = 160
             self.workout.sets = 4
             self.workout.workout_start()
             self.run_clock()
-```
 
-```py
+
 if __name__ == "__main__":
     # Run the workout session.
     workout_session = HurricaneSob()

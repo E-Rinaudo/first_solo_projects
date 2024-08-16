@@ -22,7 +22,7 @@ Welcome to my "first_solo_projects" repository.
 
 Here, you'll find a variety of projects, from practical applications like a spaced repetition reminder and a fitness interval timer to interactive games and data visualizations. Each project reflects the skills and concepts I developed while studying Python Crash Course.
 
-Feel free to explore the READMEs of the subdirectories for detailed information about the projects. I have included additional resources such as screenshots and code snippets to provide a clearer understanding of each project functionality.
+Feel free to explore the READMEs of the subdirectories for detailed information about the projects. I have included additional resources such code snippets and screenshots to provide a clearer understanding of each project functionality.
 
 + **[data_visualizations/][Data-Visualizations-url]**:
 A collection of projects focused on visualizing data using Matplotlib and Plotly.
@@ -103,8 +103,8 @@ $ git pull origin main
 
 > Note:
 >
-> This method is applicable only for 'data_visualizations' or 'games'.
-> For 'hurricane_clock' or 'spaced_repetition_reminder' please use the method above to clone the relevant subdirectory.
+> This method is applicable only for "data_visualizations" or "games".
+> For "hurricane_clock" or "spaced_repetition_reminder" please use the method above to clone the relevant subdirectory.
 >
 > To see a list of available subdirectories, refer to [About this Repository](#about-this-repository).
 

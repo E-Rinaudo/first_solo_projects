@@ -3,7 +3,7 @@
 [![MIT License][license-shield]][license-url]
 [![Gmail][Gmail-shield]][Gmail-url]
 
-**Spaced Repetition Reminder** is a simple program designed to help with study planning by generating a daily reminder based on the spaced repetition method.
+**Spaced Repetition Reminder** is a simple program designed to help with study planning by generating a daily reminder based on the spaced repetition method, a learning technique where information is reviewed at increasing intervals over time to improve long-term retention and recall.
 
 <!-- markdownlint-disable MD001 -->
 ### Table of Contents
@@ -19,7 +19,7 @@
 
 This project utilizes a pop-up window to display the tasks scheduled for the current day, ensuring one stays on track with the study goals.
 
-It includes two main modules:
+The project includes two modules:
 
 + **[pop_up.py][PopUp-url]**:
 Defines the StudyPopUp class, which creates and displays a pop-up window using Tkinter. The pop-up shows the current date, the subject being studied, and a list of tasks scheduled for the day.
@@ -55,7 +55,7 @@ Ensure you have [Python][Python-download] and [Git][Git-download] installed on y
 
 From your command line:
 
-#### Clone Only This Specific Subdirectory
+#### Clone Only This Specific Project
 
 ```bash
 # Make a directory
@@ -81,14 +81,14 @@ $ git pull origin main
 #### After Cloning
 
 ```bash
-# Go to the cloned repository
+# Go to the cloned project
 $ cd spaced_repetition_reminder
 ```
 
 #### Finally
 
 ```bash
-# Run the projects
+# Run the project
 $ python study_schedule.py
 ```
 
@@ -101,6 +101,8 @@ By running this program, users receive a reminder about what to study or review,
 For convenience, consider creating a terminal alias to run the script automatically each day.
 
 ### Code Example
+
+This code snippet from study_schedule.py demonstrates how the weekly schedule is defined.
 
 ```py
 # Import the StudyPopUp class from the module.

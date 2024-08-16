@@ -4,7 +4,7 @@
 [![Gmail][Gmail-shield]][Gmail-url]
 
 A collection of projects focused on visualizing data using Matplotlib and Plotly. These projects were developed working through chapters 15-17 of Python Crash Course.
-Each one is housed within its own subdirectory. Feel free to explore the READMEs of these projects for detailed information. You will find screenshots and code snippets to help you understand the functionality of each project.
+Each one is housed within its own subdirectory. Feel free to explore the READMEs of these projects for detailed information. You will find code snippets and screenshots to help you understand the functionality of each project.
 
 <!-- markdownlint-disable MD001 -->
 ### Table of Contents
@@ -23,7 +23,7 @@ The projects included in this directory focus on various domains, from earthquak
 Visualizes earthquake data, using Plotly. The module reads data from GeoJSON files and plots them to show their geographical distribution and intensity.
 
 + **[github_python_julia_r_repos/][Github-Python-Julia-R-Repos-url]**:
-Displays the top 20 most-starred repositories on GitHub for Python, Julia, and R, using Plotly. It extracts data from GitHub’s API and displays the repository names and star counts in separate subplots for each programming language.
+Displays the top 20 most-starred repositories on GitHub for Python, Julia, and R, using Plotly. It extracts data from GitHub's API and displays the repository names and star counts in separate subplots for each programming language.
 
 + **[meteorology_visuals/][Meteorology-Visuals-url]**:
 Generates various weather-related visualizations using Matplotlib, based on data read from CSV files.
