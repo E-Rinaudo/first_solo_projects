@@ -5,7 +5,7 @@
 
 **Molecular Motion** visualizes the random movement of a pollen grain on a drop of water. By simulating the pollen's path through a series of random steps, this project offers a visualization of molecular motion. The simulation is implemented using Matplotib, and the results are presented through scatter plots.
 
-This project was developed while working through chapters 15 of Python Crash Course.
+This project was developed while working through chapter 15 of Python Crash Course.
 
 <!-- markdownlint-disable MD001 -->
 ### Table of Contents

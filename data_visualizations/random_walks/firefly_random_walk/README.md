@@ -5,7 +5,7 @@
 
 **Firefly Random Walk** simulates the journey of a firefly on a summer night through random movements in a two-dimensional space. Using the FireflyWalk class, this project visualizes the firefly's path with a scatter plot that captures its flight.
 
-This project was developed while working through chapters 15 of Python Crash Course.
+This project was developed while working through chapter 15 of Python Crash Course.
 
 <!-- markdownlint-disable MD001 -->
 ### Table of Contents

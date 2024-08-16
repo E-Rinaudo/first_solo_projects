@@ -3,7 +3,7 @@
 [![MIT License][license-shield]][license-url]
 [![Gmail][Gmail-shield]][Gmail-url]
 
-A collection of projects focused on visualizing data using Matplotlib and Plotly. They explore the concept of random walks through simulations and visualizations. Each project demonstrates different aspects of random motion, from the behavior of pollen grains on water to the trails of fireflies.s
+A collection of projects focused on visualizing data using Matplotlib and Plotly. They explore the concept of random walks through simulations and visualizations. Each project demonstrates different aspects of random motion, from the behavior of pollen grains on water to the trails of fireflies.
 Each project is housed within its own subdirectory. Feel free to explore the READMEs of these projects for detailed information. You will find code snippets and screenshots to help you understand the functionality of each project.
 
 These projects were developed working through chapter 15 of Python Crash Course.

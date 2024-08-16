@@ -5,7 +5,7 @@
 
 **Most-Starred Repositories on GitHub for Python, Julia and R** is a project designed to visualize the top 20 most-starred repositories on GitHub for these three programming languages, using Plotly.
 
-This project was developed while working through chapters 17 of Python Crash Course.
+This project was developed while working through chapter 17 of Python Crash Course.
 
 <!-- markdownlint-disable MD001 -->
 ### Table of Contents
