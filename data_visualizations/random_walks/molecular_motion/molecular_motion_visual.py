@@ -9,20 +9,20 @@ representing the path of a pollen grain on a drop of water.
 """
 
 import matplotlib.pyplot as plt
-from matplotlib.axes import Axes
+from matplotlib.figure import Figure
 
 from molecular_motion_random_walk import MolecularMotion
 
 
-NUM_POINTS = 50_000
-FIG_SIZE = (14, 5.5)
-DPI = 130
-FONT_SIZE_TITLE = 14
-FONT_SIZE_MAIN_POINTS = 100
-FONT_SIZE_LEGEND = 8
+NUM_POINTS: int = 50_000
+FIG_SIZE: tuple[int, float] = (14, 5.5)
+DPI: int = 130
+FONT_SIZE_TITLE: int = 14
+FONT_SIZE_MAIN_POINTS: int = 100
+FONT_SIZE_LEGEND: int = 8
 
 
-class MolecularVisual:
+class MolecularVisual:  # pylint: disable=R0903
     """A class to visualize a random walk chart of a pollen grain."""
 
     def __init__(self) -> None:
@@ -31,7 +31,7 @@ class MolecularVisual:
 
     def random_walk_loop(self) -> None:
         """Generate multiple walks based on user input."""
-        random_walk = True
+        random_walk: bool = True
 
         while random_walk:
             self.mm = MolecularMotion(NUM_POINTS)
@@ -39,7 +39,7 @@ class MolecularVisual:
             self._make_plot()
 
             # Prompt the user to make a new walk.
-            new_walk = input("\nMake another walk? (y/n) ")
+            new_walk: str = input("\nMake another walk? (y/n) ")
 
             if new_walk != "y":
                 random_walk = False
@@ -47,6 +47,8 @@ class MolecularVisual:
     def _make_plot(self) -> None:
         """Create and display the plot."""
         plt.style.use("classic")
+        fig: Figure  # pylint: disable=W0612
+        ax: plt.Axes
         fig, ax = plt.subplots(figsize=FIG_SIZE, dpi=DPI)
 
         self._customize_chart(ax)
@@ -55,10 +57,10 @@ class MolecularVisual:
 
         plt.show()
 
-    def _customize_chart(self, ax: Axes) -> None:
+    def _customize_chart(self, ax: plt.Axes) -> None:
         """Customize the random walk."""
         # Number of points used to set the color of each point in the walk.
-        num_points = range(NUM_POINTS)
+        num_points: range = range(NUM_POINTS)
 
         ax.scatter(
             self.mm.x_values,
@@ -75,7 +77,7 @@ class MolecularVisual:
         ax.xaxis.set_visible(False)
         ax.yaxis.set_visible(False)
 
-    def _make_start_end_points(self, ax: Axes) -> None:
+    def _make_start_end_points(self, ax: plt.Axes) -> None:
         """Emphasize the start and end points."""
         ax.scatter(
             0,
@@ -94,7 +96,7 @@ class MolecularVisual:
             s=FONT_SIZE_MAIN_POINTS,
         )
 
-    def _make_legend(self, ax: Axes) -> None:
+    def _make_legend(self, ax: plt.Axes) -> None:
         """Make a legend indicating the start and end points."""
         ax.legend(
             loc="upper left",

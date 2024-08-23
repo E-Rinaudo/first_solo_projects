@@ -12,10 +12,10 @@ from weather_data_plotter import WeatherDataPlotter as WDP
 
 if __name__ == "__main__":
     # Create a plotter instance.
-    weather_plotter = WDP(title="Daily Precipitation, 2023")
+    weather_plotter: WDP = WDP(title="Daily Precipitation, 2023")
 
     # Add data for Madrid to the plotter dataset.
-    path = Path("weather_data/madrid_weather_2023_c_cm.csv")
+    path: Path = Path("weather_data/madrid_weather_2023_c_cm.csv")
 
     weather_plotter.weather_dataset(
         path=path,

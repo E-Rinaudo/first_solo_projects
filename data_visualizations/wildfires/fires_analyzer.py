@@ -33,7 +33,9 @@ class WildfirePlotter:
         """Visualize wildfire activity."""
         self._format_label_text()
         # Lower the brightness value to use it as a size in the plot.
-        bright_size = [bright // 18 for bright in self.fires_data["brightness"]]
+        bright_size: list[int] = [
+            bright // 18 for bright in self.fires_data["brightness"]
+        ]
 
         # Make the plot.
         fig = go.Figure(
@@ -71,27 +73,26 @@ class WildfirePlotter:
 
     def _format_date(self) -> None:
         """Format the data acquisition date to neatly display it."""
-        df_dates = list(self.fires_data["acq_date"])
+        df_dates: list[str] = list(self.fires_data["acq_date"])
 
         for df_date in df_dates:
-            date_str = str(df_date)
-            datetime_date = datetime.strptime(date_str, "%Y-%m-%d")
-            formatted_date = datetime_date.strftime("%B %d, %Y")
+            datetime_date: datetime = datetime.strptime(df_date, "%Y-%m-%d")
+            formatted_date: str = datetime_date.strftime("%B %d, %Y")
             self.acq_dates.append(formatted_date)
 
     def _format_time(self) -> None:
         """Format the data acquisition time to neatly display it."""
-        df_times = list(self.fires_data["acq_time"])
+        df_times: list[str] = list(self.fires_data["acq_time"])
 
         for df_time in df_times:
-            time_str = str(df_time).zfill(4)
-            datetime_time = datetime.strptime(time_str, "%H%M")
-            formatted_time = datetime_time.strftime("%H:%M (24 HR Format)")
+            time_str: str = str(df_time).zfill(4)
+            datetime_time: datetime = datetime.strptime(time_str, "%H%M")
+            formatted_time: str = datetime_time.strftime("%H:%M (24 HR Format)")
             self.acq_times.append(formatted_time)
 
     def _update_plot(self, fig: go.Figure) -> None:
         """Customize the plot."""
-        title = "USA Contiguous and Hawaii Wildfire Activity "
+        title: str = "USA Contiguous and Hawaii Wildfire Activity "
         title += f"({self.acq_dates[0]} to {self.acq_dates[-1]})"
 
         fig.update_layout(

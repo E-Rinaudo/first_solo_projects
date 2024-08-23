@@ -8,7 +8,7 @@ The die is rolled to obtain a random number between 1 and the number of sides.
 from random import randint
 
 
-class Die:
+class Die:  # pylint: disable=R0903
     """A class to represent a die."""
 
     def __init__(self, num_sides: int = 6) -> None:

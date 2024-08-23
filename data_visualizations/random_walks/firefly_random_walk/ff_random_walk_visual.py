@@ -14,13 +14,13 @@ import numpy as np
 from ff_random_walk import RandomWalk
 
 
-FONT_SCATTER_POINTS = 5
-FONT_MAIN_POINTS = 40
-FONT_TITLE = 25
-FONT_AXES_LABELS = 10
+FONT_SCATTER_POINTS: int = 5
+FONT_MAIN_POINTS: int = 40
+FONT_TITLE: int = 25
+FONT_AXES_LABELS: int = 10
 
 
-class FireflyWalk:
+class FireflyWalk:  # pylint: disable=R0903
     """A Class to visualize the random walk of a Firefly at night."""
 
     def __init__(self) -> None:

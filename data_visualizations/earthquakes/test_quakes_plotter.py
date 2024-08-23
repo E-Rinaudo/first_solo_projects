@@ -19,14 +19,14 @@ def path_fixture() -> Path:
 @pytest.fixture(name="quakes_plotter")
 def quakes_plotter_fixture(path: Path) -> EP:
     """An instance of the earthquakes class available to all test functions."""
-    quakes_plotter = EP(path)
+    quakes_plotter: EP = EP(path)
     return quakes_plotter
 
 
 @pytest.fixture(name="quake_dictionary")
-def quake_dictionary_fixture() -> dict[str, Any]:
+def quake_dictionary_fixture() -> dict[str, dict[str, Any]]:
     """A mock of an earthquake dictionary available for all tests."""
-    quake_dictionary = {
+    quake_dictionary: dict[str, dict[str, Any]] = {
         "properties": {
             "mag": 7.1,
             "time": 1720663997513,
@@ -40,32 +40,33 @@ def quake_dictionary_fixture() -> dict[str, Any]:
 def test_read_file_not_found() -> None:
     """Test if the system exits after a FileNotFound error."""
     with pytest.raises(SystemExit):
-        foo_plot = EP(Path("foo.geojson"))
+        foo_plot: EP = EP(Path("foo.geojson"))
         foo_plot.analyze_data()
 
 
 def test_is_readable_written(path: Path) -> None:
     """Test if the readable geojson file is written."""
-    reformat_path = Path("earthquakes_files/significant_month_readable.geojson")
-    reformat_plot = EP(path)
+    reformat_path: Path = Path("earthquakes_files/significant_month_readable.geojson")
+    reformat_plot: EP = EP(path)
     reformat_plot.analyze_data(reformat_path)
 
     assert reformat_path.exists()
 
 
 def test_do_data_get_extracted(
-    quakes_plotter: EP, quake_dictionary: dict[str, Any]
+    quakes_plotter: EP, quake_dictionary: dict[str, dict[str, Any]]
 ) -> None:
     """Test if the data get extracted."""
-    quakes = [quake_dictionary, quake_dictionary]
-    quakes_plotter._data_lists()
+    quakes: list[dict[str, dict[str, Any]]] = [quake_dictionary, quake_dictionary]
+    # Disabling pylint warning for accessing protected members.
+    quakes_plotter._data_lists()  # pylint: disable=W0212
 
     quakes_plotter.quakes_data = {
         "features": quakes,
         "metadata": {"title": "Test Earthquake Data"},
     }
-
-    quakes_plotter._extract_data()
+    # Disabling pylint warning for accessing protected members.
+    quakes_plotter._extract_data()  # pylint: disable=W0212
 
     assert quake_dictionary["properties"]["mag"] in quakes_plotter.mags
     assert quake_dictionary["geometry"]["coordinates"][0] in quakes_plotter.longs
@@ -74,23 +75,25 @@ def test_do_data_get_extracted(
 
 
 def test_is_date_formatted(
-    quakes_plotter: EP, quake_dictionary: dict[str, Any]
+    quakes_plotter: EP, quake_dictionary: dict[str, dict[str, Any]]
 ) -> None:
     """Test if the date of the earthquake event is formatted."""
     quakes_plotter.analyze_data()
 
-    utc_timezone = timezone.utc
-    date = quake_dictionary["properties"]["time"] / 1000
-    date_datetime = datetime.fromtimestamp(date, utc_timezone)
-    formatted_date = date_datetime.strftime("%B %d, %Y -- %H:%M:%S %Z (24-Hour format)")
+    utc_timezone: timezone = timezone.utc
+    date: float = quake_dictionary["properties"]["time"] / 1000
+    date_datetime: datetime = datetime.fromtimestamp(date, utc_timezone)
+    formatted_date: str = date_datetime.strftime(
+        "%B %d, %Y -- %H:%M:%S %Z (24-Hour format)"
+    )
     assert formatted_date in quakes_plotter.event_dates
 
 
 def test_is_negative_mag_appended(
-    quakes_plotter: EP, quake_dictionary: dict[str, Any]
+    quakes_plotter: EP, quake_dictionary: dict[str, dict[str, Any]]
 ) -> None:
     """Assure negative magnitude values are not appended in the mags list."""
-    negative_quake = {
+    negative_quake: dict[str, dict[str, Any]] = {
         "properties": {
             "mag": -7.1,
             "time": 1720663997513,
@@ -98,12 +101,13 @@ def test_is_negative_mag_appended(
         },
         "geometry": {"coordinates": [123.1605, 6.0646]},
     }
+    # Disabling pylint warning for accessing protected members.
     quakes_plotter.quakes_data = {
         "features": [quake_dictionary, negative_quake],
         "metadata": {"title": "Test Earthquake Data"},
-    }
-    quakes_plotter._data_lists()
-    quakes_plotter._extract_data()
+    }  # pylint: disable=W0212
+    quakes_plotter._data_lists()  # pylint: disable=W0212
+    quakes_plotter._extract_data()  # pylint: disable=W0212
 
     assert negative_quake["properties"]["mag"] not in quakes_plotter.mags
     assert quake_dictionary["properties"]["mag"] in quakes_plotter.mags

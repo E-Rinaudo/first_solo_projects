@@ -2,13 +2,14 @@
 
 """This module tests the 'WeatherDataPlotter' class to ensure it works as expected."""
 
-from typing import Any
+from typing import Any, Union
 from pathlib import Path
 from datetime import datetime
 from unittest.mock import patch
 
 import pytest
 import matplotlib.pyplot as plt
+from matplotlib.legend import Legend
 
 from weather_data_plotter import WeatherDataPlotter as WDP
 from weather_data_plotter import WeatherDataset as WD
@@ -59,9 +60,11 @@ def test_dataset_gets_filled(path: Path, dataset: dict[str, Any]) -> None:
     assert dataset["precip_scale"] == "cm"
 
 
-def test_read_file_not_found(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
+def test_read_file_not_found(
+    weather_plotter: WDP, dataset: dict[str, Any]  # pylint: disable=W0613
+) -> None:
     """Test if the system exits after a FileNotFound error."""
-    path = Path("foo.csv")
+    path: Path = Path("foo.csv")
     with pytest.raises(SystemExit):
         weather_plotter.weather_dataset(path)
 
@@ -80,28 +83,31 @@ def test_is_file_read(
 
 
 def test_exit_if_no_data(
-    weather_plotter: WDP, dataset: dict[str, Any], header_row: list[str]
+    weather_plotter: WDP,
+    dataset: dict[str, Any],  # pylint: disable=W0613
+    header_row: list[str],
 ) -> None:
     """Test if the system exits if the header_row is missing the required data."""
-    header_row_copy_1 = header_row.copy()
+    # Disabling pylint warning for accessing protected members.
+    header_row_copy_1: list[str] = header_row.copy()
     header_row_copy_1.remove("DATE")
     with pytest.raises(SystemExit):
-        weather_plotter._get_data_indices(header_row_copy_1)
-
-    header_row_copy_2 = header_row.copy()
+        weather_plotter._get_data_indices(header_row_copy_1)  # pylint: disable=W0212
+    # Disabling pylint warning for accessing protected members.
+    header_row_copy_2: list[str] = header_row.copy()
     header_row_copy_2.remove("NAME")
     with pytest.raises(SystemExit):
-        weather_plotter._get_data_indices(header_row_copy_2)
-
-    header_row_copy_3 = header_row.copy()
+        weather_plotter._get_data_indices(header_row_copy_2)  # pylint: disable=W0212
+    # Disabling pylint warning for accessing protected members.
+    header_row_copy_3: list[str] = header_row.copy()
     header_row_copy_3.remove("TMAX")
     with pytest.raises(SystemExit):
-        weather_plotter._get_data_indices(header_row_copy_3)
+        weather_plotter._get_data_indices(header_row_copy_3)  # pylint: disable=W0212
 
 
 def test_collect_values(dataset: dict[str, Any], first_row: list[str]) -> None:
     """Test if the data is being extracted and then collected correctly."""
-    date = datetime.strptime(first_row[2], "%Y-%m-%d")
+    date: datetime = datetime.strptime(first_row[2], "%Y-%m-%d")
 
     assert dataset["loc_name"] == first_row[1]
     assert date in dataset["dates"]
@@ -114,50 +120,63 @@ def test_collect_values(dataset: dict[str, Any], first_row: list[str]) -> None:
     )
 
 
-def test_does_it_plot(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
+def test_does_it_plot(
+    weather_plotter: WDP, dataset: dict[str, Any]  # pylint: disable=W0613
+) -> None:
     """Test if the methods used to plot the weather get called."""
+    # Disabling pylint warning for accessing protected members.
     with patch.object(weather_plotter.ax, "plot") as make_plot:
-        weather_plotter._make_plot(shade_between=True)
+        weather_plotter._make_plot(shade_between=True)  # pylint: disable=W0212
         assert make_plot.called, "_make_plot was not called."
         plt.close("all")
 
 
-def test_shade_between(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
+def test_shade_between(
+    weather_plotter: WDP, dataset: dict[str, Any]  # pylint: disable=W0613
+) -> None:
     """Test if fill_between doesn't get called when shade_between is False."""
     with patch.object(weather_plotter.ax, "fill_between") as fill_between:
         weather_plotter.plot_visual(shade_between=False)
         assert not fill_between.called, "_fill_between was called."
 
 
-def test_is_title_customized(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
+def test_is_title_customized(
+    weather_plotter: WDP, dataset: dict[str, Any]  # pylint: disable=W0613
+) -> None:
     """Test if the title gets formatted correctly."""
-    formatted_title = weather_plotter._format_plot_title()
-    title = "Madrid Barajas, SP"
+    # Disabling pylint warning for accessing protected members.
+    formatted_title: str = weather_plotter._format_plot_title()  # pylint: disable=W0212
+    title: str = "Madrid Barajas, SP"
     assert formatted_title == title
 
-    title = weather_plotter.title
-    title += "\nMadrid Barajas, SP"
-    weather_plotter._customize_title()
-    actual_title = weather_plotter.ax.get_title()
-    assert actual_title == title
+    long_title: str = weather_plotter.title
+    long_title += "\nMadrid Barajas, SP"
+    # Disabling pylint warning for accessing protected members.
+    weather_plotter._customize_title()  # pylint: disable=W0212
+    actual_title: str = weather_plotter.ax.get_title()
+    assert actual_title == long_title
 
 
 def test_axis_labels(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
     """Test if the axes correctly displays their labels."""
-    weather_plotter._make_plot(shade_between=False)
-
-    weather_plotter._customize_x_axis()
-    xlabel = weather_plotter.ax.get_xlabel()
+    # Disabling pylint warning for accessing protected members.
+    weather_plotter._make_plot(shade_between=False)  # pylint: disable=W0212
+    # Disabling pylint warning for accessing protected members.
+    weather_plotter._customize_x_axis()  # pylint: disable=W0212
+    xlabel: str = weather_plotter.ax.get_xlabel()
     assert xlabel == ""
-
-    weather_plotter._customize_y_axis(y_limit=None)
-    ylabel = weather_plotter.ax.get_ylabel()
+    # Disabling pylint warning for accessing protected members.
+    weather_plotter._customize_y_axis(y_limit=None)  # pylint: disable=W0212
+    ylabel: str = weather_plotter.ax.get_ylabel()
     assert ylabel == f"Temperature ({dataset["temp_scale"]})"
 
 
-def test_legend(weather_plotter: WDP, dataset: dict[str, Any]) -> None:
+def test_legend(
+    weather_plotter: WDP, dataset: dict[str, Any]  # pylint: disable=W0613
+) -> None:
     """Test if the legend is displayed correctly."""
-    weather_plotter._make_plot(shade_between=False)
-    weather_plotter._customize_extras()
-    legend = weather_plotter.ax.get_legend()
+    # Disabling pylint warning for accessing protected members.
+    weather_plotter._make_plot(shade_between=False)  # pylint: disable=W0212
+    weather_plotter._customize_extras()  # pylint: disable=W0212
+    legend: Union[Legend, None] = weather_plotter.ax.get_legend()
     assert legend

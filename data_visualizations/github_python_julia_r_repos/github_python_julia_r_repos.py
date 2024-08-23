@@ -25,21 +25,21 @@ import plotly.graph_objects as go
 from plotly.graph_objects import Figure
 
 
-PLOT_TITLE = "Top 20 Most-Starred Repositories on GitHub for Python, Julia, and R"
-XAXES_TITLE = "Repository"
-YAXES_TITLE = "Stars"
-PYTHON_BARS = "rgb(0, 114, 178)"
-JULIA_BARS = "rgb(213, 94, 0)"
-R_BARS = "rgb(0, 158, 115)"
-BLACK_COLOR = "rgb(0, 0, 0)"
-HOVER_LABEL_BGCOLOR = "rgb(255, 255, 255)"
-TITLE_SIZE = 24
-AXIS_LABEL_SIZE = 16
-LEGEND_SIZE = 14
-XAXIS_TICK_ANGLE = 45
+PLOT_TITLE: str = "Top 20 Most-Starred Repositories on GitHub for Python, Julia, and R"
+XAXES_TITLE: str = "Repository"
+YAXES_TITLE: str = "Stars"
+PYTHON_BARS: str = "rgb(0, 114, 178)"
+JULIA_BARS: str = "rgb(213, 94, 0)"
+R_BARS: str = "rgb(0, 158, 115)"
+BLACK_COLOR: str = "rgb(0, 0, 0)"
+HOVER_LABEL_BGCOLOR: str = "rgb(255, 255, 255)"
+TITLE_SIZE: int = 24
+AXIS_LABEL_SIZE: int = 16
+LEGEND_SIZE: int = 14
+XAXIS_TICK_ANGLE: int = 45
 
 
-class RepositoryPlotter:
+class RepositoryPlotter:  # pylint: disable=R0903
     """Visualize the top 20 repositories on GitHub for Python, Julia, and R."""
 
     def __init__(self) -> None:
@@ -58,13 +58,13 @@ class RepositoryPlotter:
 
     def _api_urls(self) -> tuple[str, str, str]:
         """Store the API URLs for Python, Julia, and R repositories."""
-        python_url = "https://api.github.com/search/repositories"
+        python_url: str = "https://api.github.com/search/repositories"
         python_url += "?q=language:python+sort:stars+stars:>1000"
 
-        julia_url = "https://api.github.com/search/repositories"
+        julia_url: str = "https://api.github.com/search/repositories"
         julia_url += "?q=language:julia+sort:stars+stars:>1000"
 
-        r_url = "https://api.github.com/search/repositories"
+        r_url: str = "https://api.github.com/search/repositories"
         r_url += "?q=language:r+sort:stars+stars:>1000"
 
         return python_url, julia_url, r_url
@@ -73,7 +73,9 @@ class RepositoryPlotter:
         """Make the GitHub API call for each language and store the responses."""
         for lang, url in self.langs_urls.items():
             try:
-                request = requests.get(url, headers=self.headers, timeout=(5, 10))
+                request: requests.Response = requests.get(
+                    url, headers=self.headers, timeout=(5, 10)
+                )
                 request.raise_for_status()
             except RequestException as err:
                 warning(f"Request failed for {lang}: {err}")
@@ -81,7 +83,7 @@ class RepositoryPlotter:
             else:
                 print(f"Status code ({lang}): {request.status_code}")
 
-                response = request.json()
+                response: dict[str, Any] = request.json()
                 self.responses[lang] = response
 
         self._pull_20_repositories()
@@ -101,16 +103,16 @@ class RepositoryPlotter:
     def _pull_repo_names_stars(self) -> None:
         """Extract and store each repository name with its URL link and stars count."""
         for lang, repos in self.repositories.items():
-            repo_name_key = f"{lang} Repos Names"
-            star_key = f"{lang} Stars"
-            repo_name_links = [
+            repo_name_key: str = f"{lang} Repos Names"
+            star_key: str = f"{lang} Stars"
+            repo_name_links: list[str] = [
                 f"<a href='{repo["html_url"]}' style='color: rgb(0, 0, 0)'>"
                 f"{repo["name"]}</a>"
                 for repo in repos
             ]
-            stars = [repo["stargazers_count"] for repo in repos]
-            self.repo_data[repo_name_key] = repo_name_links
-            self.repo_data[star_key] = stars
+            stars: list[int] = [repo["stargazers_count"] for repo in repos]
+            self.repo_data[repo_name_key] = repo_name_links  # type: ignore
+            self.repo_data[star_key] = stars  # type: ignore
 
     def _make_subplots(self) -> None:
         """Make a subplot with three columns, one for each language."""

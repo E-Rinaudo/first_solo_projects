@@ -23,7 +23,7 @@ import plotly.express as px
 from plotly.graph_objects import Figure
 
 
-class EarthquakesPlotter:
+class EarthquakesPlotter:  # pylint: disable=R0902
     """Analyze and visualize earthquakes activity."""
 
     def __init__(self, path: Path) -> None:
@@ -36,8 +36,7 @@ class EarthquakesPlotter:
     def _data_attributes(self) -> None:
         """Initialize the data attributes."""
         self.quakes_data: dict[str, Any] = {}
-
-        self.mag: Union[float, int] = 0
+        self.mag: Union[float, int] = 0.0
         self.long: float = 0.0
         self.lat: float = 0.0
         self.timestamp_seconds: float = 0.0
@@ -74,18 +73,18 @@ class EarthquakesPlotter:
         self._load_text()
 
         if reformat_path:
-            path = Path(reformat_path)
-            readable_contents = json.dumps(self.quakes_data, indent=4)
+            path: Path = Path(reformat_path)
+            readable_contents: str = json.dumps(self.quakes_data, indent=4)
             path.write_text(readable_contents, encoding="utf-8")
 
     def _load_text(self) -> None:
         """Convert the json file into a python object."""
-        contents = self.path.read_text(encoding="utf-8")
-        self.quakes_data = json.loads(contents)
+        contents: str = self.path.read_text(encoding="utf-8")
+        self.quakes_data = json.loads(contents)  # pylint: disable=W0201
 
     def _extract_data(self) -> None:
         """Extract the data of interest from the python object."""
-        quakes = self.quakes_data["features"]
+        quakes: list[dict[str, Any]] = self.quakes_data["features"]
 
         # Extract magnitude, longitude, latitude, title and date for each earthquake
         #   only if the magnitude is not negative.
@@ -104,20 +103,26 @@ class EarthquakesPlotter:
 
     def _collect_data(self, quake: dict[str, Any]) -> None:
         """Collect the data of interest."""
-        self.mag = quake["properties"]["mag"]
-        self.long = quake["geometry"]["coordinates"][0]
-        self.lat = quake["geometry"]["coordinates"][1]
-        self.event_title = quake["properties"]["title"]
-        self.timestamp_seconds = quake["properties"]["time"] / 1000
+        self.mag = quake["properties"]["mag"]  # pylint: disable=W0201
+        self.long = quake["geometry"]["coordinates"][0]  # pylint: disable=W0201
+        self.lat = quake["geometry"]["coordinates"][1]  # pylint: disable=W0201
+        self.event_title = quake["properties"]["title"]  # pylint: disable=W0201
+        self.timestamp_seconds = (  # pylint: disable=W0201
+            quake["properties"]["time"] / 1000
+        )
 
     def _get_quakes_date(self) -> None:
         """Get the date of each earthquake and format it."""
-        utc_timezone = timezone.utc
-        quake_datetime = datetime.fromtimestamp(self.timestamp_seconds, utc_timezone)
+        utc_timezone: timezone = timezone.utc
+        quake_datetime: datetime = datetime.fromtimestamp(
+            self.timestamp_seconds, utc_timezone
+        )
         # Format the date for the label of each earthquake.
-        self.date = quake_datetime.strftime("%B %d, %Y -- %H:%M:%S %Z (24-Hour format)")
+        self.date = quake_datetime.strftime(  # pylint: disable=W0201
+            "%B %d, %Y -- %H:%M:%S %Z (24-Hour format)"
+        )
         # Format the date for the plot title.
-        self.title_date = quake_datetime.strftime("%B %Y")
+        self.title_date = quake_datetime.strftime("%B %Y")  # pylint: disable=W0201
 
     def _append_data(self) -> None:
         """Store the collected data in lists."""
@@ -133,8 +138,8 @@ class EarthquakesPlotter:
         """Neatly format the plot title."""
         self._adjust_title_dates()
 
-        quakes_title = self.quakes_data["metadata"]["title"].split(", ")
-        self.formatted_plot_title = (
+        quakes_title: str = self.quakes_data["metadata"]["title"].split(", ")
+        self.formatted_plot_title = (  # pylint: disable=W0201
             f"{quakes_title[0]} ({" - ".join(self.title_dates)})"
         )
 
@@ -145,12 +150,12 @@ class EarthquakesPlotter:
         """
         if len(self.title_dates) == 2:
             self.title_dates.reverse()
-            first_date_split = self.title_dates[0].split(" ")
+            first_date_split: list[str] = self.title_dates[0].split(" ")
             self.title_dates[0] = first_date_split[0]
 
     def _quakes_dataframe(self) -> None:
         """Make a dataframe of the earthquakes data."""
-        quakes_df = {
+        quakes_df: dict[str, list[Any]] = {
             "Magnitude": self.mags,
             "Latitude": self.lats,
             "Longitude": self.longs,
@@ -162,7 +167,7 @@ class EarthquakesPlotter:
 
     def plot_quakes(self, quakes_color: str, title_color: Optional[str] = None) -> None:
         """Plot the earthquakes."""
-        fig = px.scatter_geo(
+        fig: Figure = px.scatter_geo(
             data_frame=self.dataframe,
             size="Magnitude",
             lat="Latitude",

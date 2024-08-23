@@ -8,7 +8,7 @@ Each step is taken in a random direction and with a random distance.
 from random import choice
 
 
-class MolecularMotion:
+class MolecularMotion:  # pylint: disable=R0903
     """A class to generate a random walk of a pollen grain on water."""
 
     def __init__(self, num_points: int = 5000) -> None:
@@ -29,16 +29,16 @@ class MolecularMotion:
             if x_step == 0 and y_step == 0:
                 continue
 
-            x = self.x_values[-1] + x_step
-            y = self.y_values[-1] + y_step
+            x: int = self.x_values[-1] + x_step
+            y: int = self.y_values[-1] + y_step
 
             self.x_values.append(x)
             self.y_values.append(y)
 
     def _get_step(self) -> int:
         """Determine direction and distance of each step."""
-        direction = choice([1, -1])
-        distance = choice([0, 1, 2, 3, 4, 5])
-        step = direction * distance
+        direction: int = choice([1, -1])
+        distance: int = choice([0, 1, 2, 3, 4, 5])
+        step: int = direction * distance
 
         return step

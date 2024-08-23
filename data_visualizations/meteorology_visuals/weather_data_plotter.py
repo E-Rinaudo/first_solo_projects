@@ -11,7 +11,7 @@ The class allows to:
 """
 
 import sys
-from typing import TypedDict, Literal, Iterable, Optional, Union
+from typing import TypedDict, Literal, Iterator, Optional, Union
 from pathlib import Path
 import csv
 from datetime import datetime
@@ -20,14 +20,13 @@ from logging import warning
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.figure import Figure
-from matplotlib.axes import Axes
 
 
-FONT_SIZE_TITLE = 11
-FONT_SIZE_LABELS = 10
-FONT_SIZE_TICKS = 9
-FONT_SIZE_LEGEND = 8
-DATE_FORMAT = "%Y-%m-%d"
+FONT_SIZE_TITLE: int = 11
+FONT_SIZE_LABELS: int = 10
+FONT_SIZE_TICKS: int = 9
+FONT_SIZE_LEGEND: int = 8
+DATE_FORMAT: str = "%Y-%m-%d"
 
 
 class WeatherDataset(TypedDict):
@@ -64,10 +63,10 @@ class WeatherDataPlotter:
 
         plt.style.use("seaborn-v0_8")
         self.fig: Figure
-        self.ax: Axes
+        self.ax: plt.Axes
         self.fig, self.ax = plt.subplots(figsize=(14, 5.5), dpi=130)
 
-    def weather_dataset(
+    def weather_dataset(  # pylint: disable=R0913
         self,
         path: Path,
         high: bool = False,
@@ -107,13 +106,13 @@ class WeatherDataPlotter:
     def _read_file(self) -> None:
         """Read the weather file."""
         try:
-            lines = self.dataset["path"].read_text().splitlines()
+            lines: list[str] = self.dataset["path"].read_text().splitlines()
         except FileNotFoundError as fne:
             warning(f" {fne}")
             sys.exit()
         else:
-            reader = csv.reader(lines)
-            header_row = next(reader)
+            reader: Iterator[list[str]] = csv.reader(lines)
+            header_row: list[str] = next(reader)
 
             self._get_data_indices(header_row)
             self._extract_data(reader)
@@ -134,7 +133,7 @@ class WeatherDataPlotter:
             warning(f" {ve}")
             sys.exit()
 
-    def _extract_data(self, reader: Iterable[list[str]]) -> None:
+    def _extract_data(self, reader: Iterator[list[str]]) -> None:
         """Determine which data is needed for the plot and extract them."""
         for row in reader:
             self._extract_station_name(row)
@@ -148,7 +147,7 @@ class WeatherDataPlotter:
 
     def _extract_date(self, row: list[str]) -> datetime:
         """Extract the dates of the recording from the row."""
-        date = datetime.strptime(row[self.dataset["date_index"]], DATE_FORMAT)
+        date: datetime = datetime.strptime(row[self.dataset["date_index"]], DATE_FORMAT)
         return date
 
     def _extract_weather_data(self, row: list[str], date: datetime) -> None:
@@ -164,7 +163,7 @@ class WeatherDataPlotter:
                 row, "precipitations", "", self.dataset["precip_index"], date
             )
 
-    def _collect_data(
+    def _collect_data(  # pylint: disable=R0913
         self,
         row: list[str],
         weather_type_1: str,
@@ -174,7 +173,7 @@ class WeatherDataPlotter:
     ) -> None:
         """Collect the specified data in the _extract methods and store them."""
         try:
-            values = self._collect_values(
+            values: list[float] = self._collect_values(
                 row, weather_type_1, weather_type_2, weather_type_index
             )
         except ValueError as ve:
@@ -190,7 +189,7 @@ class WeatherDataPlotter:
         weather_type_index: int,
     ) -> list[float]:
         """Collect the specified weather data values from the row."""
-        values = []
+        values: list[float] = []
 
         if weather_type_1 == "highs" and weather_type_2 == "lows":
             for weather_index in ("high_index", "low_index"):
@@ -248,7 +247,7 @@ class WeatherDataPlotter:
             )
         else:
             if self.dataset["high"] and not self.dataset["low"]:
-                weather_type = highs
+                weather_type: str = highs
             elif self.dataset["low"] and not self.dataset["high"]:
                 weather_type = lows
             elif self.dataset["precip"]:
@@ -267,21 +266,19 @@ class WeatherDataPlotter:
     ) -> tuple[dict[str, list[float]], str, str, str, str, float]:
         """Store the variables needed to make the plot."""
         # Set a variable for the dictionary of the weather data.
-        weather_info_dict = self.dataset["weather_info"]
+        weather_info_dict: dict[str, list[float]] = self.dataset["weather_info"]
         # List the keys of the weather data dictionary. Used with the
         #   variable above to determine which specific weather data to plot.
-        weather_info_dict_keys = list(weather_info_dict.keys())
-        highs, lows, precips = (
-            weather_info_dict_keys[0],
-            weather_info_dict_keys[1],
-            weather_info_dict_keys[2],
-        )
-        color = self.dataset["color"]
-        alpha = self.dataset["alpha"]
+        weather_info_dict_keys: list[str] = list(weather_info_dict.keys())
+        highs: str = weather_info_dict_keys[0]
+        lows: str = weather_info_dict_keys[1]
+        precips: str = weather_info_dict_keys[2]
+        color: str = self.dataset["color"]
+        alpha: float = self.dataset["alpha"]
 
         return weather_info_dict, highs, lows, precips, color, alpha
 
-    def _plot_weather(
+    def _plot_weather(  # pylint: disable=R0913
         self,
         weather_types: list[str],
         weather_info_dict: dict[str, list[float]],
@@ -351,15 +348,19 @@ class WeatherDataPlotter:
     def _customize_title(self) -> None:
         """Customize the title."""
         formatted_name = self._format_plot_title()
-        title = self.title
+        title: str = self.title
         title += f"\n{formatted_name}"
         self.ax.set_title(title, color=self.title_color, fontsize=FONT_SIZE_TITLE)
 
     def _format_plot_title(self) -> str:
         """Return a neatly formatted string of the location name for the title."""
-        loc_names = [dataset["loc_name"].split(", ") for dataset in self.datasets]
-        formatted_names = [f"{loc[0].title()}, {loc[1]}" for loc in loc_names]
-        formatted_name = "\n".join(formatted_names)
+        loc_names: list[list[str]] = [
+            dataset["loc_name"].split(", ") for dataset in self.datasets
+        ]
+        formatted_names: list[str] = [
+            f"{loc[0].title()}, {loc[1]}" for loc in loc_names
+        ]
+        formatted_name: str = "\n".join(formatted_names)
         return formatted_name
 
     def _customize_x_axis(self) -> None:

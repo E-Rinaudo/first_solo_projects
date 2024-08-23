@@ -7,10 +7,10 @@ each day, including tasks for the day and the current date.
 """
 
 import tkinter as tk
-from datetime import datetime
+from datetime import datetime, date
 
 
-class StudyPopUp:
+class StudyPopUp:  # pylint: disable=R0903
     """Make a pop-up window to display the subject being studied."""
 
     def __init__(
@@ -36,15 +36,15 @@ class StudyPopUp:
 
     def _get_date(self) -> None:
         """Get and neatly format the current date."""
-        current_date = datetime.now().date()
+        current_date: date = datetime.now().date()
 
         # Get the current day and month as int.
         self.day_of_week = current_date.weekday()
-        month = current_date.month - 1
+        month: int = current_date.month - 1
 
         # Use the int to get the name of the days and months from days and months lists.
-        day_name = self.days[self.day_of_week].title()
-        month_name = self.months[month].title()
+        day_name: str = self.days[self.day_of_week].title()
+        month_name: str = self.months[month].title()
 
         # Format the date as a string.
         self.formatted_date = current_date.strftime(f"{day_name}, %d {month_name} %Y")
@@ -53,7 +53,7 @@ class StudyPopUp:
         """Generate a pop-up window displaying the current date,
         the subject being studied, and the tasks for the day.
         """
-        popup = tk.Tk()
+        popup: tk.Tk = tk.Tk()
         self._customize_popup(popup)
         popup.mainloop()
 
@@ -71,7 +71,7 @@ class StudyPopUp:
 
     def _repetition_text(self, popup: tk.Tk) -> None:
         """Display the text to describe the repetition for the current day."""
-        tasks = self.study_method.get(self.days[self.day_of_week], [])
+        tasks: list[str] = self.study_method.get(self.days[self.day_of_week], [])
         for i, task in enumerate(tasks[:4]):
             tk.Label(popup, text=f"Today's task {i + 1}:", foreground="dark blue").pack(
                 anchor="w"

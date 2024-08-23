@@ -10,55 +10,86 @@ penguin settings, orca settings, bullet settings, and difficulty levels.
 import pygame
 
 
-class Settings:
+class Settings:  # pylint: disable=R0902
     """A class to store all settings for Sliding Penguin."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize game's static settings."""
         self._screen_settings()
         self._orca_settings()
         self._orca_bullet_settings()
 
         # How quickly the game speeds up.
-        self.speedup_scale = 1.1
+        self.speedup_scale: float = 1.1
 
-        # Initialize the game dynamic settings.
-        self._game_settings_flags()
+        # Initialize the difficulty-related settings.
+        self.difficulty_settings: DifficultySettings = DifficultySettings()
         self.initialize_dynamic_settings()
 
-    def _screen_settings(self):
+    def _screen_settings(self) -> None:
         """Initialize the screen's settings."""
-        self.screen_width = 1280
-        self.screen_height = 750
-        self.background = pygame.image.load("images/ocean.bmp")
+        self.screen_width: int = 1280
+        self.screen_height: int = 750
+        self.background: pygame.Surface = pygame.image.load("images/ocean.bmp")
 
-    def _orca_settings(self):
+    def _orca_settings(self) -> None:
         """Initialize the orca's settings."""
         # How many orcas to hit before leveling up
         #   and maximum number of orcas generated each time.
-        self.max_orcas = 10
+        self.max_orcas: int = 10
 
-    def _orca_bullet_settings(self):
+    def _orca_bullet_settings(self) -> None:
         """Initialize the orcas' bullet settings."""
-        self.shooting_frequency = 0.009
-        self.shooting_cooldown = 0
+        self.shooting_frequency: float = 0.009
+        self.shooting_cooldown: int = 0
 
-    def _game_settings_flags(self):
-        """Store the settings flags."""
-        self.easy_settings = False
-        self.medium_settings = True
-        self.hard_settings = False
-
-    def initialize_dynamic_settings(self):
+    def initialize_dynamic_settings(self) -> None:
         """Initialize settings that change throughout the game."""
-        self._easy_difficulty_settings()
-        self._medium_difficulty_settings()
-        self._hard_difficulty_settings()
+        self.difficulty_settings.easy_difficulty_settings()
+        self.difficulty_settings.medium_difficulty_settings()
+        self.difficulty_settings.hard_difficulty_settings()
 
         # Count how many orcas get hit to increase speed.
-        self.orca_hit = 0
+        self.orca_hit: int = 0
 
-    def _easy_difficulty_settings(self):
+    def increase_speed(self) -> None:
+        """Increase speed settings."""
+        self.difficulty_settings.penguin_speed *= self.speedup_scale
+        self.difficulty_settings.bullet_speed *= self.speedup_scale
+        self.difficulty_settings.orca_speed *= self.speedup_scale
+        self.difficulty_settings.orca_bullet_speed *= self.speedup_scale
+        self.difficulty_settings.orca_frequency *= self.speedup_scale - 0.05
+        self.difficulty_settings.orca_points = int(
+            self.difficulty_settings.orca_points * self.difficulty_settings.score_scale
+        )
+
+
+class DifficultySettings:  # pylint: disable=R0902
+    """A class to store all the difficulty-related attributes."""
+
+    def __init__(self) -> None:
+        """Initialize difficulties settings."""
+        self.penguin_limit: int = 0
+        self.bullets_allowed: int = 0
+        self.penguin_speed: float = 0.0
+        self.bullet_speed: float = 0.0
+        self.orca_speed: float = 0.0
+        self.orca_bullets_allowed: int = 0
+        self.orca_bullet_speed: float = 0.0
+        self.orca_frequency: float = 0.0
+        self.orca_points: int = 0
+        self.score_scale: float = 0.0
+
+        # Initialize the game dynamic settings.
+        self._game_settings_flags()
+
+    def _game_settings_flags(self) -> None:
+        """Store the settings flags."""
+        self.easy_settings: bool = False
+        self.medium_settings: bool = True
+        self.hard_settings: bool = False
+
+    def easy_difficulty_settings(self) -> None:
         """Initialize easy settings."""
         if self.easy_settings:
             self.penguin_limit = 5
@@ -72,7 +103,7 @@ class Settings:
             self.orca_points = 40
             self.score_scale = 1.5
 
-    def _medium_difficulty_settings(self):
+    def medium_difficulty_settings(self) -> None:
         """Initialize medium settings."""
         if self.medium_settings:
             self.penguin_limit = 4
@@ -86,7 +117,7 @@ class Settings:
             self.orca_points = 50
             self.score_scale = 1.7
 
-    def _hard_difficulty_settings(self):
+    def hard_difficulty_settings(self) -> None:
         """Initialize hard settings."""
         if self.hard_settings:
             self.penguin_limit = 3
@@ -99,12 +130,3 @@ class Settings:
             self.orca_frequency = 0.01
             self.orca_points = 60
             self.score_scale = 1.9
-
-    def increase_speed(self):
-        """Increase speed settings."""
-        self.penguin_speed *= self.speedup_scale
-        self.bullet_speed *= self.speedup_scale
-        self.orca_speed *= self.speedup_scale
-        self.orca_bullet_speed *= self.speedup_scale
-        self.orca_frequency *= self.speedup_scale - 0.05
-        self.orca_points = int(self.orca_points * self.score_scale)

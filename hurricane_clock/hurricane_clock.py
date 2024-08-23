@@ -15,7 +15,7 @@ import os
 import time
 
 
-class HurricaneWorkout:
+class HurricaneWorkout:  # pylint: disable=R0903
     """Represent the Hurricane Hypertrophy workout."""
 
     def __init__(self) -> None:
@@ -69,7 +69,7 @@ class HurricaneWorkout:
         )
 
 
-class HurricaneSob:
+class HurricaneSob:  # pylint: disable=R0903
     """Represent the Hurricane Hypertrophy interval training structure."""
 
     def __init__(self) -> None:
