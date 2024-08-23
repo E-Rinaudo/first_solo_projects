@@ -137,7 +137,7 @@ By running the script, users will be able visualize in their default web browser
 This code snippet from github_python_julia_r_repos.py demonstrates the core functionality of the RepositoryPlotter class. This class is responsible for fetching data from GitHub's API, initializing API URLs, performing API calls, and generating a Plotly bar plot to display the repositories side-by-side for easy comparison.
 
 ```py
-class RepositoryPlotter:
+class RepositoryPlotter:  # pylint: disable=R0903
     """Visualize the top 20 repositories on GitHub for Python, Julia, and R."""
 
     def __init__(self) -> None:
@@ -156,14 +156,19 @@ class RepositoryPlotter:
 
     def _api_urls(self) -> tuple[str, str, str]:
         """Store the API URLs for Python, Julia, and R repositories."""
-        python_url = "https://api.github.com/search/repositories?q=language:python+sort:stars+stars:>1000"
+        python_url: str = "https://api.github.com/search/repositories"
+        python_url += "?q=language:python+sort:stars+stars:>1000"
 
-        julia_url = "https://api.github.com/search/repositories?q=language:julia+sort:stars+stars:>1000"
+        julia_url: str = "https://api.github.com/search/repositories"
+        julia_url += "?q=language:julia+sort:stars+stars:>1000"
 
-        r_url = "https://api.github.com/search/repositories?q=language:r+sort:stars+stars:>1000"
+        r_url: str = "https://api.github.com/search/repositories"
+        r_url += "?q=language:r+sort:stars+stars:>1000"
 
         return python_url, julia_url, r_url
+```
 
+```py
     def main(self) -> None:
         """Store the main methods to make the plot and show it."""
         self._make_api_call()

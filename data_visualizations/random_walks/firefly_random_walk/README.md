@@ -132,7 +132,7 @@ By running this program, users can generate an interactive scatter plot showing 
 This code snippet from ff_random_walk_visual.py demonstrates how the FireflyWalk class creates and customizes the plot.
 
 ```py
-class FireflyWalk:
+class FireflyWalk:  # pylint: disable=R0903
     """A Class to visualize the random walk of a Firefly at night."""
 
     def __init__(self) -> None:

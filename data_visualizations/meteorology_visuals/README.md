@@ -195,17 +195,19 @@ def plot_visual(
 This code snippet from madrid_highs_f.py illustrates how to use the WeatherDataPlotter class to generate a plot for Madrid’s high temperatures.
 
 ```py
+from pathlib import Path
+
 from weather_data_plotter import WeatherDataPlotter as WDP
 
 
 if __name__ == "__main__":
     # Create a plotter instance.
-    weather_plotter = WDP(title="Daily High Temperatures, 2023")
+    weather_plotter: WDP = WDP(title="Daily High Temperatures, 2023")
 
     # Add data for Madrid to the plotter dataset.
-    path = Path("weather_data/madrid_weather_2023_f_in.csv")
+    path: Path = Path("weather_data/madrid_weather_2023_f_in.csv")
 
-    weather_plotter.weather_dataset(
+    weather_plotter.weather_dataset(  # pylint: disable=R0801
         path=path,
         high=True,
         color="red",

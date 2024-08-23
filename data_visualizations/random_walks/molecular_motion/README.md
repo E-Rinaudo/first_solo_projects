@@ -133,7 +133,7 @@ You will be prompted to generate multiple walks, with each new walk visualized i
 This code snippet from molecular_motion_visual.py demonstrates how the MolecularVisual class generates and visualizes the random walk.
 
 ```py
-class MolecularVisual:
+class MolecularVisual:  # pylint: disable=R0903
     """A class to visualize a random walk chart of a pollen grain."""
 
     def __init__(self) -> None:
@@ -142,7 +142,7 @@ class MolecularVisual:
 
     def random_walk_loop(self) -> None:
         """Generate multiple walks based on user input."""
-        random_walk = True
+        random_walk: bool = True
 
         while random_walk:
             self.mm = MolecularMotion(NUM_POINTS)
@@ -150,7 +150,7 @@ class MolecularVisual:
             self._make_plot()
 
             # Prompt the user to make a new walk.
-            new_walk = input("\nMake another walk? (y/n) ")
+            new_walk: str = input("\nMake another walk? (y/n) ")
 
             if new_walk != "y":
                 random_walk = False
@@ -158,6 +158,8 @@ class MolecularVisual:
     def _make_plot(self) -> None:
         """Create and display the plot."""
         plt.style.use("classic")
+        fig: Figure  # pylint: disable=W0612
+        ax: plt.Axes
         fig, ax = plt.subplots(figsize=FIG_SIZE, dpi=DPI)
 
         self._customize_chart(ax)

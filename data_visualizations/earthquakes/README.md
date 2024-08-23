@@ -160,21 +160,21 @@ This code snippet from quakes_plotter.py shows how the geographical scatter plot
 
 ```py
 def plot_quakes(self, quakes_color: str, title_color: Optional[str] = None) -> None:
-    """Plot the earthquakes."""
-    fig = px.scatter_geo(
-        data_frame=self.dataframe,
-        size="Magnitude",
-        lat="Latitude",
-        lon="Longitude",
-        color="Magnitude",
-        color_continuous_scale=quakes_color,
-        projection="robinson",
-        hover_name="Event Title",
-        hover_data={"Date": True},
-    )
+        """Plot the earthquakes."""
+        fig: Figure = px.scatter_geo(
+            data_frame=self.dataframe,
+            size="Magnitude",
+            lat="Latitude",
+            lon="Longitude",
+            color="Magnitude",
+            color_continuous_scale=quakes_color,
+            projection="robinson",
+            hover_name="Event Title",
+            hover_data={"Date": True},
+        )
 
-    self._update_fig_title(fig, title_color)
-    fig.show()
+        self._update_fig_title(fig, title_color)
+        fig.show()
 ```
 
 This code snippet from significant_quakes.py shows the use of the EarthquakesPlotter class to analyze and visualize earthquake data:
@@ -187,9 +187,9 @@ from quakes_plotter import EarthquakesPlotter as EP
 
 if __name__ == "__main__":
     # Make the instance and visualize the data.
-    path = Path("earthquakes_files/significant_month.geojson")
-    quakes_plotter = EP(path=path)
+    path: Path = Path("earthquakes_files/significant_month.geojson")
 
+    quakes_plotter: EP = EP(path=path)
     quakes_plotter.analyze_data()
     quakes_plotter.plot_quakes(quakes_color="Cividis")
 ```

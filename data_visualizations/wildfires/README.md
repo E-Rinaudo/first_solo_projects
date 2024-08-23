@@ -138,30 +138,32 @@ This code snippet from fires_analyzer.py demonstrates how the data is visualized
 
 ```py
 def visualize_plot(self) -> None:
-    """Visualize wildfire activity."""
-    self._format_label_text()
-    # Lower the brightness value to use it as a size in the plot.
-    bright_size = [bright // 18 for bright in self.fires_data["brightness"]]
+        """Visualize wildfire activity."""
+        self._format_label_text()
+        # Lower the brightness value to use it as a size in the plot.
+        bright_size: list[int] = [
+            bright // 18 for bright in self.fires_data["brightness"]
+        ]
 
-    # Make the plot.
-    fig = go.Figure(
-        data=go.Scattergeo(
-            lat=self.fires_data["latitude"],
-            lon=self.fires_data["longitude"],
-            text=self.fires_data["text"],
-            mode="markers",
-            marker={
-                "size": bright_size,
-                "symbol": "star-triangle-up",
-                "color": self.fires_data["brightness"],
-                "colorscale": "Hot",
-                "colorbar_title": "Wildfire Brightness",
-            },
+        # Make the plot.
+        fig = go.Figure(
+            data=go.Scattergeo(
+                lat=self.fires_data["latitude"],
+                lon=self.fires_data["longitude"],
+                text=self.fires_data["text"],
+                mode="markers",
+                marker={
+                    "size": bright_size,
+                    "symbol": "star-triangle-up",
+                    "color": self.fires_data["brightness"],
+                    "colorscale": "Hot",
+                    "colorbar_title": "Wildfire Brightness",
+                },
+            )
         )
-    )
 
-    self._update_plot(fig)
-    fig.show(renderer="browser")
+        self._update_plot(fig)
+        fig.show(renderer="browser")
 ```
 
 ### Project Screenshot

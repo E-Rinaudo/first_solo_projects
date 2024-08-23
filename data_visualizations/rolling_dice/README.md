@@ -130,8 +130,8 @@ By executing the script, a bar chart will be displayed, showing how often each r
 This code snippet from matplotlib_die_visual.py demonstrates how the DieVisual class is used to create a bar chart of the dice roll results.
 
 ```py
-class DieVisual:
-    """A class to visualize the rolls of two D6 dice 50,000 times."""
+class DieVisual:  # pylint: disable=R0903
+    """A class to visualize the rolls of two D6 dice 50_000 times."""
 
     def __init__(self) -> None:
         """Make the die instance and generate the visualization."""
@@ -145,8 +145,10 @@ class DieVisual:
 
         # Make the chart.
         plt.style.use("seaborn-v0_8-muted")
+        fig: Figure  # pylint: disable=W0612
+        ax: plt.Axes
         fig, ax = plt.subplots(figsize=FIG_SIZE, dpi=DPI)
-        bars = ax.bar(
+        bars: BarContainer = ax.bar(
             x=poss_results,
             height=frequencies,
             color=BARS_COLOR,

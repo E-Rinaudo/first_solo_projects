@@ -105,7 +105,7 @@ To start a workout session, simply run the script and follow the prompts to ente
 This code snippet from hurricane_clock.py demonstrates how the HurricaneSob class is defined and how it manages the structured interval workout session.
 
 ```py
-class HurricaneSob:
+class HurricaneSob:  # pylint: disable=R0903
     """Represent the Hurricane Hypertrophy interval training structure."""
 
     def __init__(self) -> None:

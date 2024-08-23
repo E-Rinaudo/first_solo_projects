@@ -105,13 +105,20 @@ For convenience, consider creating a terminal alias to run the script automatica
 This code snippet from study_schedule.py demonstrates how the weekly schedule is defined.
 
 ```py
-# Import the StudyPopUp class from the module.
 from pop_up import StudyPopUp
 
 # Define the parameters.
-DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+DAYS: list[str] = [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+]
 
-MONTHS = [
+MONTHS: list[str] = [
     "january",
     "february",
     "march",
@@ -126,7 +133,7 @@ MONTHS = [
     "december",
 ]
 
-STUDY_METHOD = {
+STUDY_METHOD: dict[str, list[str]] = {
     "monday": ["Study new block", "Repeat today's block"],
     "tuesday": ["Repeat yesterday's block", "Study new block", "Repeat today's block"],
     "wednesday": [
@@ -145,7 +152,7 @@ STUDY_METHOD = {
     "sunday": ["Repeat all blocks"],
 }
 
-subject = "python crash course"
+subject: str = "python crash course"
 
 if __name__ == "__main__":
     # Make an instance of StudyPopUp to display the study reminder.
