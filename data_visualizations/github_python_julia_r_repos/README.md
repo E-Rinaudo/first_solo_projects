@@ -130,7 +130,7 @@ $ python github_python_julia_r_repos.py
 
 ## Usage
 
-By running the script, users will be able visualize in their default web browser the most-starred repositories for Python, Julia, and R and their respective star counts.
+By running the script, users will be able to visualize in their default web browser the most-starred repositories for Python, Julia, and R and their respective star counts.
 
 ### Code Example
 
