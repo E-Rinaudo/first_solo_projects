@@ -7,6 +7,7 @@ It manages the initialization and movement of alien sprites.
 Aliens are placed randomly at the right side of the screen
 and move leftward at a set speed.
 """
+
 from typing import TYPE_CHECKING
 from random import randint
 
