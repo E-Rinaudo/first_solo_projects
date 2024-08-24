@@ -336,7 +336,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
         """Make the score, level and fox images for the Scoreboard."""
         self.sb.prep_score()
         self.sb.prep_level()
-        self.sb.prep_foxs()
+        self.sb.prep_foxes()
 
     def _start_game_flags(self) -> None:
         """Store the flags used at the start of the game."""
@@ -724,7 +724,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
         if self.stats.fox_life > 0:
             # Decrement fox_left, and update scoreboard.
             self.stats.fox_life -= 1
-            self.sb.prep_foxs()
+            self.sb.prep_foxes()
 
             # Get rid of any remaining bullets and farmers.
             self._empty_sprites()

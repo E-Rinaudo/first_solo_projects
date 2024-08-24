@@ -31,7 +31,7 @@ class ScoresImages:  # pylint: disable=R0903
         self.high_score_rect: pygame.Rect = pygame.Rect(0, 0, 0, 0)
         self.level_image: pygame.Surface = pygame.Surface((0, 0))
         self.level_rect: pygame.Rect = pygame.Rect(0, 0, 0, 0)
-        self.foxs_resized: Group = Group()
+        self.foxes_resized: Group = Group()
 
 
 class Scoreboard:
@@ -58,7 +58,7 @@ class Scoreboard:
         self.prep_score()
         self._prep_high_score()
         self.prep_level()
-        self.prep_foxs()
+        self.prep_foxes()
 
     def prep_score(self) -> None:
         """Turn the score into a rendered image."""
@@ -107,9 +107,9 @@ class Scoreboard:
         self.scores_images.level_rect.left = self.scores_images.score_rect.left
         self.scores_images.level_rect.top = self.scores_images.score_rect.top * 5
 
-    def prep_foxs(self) -> None:
-        """Show how many foxs are left and resize the fox image."""
-        self.scores_images.foxs_resized = Group()
+    def prep_foxes(self) -> None:
+        """Show how many foxes are left and resize the fox image."""
+        self.scores_images.foxes_resized = Group()
 
         # Width and height of the resized fox image.
         fox_width: int = 55
@@ -119,10 +119,10 @@ class Scoreboard:
             self.screen_rect.width - self.h_fox.game_buttons.pause_button.rect.width * 2
         )
 
-        # Calculate the total width required for all foxs.
-        total_foxs_width: int = self.stats.fox_life * fox_width
-        # Get the starting x position to place foxs on the top right.
-        start_x: int = available_width - total_foxs_width
+        # Calculate the total width required for all foxes.
+        total_foxes_width: int = self.stats.fox_life * fox_width
+        # Get the starting x position to place foxes on the top right.
+        start_x: int = available_width - total_foxes_width
 
         for fox_number in range(self.stats.fox_life):
             fox: Fox = Fox(self.h_fox)
@@ -131,7 +131,7 @@ class Scoreboard:
             fox.rect = resized_image.get_rect()
             fox.rect.x = (start_x) + (fox_number * fox_width)
             fox.rect.y = self.scores_images.score_rect.top // 2
-            self.scores_images.foxs_resized.add(fox)
+            self.scores_images.foxes_resized.add(fox)
 
     def show_score(self) -> None:
         """Draw the score to the screen."""
@@ -140,4 +140,4 @@ class Scoreboard:
             self.scores_images.high_score_image, self.scores_images.high_score_rect
         )
         self.screen.blit(self.scores_images.level_image, self.scores_images.level_rect)
-        self.scores_images.foxs_resized.draw(self.screen)
+        self.scores_images.foxes_resized.draw(self.screen)
