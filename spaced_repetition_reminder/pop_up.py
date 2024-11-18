@@ -73,7 +73,5 @@ class StudyPopUp:  # pylint: disable=R0903
         """Display the text to describe the repetition for the current day."""
         tasks: list[str] = self.study_method.get(self.days[self.day_of_week], [])
         for i, task in enumerate(tasks[:4]):
-            tk.Label(popup, text=f"Today's task {i + 1}:", foreground="dark blue").pack(
-                anchor="w"
-            )
+            tk.Label(popup, text=f"Today's task {i + 1}:", foreground="dark blue").pack(anchor="w")
             tk.Label(popup, text=f"- {task}.").pack(anchor="w")

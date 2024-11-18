@@ -159,9 +159,7 @@ class WeatherDataPlotter:
         elif self.dataset["low"] and not self.dataset["high"]:
             self._collect_data(row, "lows", "", self.dataset["low_index"], date)
         elif self.dataset["precip"]:
-            self._collect_data(
-                row, "precipitations", "", self.dataset["precip_index"], date
-            )
+            self._collect_data(row, "precipitations", "", self.dataset["precip_index"], date)
 
     def _collect_data(  # pylint: disable=R0913
         self,
@@ -173,9 +171,7 @@ class WeatherDataPlotter:
     ) -> None:
         """Collect the specified data in the _extract methods and store them."""
         try:
-            values: list[float] = self._collect_values(
-                row, weather_type_1, weather_type_2, weather_type_index
-            )
+            values: list[float] = self._collect_values(row, weather_type_1, weather_type_2, weather_type_index)
         except ValueError as ve:
             warning(f" Missing data for {date}: {ve}")
         else:
@@ -214,9 +210,7 @@ class WeatherDataPlotter:
                 (weather_type_2, values[1]),
             ]:
                 self._append_data(weather_type, value)
-        elif (
-            weather_type_1 in ("highs", "lows", "precipitations")
-        ) and not weather_type_2:
+        elif (weather_type_1 in ("highs", "lows", "precipitations")) and not weather_type_2:
             self._append_data(weather_type_1, values[0])
 
     def _append_data(self, weather_type: str, value: float) -> None:
@@ -237,14 +231,10 @@ class WeatherDataPlotter:
 
     def _make_plot(self, shade_between: bool) -> None:
         """Make the plot for the data of interest."""
-        weather_info_dict, highs, lows, precips, color, alpha = (
-            self._set_plot_variables()
-        )
+        weather_info_dict, highs, lows, precips, color, alpha = self._set_plot_variables()
 
         if self.dataset["high"] and self.dataset["low"]:
-            self._plot_weather(
-                [highs, lows], weather_info_dict, ["red", "blue"], alpha, shade_between
-            )
+            self._plot_weather([highs, lows], weather_info_dict, ["red", "blue"], alpha, shade_between)
         else:
             if self.dataset["high"] and not self.dataset["low"]:
                 weather_type: str = highs
@@ -288,9 +278,7 @@ class WeatherDataPlotter:
     ) -> None:
         """Plot the weather data and shade between them if desired."""
         for weather_type, color in zip(weather_types, colors):
-            self._plot_weather_data(
-                weather_type, weather_info_dict[weather_type], color, alpha
-            )
+            self._plot_weather_data(weather_type, weather_info_dict[weather_type], color, alpha)
         if shade_between:
             if len(weather_types) == 2:
                 self._fill_between(
@@ -336,9 +324,7 @@ class WeatherDataPlotter:
             alpha=0.3,
         )
 
-    def _customize_plot(
-        self, y_limit: Optional[tuple[Union[float, int], Union[float, int]]]
-    ) -> None:
+    def _customize_plot(self, y_limit: Optional[tuple[Union[float, int], Union[float, int]]]) -> None:
         """Customize the plot."""
         self._customize_title()
         self._customize_x_axis()
@@ -354,12 +340,8 @@ class WeatherDataPlotter:
 
     def _format_plot_title(self) -> str:
         """Return a neatly formatted string of the location name for the title."""
-        loc_names: list[list[str]] = [
-            dataset["loc_name"].split(", ") for dataset in self.datasets
-        ]
-        formatted_names: list[str] = [
-            f"{loc[0].title()}, {loc[1]}" for loc in loc_names
-        ]
+        loc_names: list[list[str]] = [dataset["loc_name"].split(", ") for dataset in self.datasets]
+        formatted_names: list[str] = [f"{loc[0].title()}, {loc[1]}" for loc in loc_names]
         formatted_name: str = "\n".join(formatted_names)
         return formatted_name
 
@@ -372,9 +354,7 @@ class WeatherDataPlotter:
         self.ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %Y"))
         self.fig.autofmt_xdate()
 
-    def _customize_y_axis(
-        self, y_limit: Optional[tuple[Union[float, int], Union[float, int]]]
-    ) -> None:
+    def _customize_y_axis(self, y_limit: Optional[tuple[Union[float, int], Union[float, int]]]) -> None:
         """Customize the y axis."""
         if self.dataset["high"] or self.dataset["low"]:
             self.ax.set_ylabel(

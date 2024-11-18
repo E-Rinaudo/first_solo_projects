@@ -172,9 +172,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
     def _check_keydown_buttons_events(self, event: pygame.event.Event) -> None:
         """Respond to keypresses of buttons."""
         # Make sub-menu buttons if Menu is clicked.
-        if (event.key == pygame.K_m) and (  # pylint: disable=E1101
-            self._is_game_inactive_or_paused()
-        ):
+        if (event.key == pygame.K_m) and (self._is_game_inactive_or_paused()):  # pylint: disable=E1101
             self._make_sub_menu_buttons()
         else:
             # Respond to keypresses of game state or sub-menu buttons.
@@ -202,18 +200,12 @@ class HungryFox:  # pylint: disable = R0902, R0903
 
     def _check_keydown_paused_game_events(self, event: pygame.event.Event) -> None:
         """Respond to keypresses when the game is active but paused."""
-        if self._is_return_key_and_no_credits_or_hotkeys(event) and (
-            not self.game_state.game_restarted
-        ):
+        if self._is_return_key_and_no_credits_or_hotkeys(event) and (not self.game_state.game_restarted):
             self._unpause_game()
-        elif self._is_return_key_and_no_credits_or_hotkeys(event) and (
-            self.game_state.game_restarted
-        ):
+        elif self._is_return_key_and_no_credits_or_hotkeys(event) and (self.game_state.game_restarted):
             self._restart_game()
 
-    def _is_return_key_and_no_credits_or_hotkeys(
-        self, event: pygame.event.Event
-    ) -> bool:
+    def _is_return_key_and_no_credits_or_hotkeys(self, event: pygame.event.Event) -> bool:
         """
         Check if the Return key is pressed
         and neither credits nor hotkeys are displayed.
@@ -233,22 +225,16 @@ class HungryFox:  # pylint: disable = R0902, R0903
                 self._make_hotkeys_display()
             elif (event.key == pygame.K_c) and (not self.game_state.show_hotkeys):
                 self._make_credits_display()
-        if (event.key == pygame.K_e) and (  # pylint: disable=E1101
-            self._are_credits_or_hotkeys_shown()
-        ):
+        if (event.key == pygame.K_e) and (self._are_credits_or_hotkeys_shown()):  # pylint: disable=E1101
             self._exit_credits_or_hotkeys()
         else:
             # Respond to the keypresses to choose the game difficulty.
             self._check_keydown_start_difficulty_buttons(event)
             self._check_keydown_restart_difficulty_buttons(event)
 
-    def _check_keydown_start_difficulty_buttons(
-        self, event: pygame.event.Event
-    ) -> None:
+    def _check_keydown_start_difficulty_buttons(self, event: pygame.event.Event) -> None:
         """Respond to keypresses of the start-game difficulty buttons."""
-        if (self._can_choose_difficulty()) and (
-            self._are_credits_and_hotkeys_not_displayed()
-        ):
+        if (self._can_choose_difficulty()) and (self._are_credits_and_hotkeys_not_displayed()):
             if event.key == pygame.K_1:
                 self._easy_difficulty()
             elif event.key == pygame.K_2:
@@ -256,9 +242,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
             elif event.key == pygame.K_3:
                 self._hard_difficulty()
 
-    def _check_keydown_restart_difficulty_buttons(
-        self, event: pygame.event.Event
-    ) -> None:
+    def _check_keydown_restart_difficulty_buttons(self, event: pygame.event.Event) -> None:
         """Respond to keypresses of the restart-game difficulty buttons."""
         if self._can_restart_game() and (self._are_credits_and_hotkeys_not_displayed()):
             if event.key == pygame.K_1:
@@ -299,11 +283,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
     def _check_mouse_button_down_play_button(self) -> None:
         """Start a new game if the Play button is clicked."""
         play_clicked: bool = self._is_button_clicked(self.game_buttons.play_button)
-        if (
-            (play_clicked)
-            and (not self.game_state.game_active)
-            and (self._are_credits_and_hotkeys_not_displayed())
-        ):
+        if (play_clicked) and (not self.game_state.game_active) and (self._are_credits_and_hotkeys_not_displayed()):
             self.fleet_generation += self.fleet_generation_limit
             self._start_game()
 
@@ -324,9 +304,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
 
         # Get rid of any bullets and farmers and make a new fleet
         #   but only if the play button has been clicked more than once.
-        if (self.fleet_generation > self.fleet_generation_limit) or (
-            self.game_state.game_restarted
-        ):
+        if (self.fleet_generation > self.fleet_generation_limit) or (self.game_state.game_restarted):
             self._empty_sprites()
             self._make_fleet()
 
@@ -377,9 +355,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
     def _check_mouse_button_down_resume_button(self) -> None:
         """Unpause the game if the Resume button is clicked."""
         if hasattr(self.game_buttons, "resume_button"):
-            resume_clicked: bool = self._is_button_clicked(
-                self.game_buttons.resume_button
-            )
+            resume_clicked: bool = self._is_button_clicked(self.game_buttons.resume_button)
             if (
                 (resume_clicked)
                 and (self.game_state.game_paused)
@@ -423,9 +399,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
     def _check_mouse_button_down_credits_button(self) -> None:
         """Generate the credits if the Credits button is clicked."""
         if self.game_state.sub_menu:
-            credits_clicked: bool = self._is_button_clicked(
-                self.game_buttons.credits_button
-            )
+            credits_clicked: bool = self._is_button_clicked(self.game_buttons.credits_button)
             if credits_clicked:
                 self._make_credits_display()
 
@@ -445,9 +419,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
     def _check_mouse_button_down_hotkeys_button(self) -> None:
         """Generate the hotkeys if the Hotkeys button is clicked."""
         if self.game_state.sub_menu:
-            hotkeys_clicked: bool = self._is_button_clicked(
-                self.game_buttons.hotkeys_button
-            )
+            hotkeys_clicked: bool = self._is_button_clicked(self.game_buttons.hotkeys_button)
             if (hotkeys_clicked) and (self._are_credits_and_hotkeys_not_displayed()):
                 self._make_hotkeys_display()
 
@@ -456,9 +428,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
         # Consider the hotkeys as if they were a button so they can be
         #   show on the screen.
         # Make the hotkeys button just like the credits button.
-        self.game_buttons.hotkeys_display_button.make_credits_display_button(
-            self, show_credits=False
-        )
+        self.game_buttons.hotkeys_display_button.make_credits_display_button(self, show_credits=False)
         self._make_exit_button()
 
         self.game_state.show_hotkeys = True
@@ -486,9 +456,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
     def _check_mouse_button_down_difficulty_button(self) -> None:
         """Generate the difficulty levels buttons if Difficulty is clicked."""
         if self.game_state.sub_menu:
-            difficulty_clicked: bool = self._is_button_clicked(
-                self.game_buttons.difficulty_button
-            )
+            difficulty_clicked: bool = self._is_button_clicked(self.game_buttons.difficulty_button)
             if (difficulty_clicked) and (self._are_credits_and_hotkeys_not_displayed()):
                 self._make_difficulty_levels_buttons()
 
@@ -507,9 +475,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
             easy_clicked, medium_clicked, hard_clicked = self._choose_difficulty()
 
             # Select the difficulty at the start of the game.
-            self._handle_difficulty_selection(
-                easy_clicked, medium_clicked, hard_clicked
-            )
+            self._handle_difficulty_selection(easy_clicked, medium_clicked, hard_clicked)
         else:
             # Change difficulty mid game.
             self._change_difficulty()
@@ -524,12 +490,8 @@ class HungryFox:  # pylint: disable = R0902, R0903
             easy_clicked, medium_clicked, hard_clicked = self._choose_difficulty()
 
             # Select a new difficulty if game paused; restart the game.
-            self._handle_difficulty_selection(
-                easy_clicked, medium_clicked, hard_clicked
-            )
-            self._check_and_make_restart_button(
-                easy_clicked, medium_clicked, hard_clicked
-            )
+            self._handle_difficulty_selection(easy_clicked, medium_clicked, hard_clicked)
+            self._check_and_make_restart_button(easy_clicked, medium_clicked, hard_clicked)
 
     def _can_restart_game(self) -> bool:
         """Check if game can be restarted."""
@@ -538,16 +500,12 @@ class HungryFox:  # pylint: disable = R0902, R0903
     def _choose_difficulty(self) -> tuple[bool, bool, bool]:
         """Store attributes for the click of the difficulty levels buttons."""
         easy_clicked: bool = self._is_button_clicked(self.game_buttons.easy_diff_button)
-        medium_clicked: bool = self._is_button_clicked(
-            self.game_buttons.medium_diff_button
-        )
+        medium_clicked: bool = self._is_button_clicked(self.game_buttons.medium_diff_button)
         hard_clicked: bool = self._is_button_clicked(self.game_buttons.hard_diff_button)
 
         return easy_clicked, medium_clicked, hard_clicked
 
-    def _check_and_make_restart_button(
-        self, easy_clicked: bool, medium_clicked: bool, hard_clicked: bool
-    ) -> None:
+    def _check_and_make_restart_button(self, easy_clicked: bool, medium_clicked: bool, hard_clicked: bool) -> None:
         """Check conditions and generate the Restart button."""
         if (easy_clicked) or (medium_clicked) or (hard_clicked):
             self._make_restart_button()
@@ -560,14 +518,8 @@ class HungryFox:  # pylint: disable = R0902, R0903
 
     def _check_mouse_button_down_restart_button(self) -> None:
         """Restart the game if the Restart button is clicked."""
-        restart_clicked: bool = self._is_button_clicked(
-            self.game_buttons.restart_button
-        )
-        if (
-            (restart_clicked)
-            and (self.game_state.game_restarted)
-            and (self._are_credits_and_hotkeys_not_displayed())
-        ):
+        restart_clicked: bool = self._is_button_clicked(self.game_buttons.restart_button)
+        if (restart_clicked) and (self.game_state.game_restarted) and (self._are_credits_and_hotkeys_not_displayed()):
             self._restart_game()
 
     def _restart_game(self) -> None:
@@ -576,9 +528,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
         self._start_game()
         self.game_state.game_restarted = False
 
-    def _handle_difficulty_selection(
-        self, easy_clicked: bool, medium_clicked: bool, hard_clicked: bool
-    ) -> None:
+    def _handle_difficulty_selection(self, easy_clicked: bool, medium_clicked: bool, hard_clicked: bool) -> None:
         """Handle the difficulty selection based on which button is clicked."""
         if self._are_credits_and_hotkeys_not_displayed():
             if easy_clicked:
@@ -600,16 +550,12 @@ class HungryFox:  # pylint: disable = R0902, R0903
         """Hard difficulty configurations."""
         self._set_difficulty(hard=True)
 
-    def _set_difficulty(
-        self, easy: bool = False, medium: bool = False, hard: bool = False
-    ) -> None:
+    def _set_difficulty(self, easy: bool = False, medium: bool = False, hard: bool = False) -> None:
         """Set difficulty configurations."""
         self._set_highlight_difficulty_levels_buttons(easy, medium, hard)
         self._choose_difficulty_settings(easy, medium, hard)
 
-    def _set_highlight_difficulty_levels_buttons(
-        self, easy: bool, medium: bool, hard: bool
-    ) -> None:
+    def _set_highlight_difficulty_levels_buttons(self, easy: bool, medium: bool, hard: bool) -> None:
         """Define which of the difficulty levels buttons to highlight."""
         self.game_buttons.easy_diff_button.make_easy_difficulty_button(easy)
         self.game_buttons.medium_diff_button.make_medium_difficulty_button(medium)
@@ -634,10 +580,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
         mouse_inactivity_time: int = 2
         if hasattr(self.game_state, "mouse_visible"):
             current_time: float = time()
-            if (
-                current_time - self.game_state.last_mouse_movement
-                > mouse_inactivity_time
-            ):
+            if current_time - self.game_state.last_mouse_movement > mouse_inactivity_time:
                 self.game_state.mouse_visible = False
                 pygame.mouse.set_visible(self.game_state.mouse_visible)
 
@@ -765,8 +708,8 @@ class HungryFox:  # pylint: disable = R0902, R0903
 
     def _check_bullet_farmer_collisions(self) -> None:
         """Respond to collisions between bullets and farmers."""
-        collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]] = (
-            pygame.sprite.groupcollide(self.bullets, self.farmers, True, True)
+        collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]] = pygame.sprite.groupcollide(
+            self.bullets, self.farmers, True, True
         )
 
         # Play a sound when a farmer is hit.
@@ -774,31 +717,22 @@ class HungryFox:  # pylint: disable = R0902, R0903
         # Increment the score if there is a collision.
         self._increment_score(collisions)
 
-    def _increment_score(
-        self, collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]]
-    ) -> None:
+    def _increment_score(self, collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]]) -> None:
         """Increment the score when farmers are hit."""
         if collisions:
             for farmers in collisions.values():
-                self.stats.score += (
-                    self.settings.difficulty_settings.farmer_points * len(farmers)
-                )
+                self.stats.score += self.settings.difficulty_settings.farmer_points * len(farmers)
             self.sb.prep_score()
             self.sb.check_high_score()
 
-    def _farmer_hit_sound(
-        self, collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]]
-    ) -> None:
+    def _farmer_hit_sound(self, collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]]) -> None:
         """Play a sound when a farmer is hit by a bullet."""
         if collisions:
             self.sounds.farmer_death.play()
 
     def _make_farmer_bullet(self) -> None:
         """Make a new farmer's bullet and add it to the farmer_bullets group."""
-        if (
-            len(self.farmer_bullets)
-            < self.settings.difficulty_settings.farmer_bullets_allowed
-        ):
+        if len(self.farmer_bullets) < self.settings.difficulty_settings.farmer_bullets_allowed:
             new_farmer_bullet: FarmerBullet = FarmerBullet(self)
             self.farmer_bullets.add(new_farmer_bullet)
 
@@ -885,9 +819,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
             self.game_buttons.hotkeys_display_button.draw_button()
             self.game_buttons.exit_button.draw_button()
 
-        if (self.game_state.difficulty_levels) and (
-            self._are_credits_and_hotkeys_not_displayed()
-        ):
+        if (self.game_state.difficulty_levels) and (self._are_credits_and_hotkeys_not_displayed()):
             self.game_buttons.easy_diff_button.draw_button()
             self.game_buttons.medium_diff_button.draw_button()
             self.game_buttons.hard_diff_button.draw_button()

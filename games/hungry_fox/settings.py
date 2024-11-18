@@ -56,8 +56,7 @@ class Settings:  # pylint: disable=R0902
         self.difficulty_settings.farmer_speed *= self.speedup_scale
         self.difficulty_settings.farmer_bullet_speed *= self.speedup_scale
         self.difficulty_settings.farmer_points = int(
-            self.difficulty_settings.farmer_points
-            * self.difficulty_settings.score_scale
+            self.difficulty_settings.farmer_points * self.difficulty_settings.score_scale
         )
 
 

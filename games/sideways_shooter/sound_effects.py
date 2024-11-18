@@ -20,9 +20,7 @@ class Sound:  # pylint: disable=R0903
         pygame.mixer.init()
 
         # Sounds for alien explosion and game over.
-        self.alien_explosion: pygame.mixer.Sound = pygame.mixer.Sound(
-            "sounds/explosion.wav"
-        )
+        self.alien_explosion: pygame.mixer.Sound = pygame.mixer.Sound("sounds/explosion.wav")
         self.alien_explosion.set_volume(0.3)
 
         self.hero_fire: pygame.mixer.Sound = pygame.mixer.Sound(buffer=bytearray(1))

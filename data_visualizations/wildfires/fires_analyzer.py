@@ -34,9 +34,7 @@ class WildfirePlotter:
         """Visualize wildfire activity."""
         self._format_label_text()
         # Lower the brightness value to use it as a size in the plot.
-        bright_size: list[int] = [
-            bright // 18 for bright in self.fires_data["brightness"]
-        ]
+        bright_size: list[int] = [bright // 18 for bright in self.fires_data["brightness"]]
 
         # Make the plot.
         fig = go.Figure(

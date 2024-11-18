@@ -30,9 +30,7 @@ class AlienBullet(Sprite):
         self.color: tuple[int, int, int] = self.settings.alien_bullet_color
 
         # Create a bullet rect at (0, 0).
-        self.rect: pygame.Rect = pygame.Rect(
-            0, 0, self.settings.alien_bullet_width, self.settings.alien_bullet_height
-        )
+        self.rect: pygame.Rect = pygame.Rect(0, 0, self.settings.alien_bullet_width, self.settings.alien_bullet_height)
         # Set the bullet position.
         self._set_bullet_position(ai_game)
 

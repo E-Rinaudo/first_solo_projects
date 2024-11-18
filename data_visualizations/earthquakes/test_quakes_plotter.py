@@ -53,9 +53,7 @@ def test_is_readable_written(path: Path) -> None:
     assert reformat_path.exists()
 
 
-def test_do_data_get_extracted(
-    quakes_plotter: EP, quake_dictionary: dict[str, dict[str, Any]]
-) -> None:
+def test_do_data_get_extracted(quakes_plotter: EP, quake_dictionary: dict[str, dict[str, Any]]) -> None:
     """Test if the data get extracted."""
     quakes: list[dict[str, dict[str, Any]]] = [quake_dictionary, quake_dictionary]
     # Disabling pylint warning for accessing protected members.
@@ -74,24 +72,18 @@ def test_do_data_get_extracted(
     assert quake_dictionary["properties"]["title"] in quakes_plotter.event_titles
 
 
-def test_is_date_formatted(
-    quakes_plotter: EP, quake_dictionary: dict[str, dict[str, Any]]
-) -> None:
+def test_is_date_formatted(quakes_plotter: EP, quake_dictionary: dict[str, dict[str, Any]]) -> None:
     """Test if the date of the earthquake event is formatted."""
     quakes_plotter.analyze_data()
 
     utc_timezone: timezone = timezone.utc
     date: float = quake_dictionary["properties"]["time"] / 1000
     date_datetime: datetime = datetime.fromtimestamp(date, utc_timezone)
-    formatted_date: str = date_datetime.strftime(
-        "%B %d, %Y -- %H:%M:%S %Z (24-Hour format)"
-    )
+    formatted_date: str = date_datetime.strftime("%B %d, %Y -- %H:%M:%S %Z (24-Hour format)")
     assert formatted_date in quakes_plotter.event_dates
 
 
-def test_is_negative_mag_appended(
-    quakes_plotter: EP, quake_dictionary: dict[str, dict[str, Any]]
-) -> None:
+def test_is_negative_mag_appended(quakes_plotter: EP, quake_dictionary: dict[str, dict[str, Any]]) -> None:
     """Assure negative magnitude values are not appended in the mags list."""
     negative_quake: dict[str, dict[str, Any]] = {
         "properties": {

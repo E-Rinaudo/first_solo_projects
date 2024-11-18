@@ -64,10 +64,7 @@ class Hero(Sprite):  # pylint: disable=R0902
 
     def update(self, s_shooter) -> None:  # pylint: disable=W0221
         """Update the hero's position based on movements flags."""
-        if (
-            self.moving_up
-            and self.rect.top > s_shooter.sb.scores_images.score_rect.height * 3
-        ):
+        if self.moving_up and self.rect.top > s_shooter.sb.scores_images.score_rect.height * 3:
             self.y -= self.settings.difficulty_settings.hero_speed
         if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.y += self.settings.difficulty_settings.hero_speed

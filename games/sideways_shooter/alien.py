@@ -46,9 +46,7 @@ class Alien(Sprite):
         # Aliens will be generated randomly and placed at a maximum height
         #   from the bottom and top of the screen.
         alien_top_max: int = self.settings.screen_height - self.rect.height
-        self.rect.top = randint(
-            self.sb.scores_images.score_rect.height * 3, alien_top_max
-        )
+        self.rect.top = randint(self.sb.scores_images.score_rect.height * 3, alien_top_max)
 
     def update(self) -> None:  # pylint: disable=W0221
         """Move the alien across the screen."""

@@ -167,9 +167,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
     def _check_keydown_buttons_events(self, event: pygame.event.Event) -> None:
         """Respond to keypresses of buttons."""
         # Make sub-menu buttons if Menu is clicked.
-        if (event.key == pygame.K_m) and (  # pylint: disable=E1101
-            self._is_game_inactive_or_paused()
-        ):
+        if (event.key == pygame.K_m) and (self._is_game_inactive_or_paused()):  # pylint: disable=E1101
             self._make_sub_menu_buttons()
         else:
             # Respond to keypresses of game state or sub-menu buttons.
@@ -196,18 +194,12 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
 
     def _check_keydown_paused_game_events(self, event: pygame.event.Event) -> None:
         """Respond to keypresses when the game is active but paused."""
-        if self._is_return_key_and_no_credits_or_hotkeys(event) and (
-            not self.game_state.game_restarted
-        ):
+        if self._is_return_key_and_no_credits_or_hotkeys(event) and (not self.game_state.game_restarted):
             self._unpause_game()
-        elif self._is_return_key_and_no_credits_or_hotkeys(event) and (
-            self.game_state.game_restarted
-        ):
+        elif self._is_return_key_and_no_credits_or_hotkeys(event) and (self.game_state.game_restarted):
             self._restart_game()
 
-    def _is_return_key_and_no_credits_or_hotkeys(
-        self, event: pygame.event.Event
-    ) -> bool:
+    def _is_return_key_and_no_credits_or_hotkeys(self, event: pygame.event.Event) -> bool:
         """
         Check if the Return key is pressed
         and neither credits nor hotkeys are displayed.
@@ -227,22 +219,16 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
                 self._make_hotkeys_display()
             elif (event.key == pygame.K_c) and (not self.game_state.show_hotkeys):
                 self._make_credits_display()
-        if (event.key == pygame.K_e) and (  # pylint: disable=E1101
-            self._are_credits_or_hotkeys_shown()
-        ):
+        if (event.key == pygame.K_e) and (self._are_credits_or_hotkeys_shown()):  # pylint: disable=E1101
             self._exit_credits_or_hotkeys()
         else:
             # Respond to the keypresses to choose the game difficulty.
             self._check_keydown_start_difficulty_buttons(event)
             self._check_keydown_restart_difficulty_buttons(event)
 
-    def _check_keydown_start_difficulty_buttons(
-        self, event: pygame.event.Event
-    ) -> None:
+    def _check_keydown_start_difficulty_buttons(self, event: pygame.event.Event) -> None:
         """Respond to keypresses of the start-game difficulty buttons."""
-        if (self._can_choose_difficulty()) and (
-            self._are_credits_and_hotkeys_not_displayed()
-        ):
+        if (self._can_choose_difficulty()) and (self._are_credits_and_hotkeys_not_displayed()):
             if event.key == pygame.K_1:
                 self._easy_difficulty()
             elif event.key == pygame.K_2:
@@ -250,9 +236,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
             elif event.key == pygame.K_3:
                 self._hard_difficulty()
 
-    def _check_keydown_restart_difficulty_buttons(
-        self, event: pygame.event.Event
-    ) -> None:
+    def _check_keydown_restart_difficulty_buttons(self, event: pygame.event.Event) -> None:
         """Respond to keypresses of the restart-game difficulty buttons."""
         if self._can_restart_game() and (self._are_credits_and_hotkeys_not_displayed()):
             if event.key == pygame.K_1:
@@ -293,11 +277,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
     def _check_mouse_button_down_play_button(self) -> None:
         """Start a new game when the player clicks Play."""
         play_clicked: bool = self._is_button_clicked(self.game_buttons.play_button)
-        if (
-            (play_clicked)
-            and (not self.game_state.game_active)
-            and (self._are_credits_and_hotkeys_not_displayed())
-        ):
+        if (play_clicked) and (not self.game_state.game_active) and (self._are_credits_and_hotkeys_not_displayed()):
             self._start_game()
 
     def _start_game(self) -> None:
@@ -367,9 +347,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
     def _check_mouse_button_down_resume_button(self) -> None:
         """Unpause the game if the Resume button is clicked."""
         if hasattr(self.game_buttons, "resume_button"):
-            resume_clicked: bool = self._is_button_clicked(
-                self.game_buttons.resume_button
-            )
+            resume_clicked: bool = self._is_button_clicked(self.game_buttons.resume_button)
             if (
                 (resume_clicked)
                 and (self.game_state.game_paused)
@@ -413,9 +391,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
     def _check_mouse_button_down_credits_button(self) -> None:
         """Generate the credits if the Credits button is clicked."""
         if self.game_state.sub_menu:
-            credits_clicked: bool = self._is_button_clicked(
-                self.game_buttons.credits_button
-            )
+            credits_clicked: bool = self._is_button_clicked(self.game_buttons.credits_button)
             if credits_clicked:
                 self._make_credits_display()
 
@@ -435,9 +411,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
     def _check_mouse_button_down_hotkeys_button(self) -> None:
         """Generate the hotkeys if the Hotkeys button is clicked."""
         if self.game_state.sub_menu:
-            hotkeys_clicked: bool = self._is_button_clicked(
-                self.game_buttons.hotkeys_button
-            )
+            hotkeys_clicked: bool = self._is_button_clicked(self.game_buttons.hotkeys_button)
             if (hotkeys_clicked) and (self._are_credits_and_hotkeys_not_displayed()):
                 self._make_hotkeys_display()
 
@@ -446,9 +420,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
         # Consider the hotkeys as if they were a button so they can be
         #   show on the screen.
         # Make the hotkeys button just like the credits button.
-        self.game_buttons.hotkeys_display_button.make_credits_display_button(
-            self, show_credits=False
-        )
+        self.game_buttons.hotkeys_display_button.make_credits_display_button(self, show_credits=False)
         self._make_exit_button()
 
         self.game_state.show_hotkeys = True
@@ -476,9 +448,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
     def _check_mouse_button_down_difficulty_button(self) -> None:
         """Generate the difficulty levels buttons if Difficulty is clicked."""
         if self.game_state.sub_menu:
-            difficulty_clicked: bool = self._is_button_clicked(
-                self.game_buttons.difficulty_button
-            )
+            difficulty_clicked: bool = self._is_button_clicked(self.game_buttons.difficulty_button)
             if (difficulty_clicked) and (self._are_credits_and_hotkeys_not_displayed()):
                 self._make_difficulty_levels_buttons()
 
@@ -497,9 +467,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
             easy_clicked, medium_clicked, hard_clicked = self._choose_difficulty()
 
             # Select the difficulty at the start of the game.
-            self._handle_difficulty_selection(
-                easy_clicked, medium_clicked, hard_clicked
-            )
+            self._handle_difficulty_selection(easy_clicked, medium_clicked, hard_clicked)
         else:
             # Change difficulty mid game.
             self._change_difficulty()
@@ -514,12 +482,8 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
             easy_clicked, medium_clicked, hard_clicked = self._choose_difficulty()
 
             # Select a new difficulty if game paused; restart the game.
-            self._handle_difficulty_selection(
-                easy_clicked, medium_clicked, hard_clicked
-            )
-            self._check_and_make_restart_button(
-                easy_clicked, medium_clicked, hard_clicked
-            )
+            self._handle_difficulty_selection(easy_clicked, medium_clicked, hard_clicked)
+            self._check_and_make_restart_button(easy_clicked, medium_clicked, hard_clicked)
 
     def _can_restart_game(self) -> bool:
         """Check if game can be restarted."""
@@ -528,16 +492,12 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
     def _choose_difficulty(self) -> tuple[bool, bool, bool]:
         """Store attributes for the click of the difficulty levels buttons."""
         easy_clicked: bool = self._is_button_clicked(self.game_buttons.easy_diff_button)
-        medium_clicked: bool = self._is_button_clicked(
-            self.game_buttons.medium_diff_button
-        )
+        medium_clicked: bool = self._is_button_clicked(self.game_buttons.medium_diff_button)
         hard_clicked: bool = self._is_button_clicked(self.game_buttons.hard_diff_button)
 
         return easy_clicked, medium_clicked, hard_clicked
 
-    def _check_and_make_restart_button(
-        self, easy_clicked: bool, medium_clicked: bool, hard_clicked: bool
-    ) -> None:
+    def _check_and_make_restart_button(self, easy_clicked: bool, medium_clicked: bool, hard_clicked: bool) -> None:
         """Check conditions and generate the Restart button."""
         if (easy_clicked) or (medium_clicked) or (hard_clicked):
             self._make_restart_button()
@@ -550,14 +510,8 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
 
     def _check_mouse_button_down_restart_button(self) -> None:
         """Restart the game if the Restart button is clicked."""
-        restart_clicked: bool = self._is_button_clicked(
-            self.game_buttons.restart_button
-        )
-        if (
-            (restart_clicked)
-            and (self.game_state.game_restarted)
-            and (self._are_credits_and_hotkeys_not_displayed())
-        ):
+        restart_clicked: bool = self._is_button_clicked(self.game_buttons.restart_button)
+        if (restart_clicked) and (self.game_state.game_restarted) and (self._are_credits_and_hotkeys_not_displayed()):
             self._restart_game()
 
     def _restart_game(self) -> None:
@@ -566,9 +520,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
         self._start_game()
         self.game_state.game_restarted = False
 
-    def _handle_difficulty_selection(
-        self, easy_clicked: bool, medium_clicked: bool, hard_clicked: bool
-    ) -> None:
+    def _handle_difficulty_selection(self, easy_clicked: bool, medium_clicked: bool, hard_clicked: bool) -> None:
         """Handle the difficulty selection based on which button is clicked."""
         if self._are_credits_and_hotkeys_not_displayed():
             if easy_clicked:
@@ -590,16 +542,12 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
         """Hard difficulty configurations."""
         self._set_difficulty(hard=True)
 
-    def _set_difficulty(
-        self, easy: bool = False, medium: bool = False, hard: bool = False
-    ) -> None:
+    def _set_difficulty(self, easy: bool = False, medium: bool = False, hard: bool = False) -> None:
         """Set difficulty configurations."""
         self._set_highlight_difficulty_levels_buttons(easy, medium, hard)
         self._choose_difficulty_settings(easy, medium, hard)
 
-    def _set_highlight_difficulty_levels_buttons(
-        self, easy: bool, medium: bool, hard: bool
-    ) -> None:
+    def _set_highlight_difficulty_levels_buttons(self, easy: bool, medium: bool, hard: bool) -> None:
         """Define which of the difficulty levels buttons to highlight."""
         self.game_buttons.easy_diff_button.make_easy_difficulty_button(easy)
         self.game_buttons.medium_diff_button.make_medium_difficulty_button(medium)
@@ -624,10 +572,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
         mouse_inactivity_time: int = 2
         if hasattr(self.game_state, "mouse_visible"):
             current_time: float = time()
-            if (
-                current_time - self.game_state.last_mouse_movement
-                > mouse_inactivity_time
-            ):
+            if current_time - self.game_state.last_mouse_movement > mouse_inactivity_time:
                 self.game_state.mouse_visible = False
                 pygame.mouse.set_visible(self.game_state.mouse_visible)
 
@@ -658,9 +603,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
         """Check if any orcas have reached the bottom of the screen."""
         for orca in self.orcas.sprites():
             # The bottom is where the Scoreboard is placed.
-            if orca.rect.bottom >= (
-                self.settings.screen_height - self.game_buttons.scoreboard_button.height
-            ):
+            if orca.rect.bottom >= (self.settings.screen_height - self.game_buttons.scoreboard_button.height):
                 # Treat this the same as if the penguin got hit.
                 self._penguin_hit()
                 break
@@ -710,8 +653,8 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
 
     def _check_bullet_orca_collisions(self) -> None:
         """Respond to collisions between bullets and orcas."""
-        collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]] = (
-            pygame.sprite.groupcollide(self.bullets, self.orcas, True, True)
+        collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]] = pygame.sprite.groupcollide(
+            self.bullets, self.orcas, True, True
         )
 
         # Level up if 10 orcas are shot down.
@@ -721,28 +664,20 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
         # Increment the score if there is a collision.
         self._increment_score(collisions)
 
-    def _increment_score(
-        self, collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]]
-    ) -> None:
+    def _increment_score(self, collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]]) -> None:
         """Increment the score when orcas are hit."""
         if collisions:
             for orcas in collisions.values():
-                self.stats.score += self.settings.difficulty_settings.orca_points * len(
-                    orcas
-                )
+                self.stats.score += self.settings.difficulty_settings.orca_points * len(orcas)
             self.sb.prep_score()
             self.sb.check_high_score()
 
-    def _orca_hit_sound(
-        self, collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]]
-    ) -> None:
+    def _orca_hit_sound(self, collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]]) -> None:
         """Play a sound when the orca is hit by a bullet."""
         if collisions:
             self.sounds.orca_death.play()
 
-    def _level_up(
-        self, collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]]
-    ) -> None:
+    def _level_up(self, collisions: dict[pygame.sprite.Sprite, list[pygame.sprite.Sprite]]) -> None:
         """Increase difficulty if 10 orcas are hit."""
         if collisions:
             self.settings.orca_hit += 1
@@ -757,10 +692,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
 
     def _make_orca_bullet(self) -> None:
         """Create a new orcas' bullet and add it to the orca_bullets group."""
-        if (
-            len(self.orca_bullets)
-            < self.settings.difficulty_settings.orca_bullets_allowed
-        ):
+        if len(self.orca_bullets) < self.settings.difficulty_settings.orca_bullets_allowed:
             new_orca_bullet: OrcaBullet = OrcaBullet(self)
             self.orca_bullets.add(new_orca_bullet)
 
@@ -785,9 +717,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
         # Get rid of old orcas' bullets.
         for orca_bullet in self.orca_bullets.copy():
             # The bottom of the screen is where the Scoreboard is placed.
-            if orca_bullet.rect.top >= (
-                self.settings.screen_height - self.game_buttons.scoreboard_button.height
-            ):
+            if orca_bullet.rect.top >= (self.settings.screen_height - self.game_buttons.scoreboard_button.height):
                 self.orca_bullets.remove(orca_bullet)
 
         # Check for orcas' bullet and penguin collisions and respond.
@@ -855,9 +785,7 @@ class SlidingPenguin:  # pylint: disable = R0902, R0903
             self.game_buttons.hotkeys_display_button.draw_button()
             self.game_buttons.exit_button.draw_button()
 
-        if (self.game_state.difficulty_levels) and (
-            self._are_credits_and_hotkeys_not_displayed()
-        ):
+        if (self.game_state.difficulty_levels) and (self._are_credits_and_hotkeys_not_displayed()):
             self.game_buttons.easy_diff_button.draw_button()
             self.game_buttons.medium_diff_button.draw_button()
             self.game_buttons.hard_diff_button.draw_button()

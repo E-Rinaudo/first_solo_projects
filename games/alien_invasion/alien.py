@@ -42,8 +42,5 @@ class Alien(Sprite):
 
     def update(self) -> None:  # pylint: disable=W0221
         """Move the alien to the right or left."""
-        self.x += (
-            self.settings.difficulty_settings.alien_speed
-            * self.settings.fleet_direction
-        )
+        self.x += self.settings.difficulty_settings.alien_speed * self.settings.fleet_direction
         self.rect.x = int(self.x)

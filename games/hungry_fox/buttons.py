@@ -48,9 +48,7 @@ class Buttons:  # pylint: disable=R0902, R0913
         self.height = height
         self.button_color = button_color
         self.text_color = text_color
-        self.font: pygame.font.Font = pygame.font.SysFont(
-            None, font_size, bold=False, italic=True
-        )
+        self.font: pygame.font.Font = pygame.font.SysFont(None, font_size, bold=False, italic=True)
         self.rect: pygame.Rect = pygame.Rect(0, 0, self.width, self.height)
 
     def make_play_button(self) -> None:
@@ -106,11 +104,7 @@ class Buttons:  # pylint: disable=R0902, R0913
         self._set_button_properties(width=200, height=50, button_color=color)
 
         # Center the object on the screen below the Easy button.
-        self.rect.top = (
-            (self.screen_rect.height // 2)
-            + (self.rect.height)
-            + (self.rect.height // 2)
-        )
+        self.rect.top = (self.screen_rect.height // 2) + (self.rect.height) + (self.rect.height // 2)
         self.rect.centerx = self.screen_rect.centerx
         # Render the message into an image.
         self._prep_msg()
@@ -122,11 +116,7 @@ class Buttons:  # pylint: disable=R0902, R0913
         self._set_button_properties(width=200, height=50, button_color=color)
 
         # Center the object on the screen below the Medium button.
-        self.rect.top = (
-            (self.screen_rect.height // 2)
-            + (self.rect.height * 2)
-            + (self.rect.height // 2)
-        )
+        self.rect.top = (self.screen_rect.height // 2) + (self.rect.height * 2) + (self.rect.height // 2)
         self.rect.centerx = self.screen_rect.centerx
         # Render the message into an image.
         self._prep_msg()
@@ -149,9 +139,7 @@ class Buttons:  # pylint: disable=R0902, R0913
         # Render the message into an image.
         self._prep_msg()
 
-    def make_credits_display_button(
-        self, h_fox: "HungryFox", show_credits: bool = True
-    ) -> None:
+    def make_credits_display_button(self, h_fox: "HungryFox", show_credits: bool = True) -> None:
         """Make a button and use it as a screen where to display the credits."""
         self._set_button_properties(
             width=h_fox.settings.screen_width,
@@ -167,11 +155,7 @@ class Buttons:  # pylint: disable=R0902, R0913
 
     def _read_credits_or_hotkeys(self, show_credits: bool = True) -> None:
         """Read the content from credits.txt or hotkeys.txt and display it."""
-        path: Path = (
-            Path("txt_files", "credits.txt")
-            if show_credits
-            else Path("txt_files", "hotkeys.txt")
-        )
+        path: Path = Path("txt_files", "credits.txt") if show_credits else Path("txt_files", "hotkeys.txt")
         content: str = path.read_text(encoding="utf-8")
         lines: list[str] = content.splitlines()
         self._render_credits_or_hotkeys(lines, show_credits)
@@ -180,9 +164,7 @@ class Buttons:  # pylint: disable=R0902, R0913
         """Render the credits or hotkeys on the button surface."""
         if show_credits:
             font: pygame.font.Font = pygame.font.SysFont("Tahoma", 9, bold=True)
-            colored_lines: list[tuple[str, tuple[int, int, int]]] = (
-                self._colorize_credits_lines(lines)
-            )
+            colored_lines: list[tuple[str, tuple[int, int, int]]] = self._colorize_credits_lines(lines)
         elif not show_credits:
             font = pygame.font.SysFont("DejaVu Sans", 15, bold=True)
             colored_lines = self._colorize_hotkeys_lines(lines)
@@ -190,9 +172,7 @@ class Buttons:  # pylint: disable=R0902, R0913
         surface: pygame.Surface = self._make_surface(font, colored_lines)
         self._prep_credits_or_hotkeys(surface)
 
-    def _colorize_credits_lines(
-        self, lines: list[str]
-    ) -> list[tuple[str, tuple[int, int, int]]]:
+    def _colorize_credits_lines(self, lines: list[str]) -> list[tuple[str, tuple[int, int, int]]]:
         """Colorize the credits' lines based on keywords."""
         colored_lines: list[tuple[str, tuple[int, int, int]]] = []
 
@@ -209,13 +189,10 @@ class Buttons:  # pylint: disable=R0902, R0913
 
         return colored_lines
 
-    def _colorize_hotkeys_lines(
-        self, lines: list[str]
-    ) -> list[tuple[str, tuple[int, int, int]]]:
+    def _colorize_hotkeys_lines(self, lines: list[str]) -> list[tuple[str, tuple[int, int, int]]]:
         """Colorize the hotkeys' lines based on keywords."""
         colored_lines: list[tuple[str, tuple[int, int, int]]] = [
-            (line, self.keys if " keys" in line.lower() else self.text_color)
-            for line in lines
+            (line, self.keys if " keys" in line.lower() else self.text_color) for line in lines
         ]
 
         return colored_lines
@@ -232,9 +209,7 @@ class Buttons:  # pylint: disable=R0902, R0913
 
         # Render each line.
         for line, color in colored_lines:
-            rendered_line: pygame.Surface = font.render(
-                line, True, color, self.button_color
-            )
+            rendered_line: pygame.Surface = font.render(line, True, color, self.button_color)
             rendered_lines.append(rendered_line)
 
         for rendered_line in rendered_lines:
@@ -262,9 +237,7 @@ class Buttons:  # pylint: disable=R0902, R0913
 
     def _prep_msg(self) -> None:
         """Turn msg into a rendered image and center text on the button."""
-        self.msg_image = self.font.render(
-            self.msg, True, self.text_color, self.button_color
-        )
+        self.msg_image = self.font.render(self.msg, True, self.text_color, self.button_color)
         self.msg_image_rect = self.msg_image.get_rect()
         self.msg_image_rect.center = self.rect.center
 

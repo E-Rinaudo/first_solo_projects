@@ -24,9 +24,7 @@ class Sound:  # pylint: disable=R0903
         self.fox_fire: pygame.mixer.Sound = pygame.mixer.Sound("sounds/throw.wav")
         self.fox_fire.set_volume(0.7)
 
-        self.farmer_death: pygame.mixer.Sound = pygame.mixer.Sound(
-            "sounds/farmer_death.ogg"
-        )
+        self.farmer_death: pygame.mixer.Sound = pygame.mixer.Sound("sounds/farmer_death.ogg")
         self.end_game: pygame.mixer.Sound = pygame.mixer.Sound("sounds/end.mp3")
 
     def background_music(self) -> None:

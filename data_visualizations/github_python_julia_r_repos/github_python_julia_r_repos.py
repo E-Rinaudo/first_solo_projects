@@ -73,9 +73,7 @@ class RepositoryPlotter:  # pylint: disable=R0903
         """Make the GitHub API call for each language and store the responses."""
         for lang, url in self.langs_urls.items():
             try:
-                request: requests.Response = requests.get(
-                    url, headers=self.headers, timeout=(5, 10)
-                )
+                request: requests.Response = requests.get(url, headers=self.headers, timeout=(5, 10))
                 request.raise_for_status()
             except RequestException as err:
                 warning(f"Request failed for {lang}: {err}")
@@ -92,10 +90,7 @@ class RepositoryPlotter:  # pylint: disable=R0903
         """Extract the top 20 repositories for each language from the API responses."""
         print()
         for lang, response_data in self.responses.items():
-            print(
-                f"Complete results for {lang}: "
-                f"{not response_data["incomplete_results"]}"
-            )
+            print(f"Complete results for {lang}: " f"{not response_data["incomplete_results"]}")
             self.repositories[lang] = response_data["items"][:20]
 
         self._pull_repo_names_stars()
@@ -106,9 +101,7 @@ class RepositoryPlotter:  # pylint: disable=R0903
             repo_name_key: str = f"{lang} Repos Names"
             star_key: str = f"{lang} Stars"
             repo_name_links: list[str] = [
-                f"<a href='{repo["html_url"]}' style='color: rgb(0, 0, 0)'>"
-                f"{repo["name"]}</a>"
-                for repo in repos
+                f"<a href='{repo["html_url"]}' style='color: rgb(0, 0, 0)'>" f"{repo["name"]}</a>" for repo in repos
             ]
             stars: list[int] = [repo["stargazers_count"] for repo in repos]
             self.repo_data[repo_name_key] = repo_name_links  # type: ignore

@@ -24,9 +24,7 @@ class Sound:  # pylint: disable=R0903
         self.penguin_fire: pygame.mixer.Sound = pygame.mixer.Sound("sounds/throw.ogg")
         self.penguin_fire.set_volume(0.7)
 
-        self.orca_death: pygame.mixer.Sound = pygame.mixer.Sound(
-            "sounds/orca_death.ogg"
-        )
+        self.orca_death: pygame.mixer.Sound = pygame.mixer.Sound("sounds/orca_death.ogg")
         self.orca_death.set_volume(0.3)
 
         self.end_game: pygame.mixer.Sound = pygame.mixer.Sound("sounds/end.wav")

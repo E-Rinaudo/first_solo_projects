@@ -107,20 +107,14 @@ class EarthquakesPlotter:  # pylint: disable=R0902
         self.long = quake["geometry"]["coordinates"][0]  # pylint: disable=W0201
         self.lat = quake["geometry"]["coordinates"][1]  # pylint: disable=W0201
         self.event_title = quake["properties"]["title"]  # pylint: disable=W0201
-        self.timestamp_seconds = (  # pylint: disable=W0201
-            quake["properties"]["time"] / 1000
-        )
+        self.timestamp_seconds = quake["properties"]["time"] / 1000  # pylint: disable=W0201
 
     def _get_quakes_date(self) -> None:
         """Get the date of each earthquake and format it."""
         utc_timezone: timezone = timezone.utc
-        quake_datetime: datetime = datetime.fromtimestamp(
-            self.timestamp_seconds, utc_timezone
-        )
+        quake_datetime: datetime = datetime.fromtimestamp(self.timestamp_seconds, utc_timezone)
         # Format the date for the label of each earthquake.
-        self.date = quake_datetime.strftime(  # pylint: disable=W0201
-            "%B %d, %Y -- %H:%M:%S %Z (24-Hour format)"
-        )
+        self.date = quake_datetime.strftime("%B %d, %Y -- %H:%M:%S %Z (24-Hour format)")  # pylint: disable=W0201
         # Format the date for the plot title.
         self.title_date = quake_datetime.strftime("%B %Y")  # pylint: disable=W0201
 
@@ -139,9 +133,7 @@ class EarthquakesPlotter:  # pylint: disable=R0902
         self._adjust_title_dates()
 
         quakes_title: str = self.quakes_data["metadata"]["title"].split(", ")
-        self.formatted_plot_title = (  # pylint: disable=W0201
-            f"{quakes_title[0]} ({" - ".join(self.title_dates)})"
-        )
+        self.formatted_plot_title = f"{quakes_title[0]} ({" - ".join(self.title_dates)})"  # pylint: disable=W0201
 
     def _adjust_title_dates(self) -> None:
         """

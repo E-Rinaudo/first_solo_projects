@@ -25,9 +25,7 @@ def test_api_call_error(repo_plotter: RP) -> None:
         repo_plotter.main()
 
 
-def test_status_code_is_200(
-    repo_plotter: RP, capsys: pytest.CaptureFixture[str]
-) -> None:
+def test_status_code_is_200(repo_plotter: RP, capsys: pytest.CaptureFixture[str]) -> None:
     """Test if the status code of 200 is printed."""
     repo_plotter.main()
     out: str
@@ -55,7 +53,5 @@ def test_pull_repo_names_stars(repo_plotter: RP) -> None:
     assert total_keys == 6
 
     # Assert the total number of repo links and stars is 120 (40 per each language).
-    total_names_stars: int = sum(
-        len(names_stars) for names_stars in repo_plotter.repo_data.values()
-    )
+    total_names_stars: int = sum(len(names_stars) for names_stars in repo_plotter.repo_data.values())
     assert total_names_stars == 120

@@ -24,9 +24,7 @@ class Sound:  # pylint: disable=R0903
         self.ship_fire: pygame.mixer.Sound = pygame.mixer.Sound("sounds/laser.wav")
         self.ship_fire.set_volume(0.7)
 
-        self.alien_explosion: pygame.mixer.Sound = pygame.mixer.Sound(
-            "sounds/explosion.wav"
-        )
+        self.alien_explosion: pygame.mixer.Sound = pygame.mixer.Sound("sounds/explosion.wav")
         self.alien_explosion.set_volume(0.3)
 
         self.end_game: pygame.mixer.Sound = pygame.mixer.Sound("sounds/end.wav")

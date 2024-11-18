@@ -64,9 +64,7 @@ class Scoreboard:
         """Turn the score into a rendered image."""
         rounded_score: int = round(self.stats.score, -1)
         score_str: str = f"Score {rounded_score:,}"
-        self.scores_images.score_image = self.font.render(
-            score_str, True, self.text_color, None
-        )
+        self.scores_images.score_image = self.font.render(score_str, True, self.text_color, None)
 
         # Display the score at the top left of the screen.
         self.scores_images.score_rect = self.scores_images.score_image.get_rect()
@@ -77,14 +75,10 @@ class Scoreboard:
         """Turn the high score into a rendered image."""
         high_score: int = round(self.stats.high_score, -1)
         high_score_str: str = f"High Score {high_score:,}"
-        self.scores_images.high_score_image = self.font.render(
-            high_score_str, True, self.text_color, None
-        )
+        self.scores_images.high_score_image = self.font.render(high_score_str, True, self.text_color, None)
 
         # Center the high score at the top of the screen.
-        self.scores_images.high_score_rect = (
-            self.scores_images.high_score_image.get_rect()
-        )
+        self.scores_images.high_score_rect = self.scores_images.high_score_image.get_rect()
         self.scores_images.high_score_rect.centerx = self.screen_rect.centerx
         self.scores_images.high_score_rect.top = self.scores_images.score_rect.top
 
@@ -98,9 +92,7 @@ class Scoreboard:
         """Turn the level into a rendered image."""
         level_font: pygame.font.Font = pygame.font.SysFont(None, 25)
         level_str: str = f"Level {self.stats.level}"
-        self.scores_images.level_image = level_font.render(
-            level_str, True, self.text_color, None
-        )
+        self.scores_images.level_image = level_font.render(level_str, True, self.text_color, None)
 
         # Position the level below the score.
         self.scores_images.level_rect = self.scores_images.level_image.get_rect()
@@ -115,10 +107,7 @@ class Scoreboard:
         hero_width: int = 38
         hero_height: int = 35
         # Total available width, excluding menu and pause buttons.
-        available_width: int = (
-            self.screen_rect.width
-            - self.s_shooter.game_buttons.pause_button.rect.width * 2
-        )
+        available_width: int = self.screen_rect.width - self.s_shooter.game_buttons.pause_button.rect.width * 2
 
         # Calculate the total width required for all heros.
         total_heros_width: int = hero_width * self.stats.hero_life
@@ -127,9 +116,7 @@ class Scoreboard:
 
         for hero_number in range(self.stats.hero_life):
             hero: Hero = Hero(self.s_shooter)
-            resized_image: pygame.Surface = hero.get_risized_image(
-                hero_width, hero_height
-            )
+            resized_image: pygame.Surface = hero.get_risized_image(hero_width, hero_height)
             hero.image = resized_image
             hero.rect = resized_image.get_rect()
             hero.rect.x = (start_x) + (hero_number * hero_width)
@@ -139,8 +126,6 @@ class Scoreboard:
     def show_score(self) -> None:
         """Draw the score to the screen."""
         self.screen.blit(self.scores_images.score_image, self.scores_images.score_rect)
-        self.screen.blit(
-            self.scores_images.high_score_image, self.scores_images.high_score_rect
-        )
+        self.screen.blit(self.scores_images.high_score_image, self.scores_images.high_score_rect)
         self.screen.blit(self.scores_images.level_image, self.scores_images.level_rect)
         self.scores_images.heros_resized.draw(self.screen)

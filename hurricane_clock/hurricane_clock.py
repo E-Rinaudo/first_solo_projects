@@ -64,9 +64,7 @@ class HurricaneWorkout:  # pylint: disable=R0903
 
     def workout_start(self) -> None:
         """Start the workout."""
-        self.start = input(
-            f"\nPress 'ENTER' when ready to start the SOB {self.exercise}."
-        )
+        self.start = input(f"\nPress 'ENTER' when ready to start the SOB {self.exercise}.")
 
 
 class HurricaneSob:  # pylint: disable=R0903

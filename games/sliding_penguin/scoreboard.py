@@ -64,9 +64,7 @@ class Scoreboard:
         """Turn the score into a rendered image."""
         rounded_score: int = round(self.stats.score, -1)
         score_str: str = f"Score {rounded_score:,}"
-        self.scores_images.score_image = self.font.render(
-            score_str, True, self.text_color, None
-        )
+        self.scores_images.score_image = self.font.render(score_str, True, self.text_color, None)
 
         # Display the score at the bottom left of the screen.
         self.scores_images.score_rect = self.scores_images.score_image.get_rect()
@@ -77,14 +75,10 @@ class Scoreboard:
         """Turn the high score into a rendered image."""
         high_score: int = round(self.stats.high_score, -1)
         high_score_str: str = f"High Score {high_score:,}"
-        self.scores_images.high_score_image = self.font.render(
-            high_score_str, True, self.text_color, None
-        )
+        self.scores_images.high_score_image = self.font.render(high_score_str, True, self.text_color, None)
 
         # Center the high score at the bottom of the screen.
-        self.scores_images.high_score_rect = (
-            self.scores_images.high_score_image.get_rect()
-        )
+        self.scores_images.high_score_rect = self.scores_images.high_score_image.get_rect()
         self.scores_images.high_score_rect.midbottom = self.screen_rect.midbottom
         self.scores_images.high_score_rect.bottom = self.scores_images.score_rect.bottom
 
@@ -98,15 +92,11 @@ class Scoreboard:
         """Turn the level into a rendered image."""
         level_font: pygame.font.Font = pygame.font.SysFont(None, 25)
         level_str: str = f"Level {self.stats.level}"
-        self.scores_images.level_image = level_font.render(
-            level_str, True, self.text_color, None
-        )
+        self.scores_images.level_image = level_font.render(level_str, True, self.text_color, None)
 
         # Position the level above the score.
         self.scores_images.level_rect = self.scores_images.level_image.get_rect()
-        self.scores_images.level_rect.bottomleft = (
-            self.scores_images.score_rect.bottomleft
-        )
+        self.scores_images.level_rect.bottomleft = self.scores_images.score_rect.bottomleft
         self.scores_images.level_rect.bottom -= 25
 
     def prep_penguins(self) -> None:
@@ -124,22 +114,16 @@ class Scoreboard:
 
         for penguin_number in range(self.stats.penguin_life):
             penguin: Penguin = Penguin(self.s_penguin)
-            resized_image: pygame.Surface = penguin.get_resized_image(
-                penguin_width, penguin_height
-            )
+            resized_image: pygame.Surface = penguin.get_resized_image(penguin_width, penguin_height)
             penguin.image = resized_image
             penguin.rect = resized_image.get_rect()
             penguin.rect.x = (start_x) + (penguin_number * penguin_width)
-            penguin.rect.y = self.screen_rect.height - (
-                self.scores_images.score_rect.height + 30
-            )
+            penguin.rect.y = self.screen_rect.height - (self.scores_images.score_rect.height + 30)
             self.scores_images.penguins_resized.add(penguin)
 
     def show_score(self) -> None:
         """Draw the score to the screen."""
         self.screen.blit(self.scores_images.score_image, self.scores_images.score_rect)
-        self.screen.blit(
-            self.scores_images.high_score_image, self.scores_images.high_score_rect
-        )
+        self.screen.blit(self.scores_images.high_score_image, self.scores_images.high_score_rect)
         self.screen.blit(self.scores_images.level_image, self.scores_images.level_rect)
         self.scores_images.penguins_resized.draw(self.screen)
