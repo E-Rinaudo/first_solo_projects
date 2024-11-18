@@ -15,7 +15,7 @@ if __name__ == "__main__":
     weather_plotter: WDP = WDP(title="Daily High and Low Temperatures, 2000")
 
     # Add data for San Francisco to the plotter dataset.
-    path: Path = Path("weather_data/san_francisco_weather_2000_f_in.csv")
+    path: Path = Path("weather_data", "san_francisco_weather_2000_f_in.csv")
 
     weather_plotter.weather_dataset(
         path=path,

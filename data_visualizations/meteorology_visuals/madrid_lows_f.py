@@ -15,7 +15,7 @@ if __name__ == "__main__":
     weather_plotter: WDP = WDP(title="Daily Low Temperatures, 2023")
 
     # Add data for Madrid to the plotter dataset.
-    path: Path = Path("weather_data/madrid_weather_2023_f_in.csv")
+    path: Path = Path("weather_data", "madrid_weather_2023_f_in.csv")
 
     weather_plotter.weather_dataset(  # pylint: disable=R0801
         path=path,

@@ -24,7 +24,7 @@ def weather_plotter_fixture() -> WDP:
 @pytest.fixture(name="path")
 def path_fixture() -> Path:
     """A path object available for all tests."""
-    return Path("weather_data/madrid_weather_2023_F_in.csv")
+    return Path("weather_data", "madrid_weather_2023_F_in.csv")
 
 
 @pytest.fixture(name="header_row")

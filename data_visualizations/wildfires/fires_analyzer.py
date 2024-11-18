@@ -10,6 +10,7 @@ and brightness using Plotly.
 """
 
 from datetime import datetime
+from pathlib import Path
 
 import pandas as pd
 import plotly.graph_objects as go
@@ -119,7 +120,7 @@ class WildfirePlotter:
 
 if __name__ == "__main__":
     # Give a path and make the instance to visualize the data.
-    PATH = "fires_file/MODIS_C6_1_USA_contiguous_and_Hawaii_3d.csv"
+    PATH = Path("fires_file", "MODIS_C6_1_USA_contiguous_and_Hawaii_3d.csv")
     wildfire = WildfirePlotter(PATH)
     wildfire.read_file()
     wildfire.visualize_plot()

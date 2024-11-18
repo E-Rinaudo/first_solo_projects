@@ -15,7 +15,7 @@ if __name__ == "__main__":
     weather_plotter: WDP = WDP(title="Daily Precipitation, 2021")
 
     # Add data for Sitka to the plotter dataset.
-    sitka_path: Path = Path("weather_data/sitka_weather_2021_f_in.csv")
+    sitka_path: Path = Path("weather_data", "sitka_weather_2021_f_in.csv")
 
     weather_plotter.weather_dataset(
         path=sitka_path,
@@ -26,7 +26,7 @@ if __name__ == "__main__":
     )
 
     # Add data for Death Valley to the plotter dataset.
-    dv_path: Path = Path("weather_data/death_valley_weather_2021_f_in.csv")
+    dv_path: Path = Path("weather_data", "death_valley_weather_2021_f_in.csv")
 
     weather_plotter.weather_dataset(
         path=dv_path,

@@ -12,8 +12,8 @@ from quakes_plotter import EarthquakesPlotter as EP
 
 if __name__ == "__main__":
     # Make the instance and visualize the data.
-    path: Path = Path("earthquakes_files/4.5_month.geojson")
-    reformat_path: Path = Path("earthquakes_files/4.5_month_readable.geojson")
+    path: Path = Path("earthquakes_files", "4.5_month.geojson")
+    reformat_path: Path = Path("earthquakes_files", "4.5_month_readable.geojson")
 
     quakes_plotter: EP = EP(path=path)
     quakes_plotter.analyze_data()

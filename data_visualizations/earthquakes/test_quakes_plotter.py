@@ -13,7 +13,7 @@ from quakes_plotter import EarthquakesPlotter as EP
 @pytest.fixture(name="path")
 def path_fixture() -> Path:
     """A path object available for all tests."""
-    return Path("earthquakes_files/significant_month.geojson")
+    return Path("earthquakes_files", "significant_month.geojson")
 
 
 @pytest.fixture(name="quakes_plotter")
@@ -46,7 +46,7 @@ def test_read_file_not_found() -> None:
 
 def test_is_readable_written(path: Path) -> None:
     """Test if the readable geojson file is written."""
-    reformat_path: Path = Path("earthquakes_files/significant_month_readable.geojson")
+    reformat_path: Path = Path("earthquakes_files", "significant_month_readable.geojson")
     reformat_plot: EP = EP(path)
     reformat_plot.analyze_data(reformat_path)
 
