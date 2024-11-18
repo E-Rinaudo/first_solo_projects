@@ -168,9 +168,9 @@ class Buttons:  # pylint: disable=R0902, R0913
     def _read_credits_or_hotkeys(self, show_credits: bool = True) -> None:
         """Read the content from credits.txt or hotkeys.txt and display it."""
         path: Path = (
-            Path("txt_files/credits.txt")
+            Path("txt_files", "credits.txt")
             if show_credits
-            else Path("txt_files/hotkeys.txt")
+            else Path("txt_files", "hotkeys.txt")
         )
         content: str = path.read_text(encoding="utf-8")
         lines: list[str] = content.splitlines()

@@ -905,7 +905,7 @@ class HungryFox:  # pylint: disable = R0902, R0903
         """Save the high score when the user quits the game and exit."""
         saved_high_score: int = self.stats.read_high_score()
         if self.stats.high_score > saved_high_score:
-            path: Path = Path("high_score/high_score.json")
+            path: Path = Path("high_score", "high_score.json")
             high_score: str = json.dumps(self.stats.high_score)
             path.write_text(high_score, encoding="utf-8")
 

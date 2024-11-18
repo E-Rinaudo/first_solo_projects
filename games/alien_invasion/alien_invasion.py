@@ -167,9 +167,9 @@ class AlienInvasion:  # pylint: disable = R0902, R0903
     def _check_keydown_buttons_events(self, event: pygame.event.Event) -> None:
         """Respond to keypresses of buttons."""
         # Make sub-menu buttons if Menu is clicked.
-        if (event.key == pygame.K_m) and (  # pylint: disable=E1101
+        if (event.key == pygame.K_m) and (
             self._is_game_inactive_or_paused()
-        ):
+        ):  # pylint: disable=E1101
             self._make_sub_menu_buttons()
         else:
             # Respond to keypresses of game state or sub-menu buttons.
@@ -227,9 +227,9 @@ class AlienInvasion:  # pylint: disable = R0902, R0903
                 self._make_hotkeys_display()
             elif (event.key == pygame.K_c) and (not self.game_state.show_hotkeys):
                 self._make_credits_display()
-        if (event.key == pygame.K_e) and (  # pylint: disable=E1101
+        if (event.key == pygame.K_e) and (
             self._are_credits_or_hotkeys_shown()
-        ):
+        ):  # pylint: disable=E1101
             self._exit_credits_or_hotkeys()
         else:
             # Respond to the keypresses to choose the game difficulty.
@@ -916,7 +916,7 @@ class AlienInvasion:  # pylint: disable = R0902, R0903
         """Save the high score when the user quits the game and exit."""
         saved_high_score: int = self.stats.read_high_score()
         if self.stats.high_score > saved_high_score:
-            path: Path = Path("high_score/high_score.json")
+            path: Path = Path("high_score", "high_score.json")
             high_score: str = json.dumps(self.stats.high_score)
             path.write_text(high_score, encoding="utf-8")
 
