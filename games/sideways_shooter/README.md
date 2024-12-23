@@ -161,16 +161,12 @@ This code snippet from sideways_shooter.py demonstrates how the SidewaysShooter 
 def _choose_difficulty(self) -> tuple[bool, bool, bool]:
         """Store attributes for the click of the difficulty levels buttons."""
         easy_clicked: bool = self._is_button_clicked(self.game_buttons.easy_diff_button)
-        medium_clicked: bool = self._is_button_clicked(
-            self.game_buttons.medium_diff_button
-        )
+        medium_clicked: bool = self._is_button_clicked(self.game_buttons.medium_diff_button)
         hard_clicked: bool = self._is_button_clicked(self.game_buttons.hard_diff_button)
 
         return easy_clicked, medium_clicked, hard_clicked
 
-def _handle_difficulty_selection(
-        self, easy_clicked: bool, medium_clicked: bool, hard_clicked: bool
-    ) -> None:
+def _handle_difficulty_selection(self, easy_clicked: bool, medium_clicked: bool, hard_clicked: bool) -> None:
         """Handle the difficulty selection based on which button is clicked."""
         if self._are_credits_and_hotkeys_not_displayed():
             if easy_clicked:

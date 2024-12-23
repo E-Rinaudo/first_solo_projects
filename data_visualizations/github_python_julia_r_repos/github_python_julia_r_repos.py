@@ -14,7 +14,7 @@ The class allows to:
 
 import sys
 
-from logging import warning
+import logging
 from typing import Any, Union
 import requests
 from requests.exceptions import RequestException
@@ -24,6 +24,8 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 from plotly.graph_objects import Figure
 
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.disable(logging.DEBUG)
 
 PLOT_TITLE: str = "Top 20 Most-Starred Repositories on GitHub for Python, Julia, and R"
 XAXES_TITLE: str = "Repository"
@@ -76,7 +78,7 @@ class RepositoryPlotter:  # pylint: disable=R0903
                 request: requests.Response = requests.get(url, headers=self.headers, timeout=(5, 10))
                 request.raise_for_status()
             except RequestException as err:
-                warning(f"Request failed for {lang}: {err}")
+                logging.error(f"Request failed for {lang}: {err}")
                 sys.exit()
             else:
                 print(f"Status code ({lang}): {request.status_code}")
@@ -90,7 +92,7 @@ class RepositoryPlotter:  # pylint: disable=R0903
         """Extract the top 20 repositories for each language from the API responses."""
         print()
         for lang, response_data in self.responses.items():
-            print(f"Complete results for {lang}: " f"{not response_data["incomplete_results"]}")
+            print(f"Complete results for {lang}: {not response_data["incomplete_results"]}")
             self.repositories[lang] = response_data["items"][:20]
 
         self._pull_repo_names_stars()
@@ -101,7 +103,7 @@ class RepositoryPlotter:  # pylint: disable=R0903
             repo_name_key: str = f"{lang} Repos Names"
             star_key: str = f"{lang} Stars"
             repo_name_links: list[str] = [
-                f"<a href='{repo["html_url"]}' style='color: rgb(0, 0, 0)'>" f"{repo["name"]}</a>" for repo in repos
+                f"<a href='{repo["html_url"]}' style='color: rgb(0, 0, 0)'> {repo["name"]}</a>" for repo in repos
             ]
             stars: list[int] = [repo["stargazers_count"] for repo in repos]
             self.repo_data[repo_name_key] = repo_name_links  # type: ignore

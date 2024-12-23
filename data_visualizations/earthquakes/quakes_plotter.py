@@ -15,12 +15,15 @@ import sys
 from pathlib import Path
 import json
 from datetime import datetime, timezone
-from logging import warning
+import logging
 from typing import Any, Union, Optional
 
 import pandas as pd
 import plotly.express as px
 from plotly.graph_objects import Figure
+
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.disable(logging.DEBUG)
 
 
 class EarthquakesPlotter:  # pylint: disable=R0902
@@ -65,7 +68,7 @@ class EarthquakesPlotter:  # pylint: disable=R0902
         try:
             self._reformat_file(reformat_path)
         except FileNotFoundError as err:
-            warning(f"{err}")
+            logging.error(f"{err}")
             sys.exit()
 
     def _reformat_file(self, reformat_path: Optional[Path]) -> None:
@@ -93,7 +96,7 @@ class EarthquakesPlotter:  # pylint: disable=R0902
                 try:
                     self._collect_data(quake)
                 except KeyError as ke:
-                    warning(f"{ke} missing in earthquake: {quake}.")
+                    logging.error(f"{ke} missing in earthquake: {quake}.")
                     sys.exit()
                 else:
                     self._get_quakes_date()
