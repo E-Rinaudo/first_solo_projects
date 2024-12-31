@@ -24,7 +24,6 @@ from matplotlib.figure import Figure
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 logging.disable(logging.DEBUG)
 
-
 FONT_SIZE_TITLE: int = 11
 FONT_SIZE_LABELS: int = 10
 FONT_SIZE_TICKS: int = 9
@@ -111,7 +110,7 @@ class WeatherDataPlotter:
         try:
             lines: list[str] = self.dataset["path"].read_text().splitlines()
         except FileNotFoundError as fne:
-            logging.error(f"{fne}")
+            logging.error("%s", fne)
             sys.exit()
         else:
             reader: Iterator[list[str]] = csv.reader(lines)
@@ -133,7 +132,7 @@ class WeatherDataPlotter:
             if self.dataset["precip"]:
                 self.dataset["precip_index"] = header_row.index("PRCP")
         except ValueError as ve:
-            logging.error(f"{ve}")
+            logging.error("%s", ve)
             sys.exit()
 
     def _extract_data(self, reader: Iterator[list[str]]) -> None:
@@ -176,7 +175,7 @@ class WeatherDataPlotter:
         try:
             values: list[float] = self._collect_values(row, weather_type_1, weather_type_2, weather_type_index)
         except ValueError as ve:
-            logging.error(f"Missing data for {date}: {ve}")
+            logging.error("Missing data for %s: %s", date, ve)
         else:
             self._store_collected_values(weather_type_1, weather_type_2, date, values)
 

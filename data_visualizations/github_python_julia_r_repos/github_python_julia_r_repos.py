@@ -78,7 +78,7 @@ class RepositoryPlotter:  # pylint: disable=R0903
                 request: requests.Response = requests.get(url, headers=self.headers, timeout=(5, 10))
                 request.raise_for_status()
             except RequestException as err:
-                logging.error(f"Request failed for {lang}: {err}")
+                logging.error("Request failed for %s: %s", lang, err)
                 sys.exit()
             else:
                 print(f"Status code ({lang}): {request.status_code}")
