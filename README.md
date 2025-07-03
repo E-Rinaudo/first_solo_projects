@@ -8,7 +8,7 @@ A collection of my first Python projects that I completed independently while st
 Each subdirectory is dedicated to a specific project category.
 
 > Note:
-> 
+>
 > This repository is an archive of my early Python projects and learning journey.  
 
 <!-- markdownlint-disable MD001 -->
