@@ -235,7 +235,7 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 [VSCode-url]: https://code.visualstudio.com/docs
 [Plotly-badge]: https://img.shields.io/badge/Plotly-3F4F75?logo=plotly&logoColor=white&style=flat
 [Plotly-url]: https://plotly.com/python/
-[Pandas-badge]: https://img.shields.io/badge/Pandas-%23234CAF50?style=flat&logo=pandas&logoColor=white
+[Pandas-badge]: https://img.shields.io/badge/pandas-150458?style=flat&logo=pandas&logoColor=white
 [Pandas-url]: https://pandas.pydata.org/docs/
 [Pytest-badge]: https://img.shields.io/badge/pytest-%23123A6C?style=flat&logo=pytest&logoColor=white
 [Pytest-url]: https://docs.pytest.org/en/stable/contents.html
