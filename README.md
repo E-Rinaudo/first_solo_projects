@@ -188,6 +188,7 @@ $ python project_name_main.py
 ```
 
 [back to top](#first-solo-projects-in-python)
+
 ## Contact
 
 If you have any questions, feedback, or just want to get in touch, feel free to reach out to me via email at <enricorinaudo91@gmail.com>.
