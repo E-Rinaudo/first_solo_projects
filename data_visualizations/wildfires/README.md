@@ -55,7 +55,7 @@ Follow the steps below to set up and **run this project** locally.
 
 > Note:
 >
-> If you wish to clone the entire repository, please refer to the "Getting Started" section of the README.md in the [first_solo_project][First-Solo-Project-url] repository.
+> If you wish to clone the entire repository, please refer to the "Getting Started" section of the README.md in the [first-solo-projects][First-Solo-Projects-url] repository.
 >
 > If you wish to clone the entire data visualizations subdirectory, please refer to the "Getting Started" section of the README.md in [data_visualizations][Data-Visualizations-url].
 >
@@ -80,7 +80,7 @@ $ cd <repo>
 $ git init
 
 # Add the remote repository
-$ git remote add origin https://github.com/E-Rinaudo/first_solo_projects.git
+$ git remote add origin https://github.com/E-Rinaudo/first-solo-projects.git
 
 # Enable sparse checkout
 $ git config core.sparseCheckout true
@@ -178,7 +178,7 @@ Your feedback is appreciated as it helps me to continue improving.
 You can also explore my GitHub profile or the project repository for more information:
 
 + Profile Link: [https://github.com/E-Rinaudo](https://github.com/E-Rinaudo)
-+ Project Link: [https://github.com/E-Rinaudo/first_solo_project](https://github.com/E-Rinaudo/first_solo_projects/tree/main)
++ Project Link: [https://github.com/E-Rinaudo/first-solo-projects](https://github.com/E-Rinaudo/first-solo-projects/tree/main)
 
 [back to top](#wildfires-activity-visualization)
 
@@ -193,8 +193,8 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 **Happy coding!**
 
 <!-- SHIELDS -->
-[license-shield]: https://img.shields.io/github/license/E-Rinaudo/first_solo_projects.svg?style=flat
-[license-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/LICENSE.txt
+[license-shield]: https://img.shields.io/github/license/E-Rinaudo/first-solo-projects.svg?style=flat
+[license-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/LICENSE.txt
 [Gmail-shield]: https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white
 [Gmail-url]: mailto:enricorinaudo91@gmail.com
 
@@ -219,15 +219,15 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 [Flake8-url]: https://flake8.pycqa.org/en/latest/
 
 <!-- PROJECTS LINKS -->
-[Fires-Analyzer-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/data_visualizations/wildfires/fires_analyzer.py
-[Fires-File-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/data_visualizations/wildfires/fires_file
-[Data-Visualizations-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/data_visualizations
+[Fires-Analyzer-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/data_visualizations/wildfires/fires_analyzer.py
+[Fires-File-url]: https://github.com/E-Rinaudo/first-solo-projects/tree/main/data_visualizations/wildfires/fires_file
+[Data-Visualizations-url]: https://github.com/E-Rinaudo/first-solo-projects/tree/main/data_visualizations
 
 <!-- SCREENSHOT -->
 [Screenshot-url]: screenshot/wildfires.png
 
 <!-- MAIN README -->
-[First-Solo-Project-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/README.md
+[First-Solo-Projects-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/README.md
 
 <!-- PREREQUISITES LINKS -->
 [Python-download]: https://www.python.org/downloads/

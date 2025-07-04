@@ -74,7 +74,7 @@ Follow the steps below to set up and **run this project** locally.
 
 > Note:
 >
-> If you wish to clone the entire repository, please refer to the "Getting Started" section of the README.md in the [first_solo_project][First-Solo-Project-url] repository.
+> If you wish to clone the entire repository, please refer to the "Getting Started" section of the README.md in the [first-solo-projects][First-Solo-Projects-url] repository.
 >
 > If you wish to clone the entire games subdirectory, please refer to the "Getting Started" section of the README.md in [games][Games-url].
 >
@@ -99,7 +99,7 @@ $ cd <repo>
 $ git init
 
 # Add the remote repository
-$ git remote add origin https://github.com/E-Rinaudo/first_solo_projects.git
+$ git remote add origin https://github.com/E-Rinaudo/first-solo-projects.git
 
 # Enable sparse checkout
 $ git config core.sparseCheckout true
@@ -205,7 +205,7 @@ Your feedback is appreciated as it helps me to continue improving.
 You can also explore my GitHub profile or the project repository for more information:
 
 + Profile Link: [https://github.com/E-Rinaudo](https://github.com/E-Rinaudo)
-+ Project Link: [https://github.com/E-Rinaudo/first_solo_project](https://github.com/E-Rinaudo/first_solo_projects/tree/main)
++ Project Link: [https://github.com/E-Rinaudo/first-solo-projects](https://github.com/E-Rinaudo/first-solo-projects/tree/main)
 
 [back to top](#sliding-penguin)
 
@@ -220,8 +220,8 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 **Happy coding!**
 
 <!-- SHIELDS -->
-[license-shield]: https://img.shields.io/github/license/E-Rinaudo/first_solo_projects.svg?style=flat
-[license-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/LICENSE.txt
+[license-shield]: https://img.shields.io/github/license/E-Rinaudo/first-solo-projects.svg?style=flat
+[license-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/LICENSE.txt
 [Gmail-shield]: https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white
 [Gmail-url]: mailto:enricorinaudo91@gmail.com
 
@@ -244,27 +244,27 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 [Flake8-url]: https://flake8.pycqa.org/en/latest/
 
 <!-- PROJECTS LINKS -->
-[Sliding-Penguin-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/games/sliding_penguin/sliding_penguin.py
-[Orca-Bullet-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/games/sliding_penguin/orca_bullet.py
-[Orca-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/games/sliding_penguin/orca.py
-[Bullet-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/games/sliding_penguin/bullet.py
-[Buttons-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/games/sliding_penguin/buttons.py
-[Game-Stats-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/games/sliding_penguin/game_stats.py
-[Scoreboard-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/games/sliding_penguin/scoreboard.py
-[Settings-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/games/sliding_penguin/settings.py
-[Penguin-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/games/sliding_penguin/penguin.py
-[Sound-Effects-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/games/sliding_penguin/sound_effects.py
-[High-Score-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/games/sliding_penguin/high_score
-[Images-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/games/sliding_penguin/images
-[Sounds-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/games/sliding_penguin/sounds
-[Txt-Files-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/games/sliding_penguin/txt_files
-[Games-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/games
+[Sliding-Penguin-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/games/sliding_penguin/sliding_penguin.py
+[Orca-Bullet-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/games/sliding_penguin/orca_bullet.py
+[Orca-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/games/sliding_penguin/orca.py
+[Bullet-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/games/sliding_penguin/bullet.py
+[Buttons-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/games/sliding_penguin/buttons.py
+[Game-Stats-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/games/sliding_penguin/game_stats.py
+[Scoreboard-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/games/sliding_penguin/scoreboard.py
+[Settings-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/games/sliding_penguin/settings.py
+[Penguin-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/games/sliding_penguin/penguin.py
+[Sound-Effects-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/games/sliding_penguin/sound_effects.py
+[High-Score-url]: https://github.com/E-Rinaudo/first-solo-projects/tree/main/games/sliding_penguin/high_score
+[Images-url]: https://github.com/E-Rinaudo/first-solo-projects/tree/main/games/sliding_penguin/images
+[Sounds-url]: https://github.com/E-Rinaudo/first-solo-projects/tree/main/games/sliding_penguin/sounds
+[Txt-Files-url]: https://github.com/E-Rinaudo/first-solo-projects/tree/main/games/sliding_penguin/txt_files
+[Games-url]: https://github.com/E-Rinaudo/first-solo-projects/tree/main/games
 
 <!-- GIF -->
 [GIF-url]: gif/sliding_penguin.gif
 
 <!-- MAIN README -->
-[First-Solo-Project-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/README.md
+[First-Solo-Projects-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/README.md
 
 <!-- PREREQUISITES LINKS -->
 [Python-download]: https://www.python.org/downloads/

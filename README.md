@@ -22,7 +22,7 @@ Each subdirectory is dedicated to a specific project category.
 
 ## About this Repository
 
-Welcome to my "first_solo_projects" repository.
+Welcome to my "first-solo-projects" repository.
 
 Here, you'll find a variety of projects, from practical applications like a spaced repetition reminder and a fitness interval timer to interactive games and data visualizations. Each project reflects the skills and concepts I developed while studying Python Crash Course.
 
@@ -70,10 +70,10 @@ From your command line:
 
 ```bash
 # Clone the entire repository
-$ git clone https://github.com/E-Rinaudo/first_solo_projects.git
+$ git clone https://github.com/E-Rinaudo/first-solo-projects.git
 
 # Or Clone the entire repository using GitHub CLI
-$ gh repo clone E-Rinaudo/first_solo_projects
+$ gh repo clone E-Rinaudo/first-solo-projects
 ```
 
 #### Or Clone Only a Specific Subdirectory
@@ -91,7 +91,7 @@ $ cd <repo>
 $ git init
 
 # Add the remote repository
-$ git remote add origin https://github.com/E-Rinaudo/first_solo_projects.git
+$ git remote add origin https://github.com/E-Rinaudo/first-solo-projects.git
 
 # Enable sparse checkout
 $ git config core.sparseCheckout true
@@ -121,7 +121,7 @@ $ cd <repo>
 $ git init
 
 # Add the remote repository
-$ git remote add origin https://github.com/E-Rinaudo/first_solo_projects.git
+$ git remote add origin https://github.com/E-Rinaudo/first-solo-projects.git
 
 # Enable sparse checkout
 $ git config core.sparseCheckout true
@@ -140,7 +140,7 @@ $ git pull origin main
 # Choose one of the following based on what you cloned
 
 ## If you cloned the entire repository
-$ cd first_solo_projects
+$ cd first-solo-projects
 
 ## If you only cloned a subdirectory
 $ cd subdirectory_name
@@ -209,10 +209,10 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 **Happy coding!**
 
 <!-- SHIELDS -->
-[stars-shield]: https://img.shields.io/github/stars/E-Rinaudo/first_solo_projects.svg?style=flat
-[stars-url]: https://github.com/E-Rinaudo/first_solo_projects/stargazers
-[license-shield]: https://img.shields.io/github/license/E-Rinaudo/first_solo_projects.svg?style=flat
-[license-url]: https://github.com/E-Rinaudo/first_solo_projects/blob/main/LICENSE.txt
+[stars-shield]: https://img.shields.io/github/stars/E-Rinaudo/first-solo-projects.svg?style=flat
+[stars-url]: https://github.com/E-Rinaudo/first-solo-projects/stargazers
+[license-shield]: https://img.shields.io/github/license/E-Rinaudo/first-solo-projects.svg?style=flat
+[license-url]: https://github.com/E-Rinaudo/first-solo-projects/blob/main/LICENSE.txt
 [Gmail-shield]: https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white
 [Gmail-url]: mailto:enricorinaudo91@gmail.com
 
@@ -233,10 +233,10 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 [Flake8-url]: https://flake8.pycqa.org/en/latest/
 
 <!-- PROJECTS LINKS -->
-[Data-Visualizations-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/data_visualizations
-[Games-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/games
-[Hurricane-Clock-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/hurricane_clock
-[Spaced-Repetition-Reminder-url]: https://github.com/E-Rinaudo/first_solo_projects/tree/main/spaced_repetition_reminder
+[Data-Visualizations-url]: https://github.com/E-Rinaudo/first-solo-projects/tree/main/data_visualizations
+[Games-url]: https://github.com/E-Rinaudo/first-solo-projects/tree/main/games
+[Hurricane-Clock-url]: https://github.com/E-Rinaudo/first-solo-projects/tree/main/hurricane_clock
+[Spaced-Repetition-Reminder-url]: https://github.com/E-Rinaudo/first-solo-projects/tree/main/spaced_repetition_reminder
 
 <!-- MISCELLANEA -->
 [Athleanx-url]: https://athleanx.com/
