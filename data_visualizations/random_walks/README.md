@@ -193,9 +193,9 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 [Python-url]: https://docs.python.org/3/
 [VSCode-badge]: https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?logo=visualstudiocode&logoColor=fff&style=flat
 [VSCode-url]: https://code.visualstudio.com/docs
-[Plotly-badge]: https://img.shields.io/badge/Plotly-239120?style=flat&logo=plotly&logoColor=white
+[Plotly-badge]: https://img.shields.io/badge/Plotly-3F4F75?logo=plotly&logoColor=white&style=flat
 [Plotly-url]: https://plotly.com/python/
-[Matplotlib-badge]: https://img.shields.io/badge/Matplotlib-%23FF7F0E?style=flat&logo=matplotlib&logoColor=white
+[Matplotlib-badge]: https://img.shields.io/badge/Matplotlib-3776AB?
 [Matplotlib-url]: https://matplotlib.org/stable/users/index.html
 [Mypy-badge]: https://img.shields.io/badge/mypy-checked-blue?style=flat
 [Mypy-url]: https://mypy.readthedocs.io/

@@ -258,7 +258,7 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 [Python-url]: https://docs.python.org/3/
 [VSCode-badge]: https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?logo=visualstudiocode&logoColor=fff&style=flat
 [VSCode-url]: https://code.visualstudio.com/docs
-[Matplotlib-badge]: https://img.shields.io/badge/Matplotlib-%23FF7F0E?style=flat&logo=matplotlib&logoColor=white
+[Matplotlib-badge]: https://img.shields.io/badge/Matplotlib-3776AB?
 [Matplotlib-url]: https://matplotlib.org/stable/users/index.html
 [Pytest-badge]: https://img.shields.io/badge/pytest-%23123A6C?style=flat&logo=pytest&logoColor=white
 [Pytest-url]: https://docs.pytest.org/en/stable/contents.html

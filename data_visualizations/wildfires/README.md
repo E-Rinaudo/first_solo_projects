@@ -203,7 +203,7 @@ These projects are distributed under the MIT License. See [`LICENSE.txt`][licens
 [Python-url]: https://docs.python.org/3/
 [VSCode-badge]: https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?logo=visualstudiocode&logoColor=fff&style=flat
 [VSCode-url]: https://code.visualstudio.com/docs
-[Plotly-badge]: https://img.shields.io/badge/Plotly-239120?style=flat&logo=plotly&logoColor=white
+[Plotly-badge]: https://img.shields.io/badge/Plotly-3F4F75?logo=plotly&logoColor=white&style=flat
 [Plotly-url]: https://plotly.com/python/
 [Pandas-badge]: https://img.shields.io/badge/Pandas-%23234CAF50?style=flat&logo=pandas&logoColor=white
 [Pandas-url]: https://pandas.pydata.org/docs/
